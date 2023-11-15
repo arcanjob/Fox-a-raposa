@@ -1,4 +1,3 @@
-
 import pygame
 from parametros import *
 pygame.init()
@@ -14,7 +13,7 @@ window = pygame.display.set_mode((1000, 600))
 
 
 # JANELA
-JANELA = pygame.display.set_mode((LARGURA_TELA, ALTURA_TELA))
+JANELA = pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA))
 pygame.display.set_caption('NOSSO JOGO')
 
 #FUNDO DA IMAGEM

@@ -3,7 +3,7 @@
 
 #ESTABELECER OS SONS
 
-def parametros()
+#def parametros():
 # Dados gerais do jogo.
 LARGURA_JANELA = 1000 # Largura da tela - A DEFINIR
 ALTURA_JANELA =  600# Altura da tela - A DEFINIR
