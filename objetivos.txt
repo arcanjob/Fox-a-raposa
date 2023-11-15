@@ -1,0 +1,28 @@
+    O jogo consistirá 
+
+DEFININDO INVARIÁVEIS
+- janela
+- fundo - imagem x
+- criar o sprite das plataformas
+- acrescentar uma imagem ao sprite das plataformas
+- definir a posição das plataformas - clonando-as e as reposicionando
+- criar uma mascara para cada uma delas - em um mesmo grupo
+- criar o sprite do personagem
+- acrescentar ao sprite do personagem a imagem dele
+- criar uma máscara para o personagem
+
+DINAMICA
+- definir o movimento do personagem a depender do click dos botoes da direção - definir uma velocidade
+    - fazer com que a orientação do personagem mude à depender da direcao de seu movimento (ficar de pé em relação a direção à qual está caindo)
+- fazer com que ele adquira uma velocidade oposta à atual, quando ele entrar em contato com uma plataforma
+
+OBSTÁCULOS
+- criar um sprite para os espinhos
+- acrescentar uma imagem ao sprite
+- definir uma máscara 
+- definir que caso colida:
+    - o personagem voltará ao início da fase e perderá uma vida
+
+
+
+
