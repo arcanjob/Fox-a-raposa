@@ -1,7 +1,19 @@
-# Estabelecer as figuras
+pygame.mixer.init()
 
+
+
+# Estabelecer as figuras
+img_personagem = pygame.image.load('imagens_e_sons/imagens/personagem.png').convert_alpha()
+img_fundo = pygame.image.load('imagens_e_sons/imagens/fundo.png').convert_alpha()
+img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinhos.png').convert_alpha()
+img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataformas.png').convert_alpha()
 
 #ESTABELECER OS SONS
+som_batida =  pygame.mixer.Sound('imagens_e_sons/sons/batida.wav')
+som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
+
+
 
 #def parametros():
 # Dados gerais do jogo.
