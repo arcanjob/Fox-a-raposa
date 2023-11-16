@@ -1,40 +1,37 @@
 import pygame
 import random
+from parametros import *
 from os import path
 
-from parametro import *
+from parametros import *
 
 
 def tela_inicial(tela):
-    # Variável para o ajuste de velocidade
-    tempo = pygame.time.Clock()
 
     # Carrega o fundo da tela inicial
-    fundo = pygame.image.load(path.join(IMG_DIR, 'inicio.png')).convert()
-    fundo_rect = fundo.get_rect()
-
-    running = True
-    while running:
+    fundo_rect = fundo.get_rect() #cria um retangulo que envolve a imagmem do sprite
+    fundo = fundo_rect
+    rodando = True
+    while rodando:
 
         # Ajusta a velocidade do jogo.
         clock.tick(FPS)
 
         # Processa os eventos (mouse, teclado, botão, etc).
-        for event in pygame.event.get():
+        for evento in pygame.event.get():
             # Verifica se foi fechado.
-            if event.type == pygame.QUIT:
-                state = QUIT
+            if evento.type == pygame.QUIT:
+                state = SAINDO
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = GAME
+            if evento.type == pygame.KEYUP:
+                state = JOGO
                 running = False
 
         # A cada loop, redesenha o fundo e os sprites
-        screen.fill(BLACK)
-        screen.blit(background, background_rect)
+        screen.blit(img_fundo, fundo_rect) #fundo_rect = posição do fundo
 
         # Depois de desenhar tudo, inverte o display.
-        pygame.display.flip()
+        #pygame.display.flip()
 
     return state
