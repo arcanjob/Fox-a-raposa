@@ -4,6 +4,8 @@ pygame.init()
 
 FPS = 60 # Frames por segundo
 
+velocidade_de_rotaca_p_frame = 1 # do personagem, ao cair
+
 JANELA = pygame.display.set_mode((1000, 500))
 pygame.display.set_caption('Hello World!')
 
@@ -34,11 +36,59 @@ LARGURA_MOEDA = 5
 
 
 # Estabelecer as figuras
-img_personagem = pygame.image.load('imagens_e_sons/imagens/raposa/raposa_andando/Walk (1).png').convert_alpha()
+img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1)').convert_alpha()
 img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha()
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
+img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
 
+
+
+#REDIMENSIONANDO AS FIGURAS
+#redimensionando as imagens
+#image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
+img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO))
+img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
+img_plataformas = pygame.transform.scale(img_plataformas, (LARGURA_PLATAFORMA, ALTURA_PLATAFORMA))
+img_moeda = pygame.transform.scale(img_moeda, (LARGURA_MOEDA, ALTURA_MOEDA))
+img_espinhos = pygame.transform.scale(img_espinhos, (LARGURA_ESPINHOS, ALTURA_ESPINHOS))
+
+
+
+#ESTABELECER OS SONS
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
+pygame.mixer.music.set_volume(0.4)
+
+som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
+som_de_queda = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg')
+som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/moedas.wav')
+som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.ogg')
+som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg')
+som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg')
+
+
+#POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
+x_meio_inicial_do_personagem = 32
+y_peh_inicial_do_personagem = 23
+
+
+# CORES
+BRANCO = (255, 255, 255)
+PRETO = (0, 0, 0)
+VERMELHO = (255, 0, 0)
+VERDE = (0, 255, 0)
+AZUL = (0, 0, 255)
+AMARELO = (255, 255, 0)
+
+
+# Estados para controle do fluxo da aplicação
+INICIO = 0
+JOGO = 1
+FIM = 2
+
+
+
+####################******************ANIMAÇÕES - PRO GRAND FINALE
 anim_morrendo = []
 arquivo_morrendo = 'imagens_e_sons/imagens/garoto/garoto_morrendo'
 for i in range(15):
@@ -67,28 +117,3 @@ for i in range(15):
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
 
-
-#ESTABELECER OS SONS
-som_batida =  pygame.mixer.Sound('imagens_e_sons/sons/batida.wav')
-som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
-som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
-
-
-#POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
-x_meio_inicial_do_personagem = 32
-y_peh_inicial_do_personagem = 23
-
-
-# CORES
-BRANCO = (255, 255, 255)
-PRETO = (0, 0, 0)
-VERMELHO = (255, 0, 0)
-VERDE = (0, 255, 0)
-AZUL = (0, 0, 255)
-AMARELO = (255, 255, 0)
-
-
-# Estados para controle do fluxo da aplicação
-INICIO = 0
-JOGO = 1
-FIM = 2

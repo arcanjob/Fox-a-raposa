@@ -34,4 +34,4 @@ def tela_inicial(JANELA):
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
 
-    return state
+    return estado_do_jogo

@@ -7,7 +7,8 @@ class personagem (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
-        self.imagem = img_personagem
+        self.rotacao = 0
+        self.imagem = pygame.transform.rotate(img_personagem, self.rotacao)
         self.mascara = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
@@ -45,7 +46,7 @@ class personagem (pygame.sprite.Sprite):
             pular(botao)
     '''
 
-class obstaculo:
+class objeto:
     def __init__(self, x, y, imagem):
         self.imagem = imagem
         self.rect = self.imagem.get_rect()

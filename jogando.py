@@ -3,33 +3,39 @@ from parametros import *
 
 from sprites_e_classes import *
 
-
-#OBSTACULOS - ISSO PODE INCLUIR PAREDES E OUTROS
-obstaculos= pygame.sprite.Group() 
+#########################################################CENÁRIO###################################################
+#OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
+objetos= pygame.sprite.Group() 
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 plataformas = pygame.sprite.Group()
-plataforma1 = obstaculo(100, 400, img_plataformas)
+plataforma1 = objeto(100, 400, pygame.transform.rotate(img_plataformas))
 
 plataformas.add(plataforma1)
 
-obstaculos.add(plataformas)
+objetos.add(plataformas)
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 espinhos = pygame.sprite.Group()
-espinho1 = obstaculo(200,300, img_espinhos)
+espinho1 = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
+
+
+    tela.fill((255, 255, 255))
+    tela.blit(sprite_rotacionado, sprite_pos)
+
+    pygame.display.flip()
 espinhos.add(espinho1)
 
-obstaculos.add(espinhos)
+objetos.add(espinhos)
 
 
 #MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 moedas = pygame.sprite.Group()
 
 
-moeda1 = obstaculo(23,12, img_moeda)
+moeda1 = objeto(23,12, img_moeda)
 moedas.add(moeda1)
-###############################
+
 
 
 # Função para reposicionar as moedas
@@ -40,7 +46,10 @@ def resetar_moedas(moedas):
 
 all_sprites = pygame.sprite.Group()
 
-all_sprites.add(obstaculos, moedas)
+all_sprites.add(objetos, moedas)
+
+
+###########################################################JOGO#################################################
 
 
 def jogando(JANELA):
@@ -62,20 +71,55 @@ def jogando(JANELA):
     pygame.mixer.som_fundo.play(loops=-1)
     estado_do_jogo = JOGANDO
     
-    while estado_do_jogo == JOGANDO:
+    while estado_do_jogo != DONE:
         clock.tick(FPS)
 
 
 
+        #EVENTOS
+
+        for event in pygame.event.get():
+            #APERTOU NO X DE SAIR:
+            if event.type == pygame.QUIT:
+                estado_do_jogo = DONE
+            
+            #MOVIMENTANDO O PERSONAGEM
+            if estado_do_jogo == JOGANDO:
+                # Verifica se apertou alguma tecla.
+                if event.type == pygame.KEYDOWN:
+                    # DEPENDENDO DA TECLA E SE ALGUM OUTRO MOVIMENTO JÁ ESTÁ ACONTECENDO
+                    keys_down[event.key] = True
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_d and velocidadey == 0 :
+                        personagem.velocidadex -= 8
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_a and velocidadey == 0 :
+                        personagem.velocidadex += 8
+                    if event.key == pygame.K_UP or event.key == pygame.K_w and velocidadex == 0 :
+                        personagem.velocidadey -= 8
+                    if event.key == pygame.DOWN or event.key == pygame.K_s and velocidadex == 0 :
+                        personagem.velocidadey +=8
+
+
+        #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
+        if personagem.velocidadey>0 and personagem.rotacao != 180:
+            personagem.rotacao += velocidade_de_rotaca_p_frame
+        if personagem.velocidadey<0 and personagem.rotacao != 0:
+            personagem.rotacao -= velocidade_de_rotaca_p_frame
+        if personagem.velocidadex >0 and personagem.rotacao != 270:
+            personagem.rotacao +=velocidade_de_rotaca_p_frame
+        if personagem.velocidadex<1 and personagem.rotacao != 90:
+            personagem.rotacao -= velocidade_de_rotaca_p_frame
+
+
+
+
+
+
+        all_sprites.update()
 
 
 
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
         colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
-
-
-
-
 
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
         if colisoes_plataformas:
@@ -90,7 +134,7 @@ def jogando(JANELA):
         
         #COLISÃO COM OS ESPINHOS
         colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask)
-        if colisoes_espinhos:           ###################
+        if colisoes_espinhos:        
             som_dano.play()
             personagem.kill()
             vidas -= 1
@@ -120,6 +164,9 @@ def jogando(JANELA):
         colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
         if colisoes_moedas:
             pontos+=50
+            som_pegando_moedas.play()
+
+
 
         plataformas.draw(screen) 
 
