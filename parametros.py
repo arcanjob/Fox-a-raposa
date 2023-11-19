@@ -1,6 +1,6 @@
-import pygame
+#import pygame
 
-pygame.mixer.init()
+#pygame.mixer.init()
 
 FPS = 60 # Frames por segundo
 
@@ -45,7 +45,9 @@ som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
 
 
 
-
+#POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
+x_meio_ininicial_do_personagem = 32
+y_peh_inicial_do_personagem = 23
 
 
 # CORES
