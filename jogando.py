@@ -74,9 +74,7 @@ def jogando(JANELA):
         colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
 
 
-        #SE PARADO, ANIMAÇÃO DELE PARADO
-        if personagem.velocidadex == 0 and personagem.velocidadey == 0:
-            
+
 
 
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
