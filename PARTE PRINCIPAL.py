@@ -26,7 +26,7 @@ while game:
         if event.type == pygame.QUIT:
             game = False
 
-
+#fecha a janela
 pygame.quit()
 
 
