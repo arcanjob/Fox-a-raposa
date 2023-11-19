@@ -20,10 +20,10 @@ espinhos = pygame.sprite.Group()
 espinho1 = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
 
 
-    tela.fill((255, 255, 255))
-    tela.blit(sprite_rotacionado, sprite_pos)
+tela.fill((255, 255, 255))
+tela.blit(sprite_rotacionado, sprite_pos)
 
-    pygame.display.flip()
+pygame.display.flip()
 espinhos.add(espinho1)
 
 objetos.add(espinhos)
