@@ -4,7 +4,7 @@ pygame.init()
 
 FPS = 60 # Frames por segundo
 
-janela = pygame.display.set_mode((1000, 500))
+JANELA = pygame.display.set_mode((1000, 500))
 pygame.display.set_caption('Hello World!')
 
 ####TAMANHOS
