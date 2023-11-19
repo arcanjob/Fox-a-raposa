@@ -40,6 +40,35 @@ img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alp
 #img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataformas.png').convert_alpha()
 #img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 
+anim_morrendo = []
+arquivo_morrendo = 'imagens_e_sons/imagens/garoto/garoto_morrendo'
+for i in range(15):
+        # Os arquivos de animação são numerados de 00 a 08
+        filename = os.path.join(arquivo_morrendo, f'Dead ({i+1}).png')
+        img = pygame.image.load(filename).convert()
+        img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
+        anim_morrendo.append(img)
+
+anim_parado = []
+arquivo_parado = 'imagens_e_sons/imagens/garoto/garoto_parado'
+for i in range(15):
+        # Os arquivos de animação são numerados de 00 a 08
+        filename = os.path.join(arquivo_parado, f'Idle ({i+1}).png')
+        img = pygame.image.load(filename).convert()
+        img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
+        anim_parado.append(img)
+
+
+anim_pulando = []
+arquivo_pulando = 'imagens_e_sons/imagens/garoto/garoto_pulando'
+for i in range(15):
+        # Os arquivos de animação são numerados de 00 a 08
+        filename = os.path.join(arquivo_pulando, f'Jump ({i+1}).png')
+        img = pygame.image.load(filename).convert()
+        img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
+        anim_parado.append(img)
+
+
 
 
 

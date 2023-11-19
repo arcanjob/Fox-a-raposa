@@ -53,5 +53,13 @@ class obstaculo:
         x_original = x
         y_original = y
 
+class morrendo(pygame.sprite.Sprite):
+    # Construtor da classe.
+    def __init__(self, center):
+
+        pygame.sprite.Sprite.__init__(self)
+        self.morrendo_anim = 
+
+
 
 

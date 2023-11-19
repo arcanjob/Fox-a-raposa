@@ -73,6 +73,12 @@ def jogando(JANELA):
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
         colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
 
+
+        #SE PARADO, ANIMAÇÃO DELE PARADO
+        if personagem.velocidadex == 0 and personagem.velocidadey == 0:
+            
+
+
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
         if colisoes_plataformas:
             if personagem.velocidadex !=0:
@@ -81,7 +87,6 @@ def jogando(JANELA):
                 personagem.velocidadey -= personagem.velocidadey  # para o jogador
 
 
-        #COLISÃO COM MOEDA
 
         
         
@@ -104,7 +109,7 @@ def jogando(JANELA):
                 if vidas == 0:
                     estado_do_jogo = DONE
                 else: 
-                    estado_do_jogo = PLAYING
+                    estado_do_jogo = JOGANDO
                     personagem = personagem()
                     all_sprites.add(personagem)
 
@@ -116,7 +121,7 @@ def jogando(JANELA):
         #COLISÃO COM MOEDAS
         colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
         if colisoes_moedas:
-            pontos+=1
+            pontos+=50
 
         plataformas.draw(screen) 
 
