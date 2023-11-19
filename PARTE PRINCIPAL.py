@@ -1,9 +1,12 @@
+# pylint: disable=no-member
+
 import pygame
 from parametros import *
 from tela_inicial import *
 from sprites_e_classes import *
-
 pygame.init()
+
+
 
 window = pygame.display.set_mode((1000, 600))
 

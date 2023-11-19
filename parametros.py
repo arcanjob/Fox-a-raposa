@@ -1,8 +1,11 @@
-#import pygame
-
-#pygame.mixer.init()
+# pylint: disable=missing-module-docstring
+import pygame
+pygame.mixer.init()
+pygame.init()
 
 FPS = 60 # Frames por segundo
+
+
 
 ####TAMANHOS
 #JANELA
@@ -31,9 +34,8 @@ LARGURA_MOEDA = 5
 
 
 # Estabelecer as figuras
-img_personagem = pygame.image.load('imagens_e_sons/imagens/personagem.png').convert_alpha()
-img_fundo = pygame.image.load('imagens_e_sons/imagens/fundo.png').convert_alpha()
-img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinhos.png').convert_alpha()
+img_personagem = pygame.image.load('imagens_e_sons/imagens/raposa/raposa_andando/Walk (1).png').convert_alpha()
+img_fundo = pygame.image.load('imagens_e_sons/imagens/fundo/Fundo_jogo.png').convert_alpha()
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataformas.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 
@@ -70,7 +72,6 @@ for i in range(15):
 
 #redimensionando as imagens
 #image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
-img_espinhos = pygame.transform.scale(img_espinhos, (LARGURA_ESPINHOS, ALTURA_ESPINHOS))
 img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO))
 img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
 img_plataformas = pygame.transform.scale(img_plataformas, (LARGURA_PLATAFORMA, ALTURA_PLATAFORMA))
@@ -85,7 +86,7 @@ som_pegando_a_moeda = pygame.mixer.Sound('imagens_e_sons/sons/moeda.wav')
 
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
-x_meio_ininicial_do_personagem = 32
+x_meio_inicial_do_personagem = 32
 y_peh_inicial_do_personagem = 23
 
 

@@ -1,3 +1,6 @@
+import pygame
+pygame.init()
+
 from parametros import *
 
 class personagem (pygame.sprite.Sprite):
