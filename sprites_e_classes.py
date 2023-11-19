@@ -42,11 +42,11 @@ class personagem (pygame.sprite.Sprite):
             pular(botao)
     '''
 
-class plataforma (pygame.sprite.Sprite):
-    def __init__(self, x, y):
+class obstaculo (pygame.sprite.Sprite):
+    def __init__(self, x, y, imagem):
         super().__init__()
-        self.image = img_plataformas
-        self.rect = self.image.get_rect()
+        self.imagem = imagem
+        self.rect = self.imagem.get_rect()
         self.rect.x = x
         self.rect.y = y
 
