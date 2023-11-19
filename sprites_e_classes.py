@@ -44,6 +44,7 @@ class personagem (pygame.sprite.Sprite):
         if delta_pulo > 50:
             pular(botao)
     '''
+
 class obstaculo:
     def __init__(self, x, y, imagem):
         self.imagem = imagem
@@ -57,8 +58,7 @@ class morrendo(pygame.sprite.Sprite):
     # Construtor da classe.
     def __init__(self, center):
 
-        pygame.sprite.Sprite.__init__(self)
-        self.morrendo_anim = 
+
 
 
 

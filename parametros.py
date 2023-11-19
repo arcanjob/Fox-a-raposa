@@ -1,4 +1,3 @@
-# pylint: disable=missing-module-docstring
 import pygame
 pygame.mixer.init()
 pygame.init()
@@ -68,6 +67,11 @@ for i in range(15):
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
 
+
+#ESTABELECER OS SONS
+som_batida =  pygame.mixer.Sound('imagens_e_sons/sons/batida.wav')
+som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
 
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
