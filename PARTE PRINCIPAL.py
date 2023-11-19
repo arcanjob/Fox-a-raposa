@@ -6,21 +6,13 @@ from tela_inicial import *
 from sprites_e_classes import *
 pygame.init()
 
-
-
 window = pygame.display.set_mode((1000, 600))
-
-
 
 # CRIANDO A JANELA
 JANELA = pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA))
 pygame.display.set_caption('NOSSO JOGO')
 
-
-
 ###############CRIANDO AS PLATAFORMAS
-
-
 
 
 estado_do_jogo = INICIO

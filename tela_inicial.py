@@ -7,13 +7,10 @@ pygame.init()
 
 from parametros import *
 
-
 def tela_inicial(JANELA):
 
     # Carrega o fundo da tela inicial
     
-    
-
     while rodando:
 
         # Ajusta a velocidade do jogo.

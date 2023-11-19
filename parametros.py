@@ -37,8 +37,8 @@ LARGURA_MOEDA = 5
 # Estabelecer as figuras
 img_personagem = pygame.image.load('imagens_e_sons/imagens/raposa/raposa_andando/Walk (1).png').convert_alpha()
 img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha()
-#img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataformas.png').convert_alpha()
-#img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
+img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
+img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 
 anim_morrendo = []
 arquivo_morrendo = 'imagens_e_sons/imagens/garoto/garoto_morrendo'
@@ -67,10 +67,6 @@ for i in range(15):
         img = pygame.image.load(filename).convert()
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
-
-
-
-
 
 
 
