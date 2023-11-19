@@ -16,14 +16,18 @@ window = pygame.display.set_mode((1000, 600))
 JANELA = pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA))
 pygame.display.set_caption('NOSSO JOGO')
 
-#FUNDO DA IMAGEM
+
+game = True
+#iniciando o loop
+while game:
+
+    #analisa se o jogo foi fechado
+    for envent in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game = False
 
 
-#SPRITE DA PLATAFORMA
-
-
-
-
+pygame.quit()
 
 
 

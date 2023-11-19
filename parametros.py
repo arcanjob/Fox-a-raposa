@@ -1,6 +1,5 @@
-
 import pygame
-pygame.init()
+
 pygame.mixer.init()
 
 FPS = 60 # Frames por segundo
