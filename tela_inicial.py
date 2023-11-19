@@ -3,6 +3,8 @@ import random
 from parametros import *
 from os import path
 
+pygame.init()
+
 from parametros import *
 
 
