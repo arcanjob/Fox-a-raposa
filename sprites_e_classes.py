@@ -41,13 +41,14 @@ class personagem (pygame.sprite.Sprite):
         if delta_pulo > 50:
             pular(botao)
     '''
-
-class obstaculo (pygame.sprite.Sprite):
+class obstaculo:
     def __init__(self, x, y, imagem):
-        super().__init__()
         self.imagem = imagem
         self.rect = self.imagem.get_rect()
         self.rect.x = x
         self.rect.y = y
+        x_original = x
+        y_original = y
+
 
 

@@ -9,23 +9,39 @@ obstaculos= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 plataformas = pygame.sprite.Group()
-plataformas.add(obstaculo(100, 400, img_plataformas))
+plataforma1 = obstaculo(100, 400, img_plataformas)
 
+plataformas.add(plataforma1)
 
 obstaculos.add(plataformas)
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 espinhos = pygame.sprite.Group()
-espinhos.add(obstaculo(200,300, img_espinhos))
-
+espinho1 = obstaculo(200,300, img_espinhos)
+espinhos.add(espinho1)
 
 obstaculos.add(espinhos)
 
 
+#MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
+moedas = pygame.sprite.Group()
+
+
+moeda1 = obstaculo(23,12, img_moeda)
+moedas.add(moeda1)
+###############################
+
+
+# Função para reposicionar as moedas
+def resetar_moedas(moedas):
+    for moeda in moedas:
+        moeda.rect.x = moeda.x_original
+        moeda.rect.y = moeda.y_original
 
 all_sprites = pygame.sprite.Group()
 
-all_sprites.add(obstaculos)
+all_sprites.add(obstaculos, moedas)
+
 
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
@@ -65,6 +81,10 @@ def jogando(JANELA):
                 personagem.velocidadey -= personagem.velocidadey  # para o jogador
 
 
+        #COLISÃO COM MOEDA
+
+        
+        
         #COLISÃO COM OS ESPINHOS
         colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask)
         if colisoes_espinhos:           ###################
@@ -88,10 +108,15 @@ def jogando(JANELA):
                     personagem = personagem()
                     all_sprites.add(personagem)
 
+                    resetar_moedas(moedas)
+                    
+
+
 
         #COLISÃO COM MOEDAS
-
-
+        colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
+        if colisoes_moedas:
+            pontos+=1
 
         plataformas.draw(screen) 
 
