@@ -67,6 +67,7 @@ for i in range(15):
 
 
 
+
 #redimensionando as imagens
 #image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
 img_espinhos = pygame.transform.scale(img_espinhos, (LARGURA_ESPINHOS, ALTURA_ESPINHOS))
