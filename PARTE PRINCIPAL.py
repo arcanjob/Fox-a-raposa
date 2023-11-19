@@ -26,7 +26,7 @@ pygame.display.set_caption('NOSSO JOGO')
 estado_do_jogo = INICIO
 
 game = True
-#iniciando o loop
+#iniciando o loop dos estados
 while game:
     ultimo_pulo = pygame.time.get_tics()
     #analisa se o jogo foi fechado
