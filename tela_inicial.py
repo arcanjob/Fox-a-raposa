@@ -6,12 +6,13 @@ from os import path
 from parametros import *
 
 
-def tela_inicial(tela):
+def tela_inicial(janela):
 
     # Carrega o fundo da tela inicial
-    fundo_rect = fundo.get_rect() #cria um retangulo que envolve a imagmem do sprite
-    fundo = fundo_rect
-    rodando = True
+    janela.blit(img_fundo, (0, 0))
+    
+
+
     while rodando:
 
         # Ajusta a velocidade do jogo.
