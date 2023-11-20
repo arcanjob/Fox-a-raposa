@@ -164,7 +164,7 @@ for i in range(15):
 
 #########################################################CENÁRIO FASE 1 ###################################################
 
-
+import sprites_e_classes
 F1 = {}
 
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
@@ -175,7 +175,7 @@ F1['objetos']= pygame.sprite.Group()
 F1['plataformas'] = pygame.sprite.Group()
 F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
 
-F1['plataformas'].add(F1['plataforma1')
+F1['plataformas'].add(F1['plataforma1'])
 
 F1['objetos'].add(F1['plataformas'])
 
@@ -221,7 +221,7 @@ F2['objetos']= pygame.sprite.Group()
 F2['plataformas'] = pygame.sprite.Group()
 F2['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
 
-F2['plataformas'].add(F2['plataforma1')
+F2['plataformas'].add(F2['plataforma1'])
 
 F2['objetos'].add(F2['plataformas'])
 
@@ -267,7 +267,7 @@ F3['objetos']= pygame.sprite.Group()
 F3['plataformas'] = pygame.sprite.Group()
 F3['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
 
-F3['plataformas'].add(F3['plataforma1')
+F3['plataformas'].add(F3['plataforma1'])
 
 F3['objetos'].add(F3['plataformas'])
 
