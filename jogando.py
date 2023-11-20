@@ -19,11 +19,6 @@ objetos.add(plataformas)
 espinhos = pygame.sprite.Group()
 espinho1 = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
 
-
-    tela.fill((255, 255, 255))
-    tela.blit(sprite_rotacionado, sprite_pos)
-
-    pygame.display.flip()
 espinhos.add(espinho1)
 
 objetos.add(espinhos)
@@ -109,64 +104,77 @@ def jogando(JANELA):
         if personagem.velocidadex<1 and personagem.rotacao != 90:
             personagem.rotacao -= velocidade_de_rotaca_p_frame
 
-
-
-
-
-
+        
         all_sprites.update()
 
 
+        if estado_do_jogo == JOGANDO:
 
         #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-        colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
-
-        #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-        if colisoes_plataformas:
-            if personagem.velocidadex !=0:
-                personagem.velocidadex -= personagem.velocidadex  # para o jogador
-            elif personagem.velocidadey !=0:
-                personagem.velocidadey -= personagem.velocidadey  # para o jogador
+            colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
+            if colisoes_plataformas:
+                if personagem.velocidadex !=0:
+                    personagem.velocidadex -= personagem.velocidadex  # para o jogador
+                elif personagem.velocidadey !=0:
+                    personagem.velocidadey -= personagem.velocidadey  # para o jogador
+                som_caido.play()
 
 
 
         
         
         #COLISÃO COM OS ESPINHOS
-        colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask)
-        if colisoes_espinhos:        
-            som_dano.play()
-            personagem.kill()
-            vidas -= 1
-            morte = morrendo(personagem.rect.center)
+            colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask)
+            if colisoes_espinhos:        
+                som_morrendo.play()
+                personagem.kill()
+                vidas -= 1
+                morte = morrendo(personagem.rect.center)
 
-            all_sprites.add(morte)
-            keys_down = {}
-            hora_da_morte = pygame.time.Clock()
-            duracao_da_morte = t_dos_frames_de_morte*len(morte.anim_da_morte) + 400
+                all_sprites.add(morte)
+                keys_down = {}
+                estado_do_jogo = MORRENDO
+                hora_da_morte = pygame.time.Clock()
+                duracao_da_morte = t_dos_frames_de_morte*len(morte.anim_da_morte) + 400
+            elif estado_do_jogo == MORRENDO:
+                agora = pygame.time.get_ticks()
 
-            agora = pygame.time.get_ticks()
 
-            if agora - hora_da_morte > duracao_da_morte:
-                if vidas == 0:
-                    estado_do_jogo = DONE
-                else: 
-                    estado_do_jogo = JOGANDO
-                    personagem = personagem()
-                    all_sprites.add(personagem)
+                if agora - hora_da_morte > duracao_da_morte:
+                    if vidas == 0:
+                        estado_do_jogo = DONE
+                    else: 
+                        estado_do_jogo = JOGANDO
+                        personagem = personagem()
+                        all_sprites.add(personagem)
 
-                    resetar_moedas(moedas)
-                    
-
+                        resetar_moedas(moedas)
 
 
         #COLISÃO COM MOEDAS
-        colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
-        if colisoes_moedas:
-            pontos+=50
-            som_pegando_moedas.play()
+            colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
+            if colisoes_moedas:
+                pontos+=50
+                som_pegando_moedas.play()
+
+        #GERANDO SAIDAS
+        JANELA.fill(PRETO)
+        JANELA.blit(img_fundo,(0,0))
+
+        all_sprites.draw(JANELA)
+
+        #PONTUAÇÃO
+        perfil_texto = fonte_pontos.render("{:08d}".format(pontos), True, AMARELO)
+        texto_rect = perfil_texto.get_rect()
+        texto_rect.midtop = (LARGURA_JANELA / 2,  10)
+        JANELA.blit(perfil_texto, texto_rect)
+
+        #VIDAS
+        perfil_texto = fonte_pontos.render(chr(9829) * vidas, True, VERMELHO)
+        texto_rect = perfil_texto.get_rect()
+        texto_rect.bottomleft = (10, ALTURA_JANELA - 10)
+        JANELA.blit(perfil_texto, texto_rect)
 
 
-
-        plataformas.draw(screen) 
+        pygame.display.update()
 

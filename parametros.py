@@ -41,7 +41,7 @@ img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alp
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
-
+img_coracoes = pygame.image.load('imagens_e_sons/imagens/coracao.png').convert_alpha()
 
 
 #REDIMENSIONANDO AS FIGURAS
@@ -55,13 +55,18 @@ img_espinhos = pygame.transform.scale(img_espinhos, (LARGURA_ESPINHOS, ALTURA_ES
 
 
 
+
+#TEXTO
+fonte_pontos =  pygame.font.Font('fontes/pontuacao.ttf', 28)
+
+
 #ESTABELECER OS SONS
 som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
 pygame.mixer.music.set_volume(0.4)
 
 som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
-som_de_queda = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg')
 som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/moedas.wav')
+som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg')
 som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.ogg')
 som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg')
 som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg')
