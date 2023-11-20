@@ -1,9 +1,8 @@
 import pygame
+import os
 from parametros import *
 
 from sprites_e_classes import *
-
-
 
 
 ###########################################################JOGO#################################################
@@ -25,16 +24,12 @@ def jogando(JANELA):
 
     F['vidas'] = 3
 
-
-
     GAME_OVER  = 0
     JOGANDO = 1
     MORRENDO = 2
     DONE = 3
     INICIO = 4
     VITORIA = 5
-
-
 
     keys_down = {}
 
