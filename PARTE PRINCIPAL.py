@@ -2,7 +2,6 @@
 
 import pygame
 from parametros import *
-from tela_inicial import *
 from sprites_e_classes import *
 from jogando import *
 from tela0_de_derrota_e_vitoria import *
@@ -21,7 +20,7 @@ pygame.display.set_caption('NOSSO JOGO')
 
 estado_do_jogo = INICIO
 FASE = 1
-game = True
+
 #iniciando o loop dos estados
 
 while estado_do_jogo != DONE:

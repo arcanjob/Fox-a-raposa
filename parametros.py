@@ -100,11 +100,11 @@ pygame.mixer.music.set_volume(0.4)
 
 som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
 som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/moedas.wav')
-som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg')
+som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg') #quando o cara cai no chao, de fato
 som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.ogg')
-som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg')
-som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg')
-som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.ogg')
+som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg') #acaba as vidas
+#som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg') 
+som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.ogg') #quando passa de fase
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
 x_meio_inicial_do_personagem = 32
@@ -173,7 +173,7 @@ F1['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
-F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
+F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, 0))
 
 F1['plataformas'].add(F1['plataforma1')
 
