@@ -13,7 +13,7 @@ class personagem (pygame.sprite.Sprite):
         self.rect = self.imagem.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
-        self.rect.centerx = x_meio_ininicial_do_personagem
+        self.rect.centerx = x_meio_inicial_do_personagem
         self.rect.bottom = y_peh_inicial_do_personagem
         self.velocidadex = 0
         self.velocidadey = 0
@@ -60,7 +60,4 @@ class morrendo(pygame.sprite.Sprite):
     def __init__(self, center):
 
 
-
-
-
-
+###SPRITE  - MORRENDO

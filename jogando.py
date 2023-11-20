@@ -3,45 +3,7 @@ from parametros import *
 
 from sprites_e_classes import *
 
-#########################################################CENÁRIO###################################################
-#OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
-objetos= pygame.sprite.Group() 
 
-#PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-plataformas = pygame.sprite.Group()
-plataforma1 = objeto(100, 400, pygame.transform.rotate(img_plataformas))
-
-plataformas.add(plataforma1)
-
-objetos.add(plataformas)
-
-#ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
-espinhos = pygame.sprite.Group()
-espinho1 = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
-
-espinhos.add(espinho1)
-
-objetos.add(espinhos)
-
-
-#MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-moedas = pygame.sprite.Group()
-
-
-moeda1 = objeto(23,12, img_moeda)
-moedas.add(moeda1)
-
-
-
-# Função para reposicionar as moedas
-def resetar_moedas(moedas):
-    for moeda in moedas:
-        moeda.rect.x = moeda.x_original
-        moeda.rect.y = moeda.y_original
-
-all_sprites = pygame.sprite.Group()
-
-all_sprites.add(objetos, moedas)
 
 
 ###########################################################JOGO#################################################
@@ -51,22 +13,36 @@ def jogando(JANELA):
     cronometro = pygame.time.Clock()
 
     personagem = personagem()
-    all_sprites.add(personagem)
+    
+    if FASE == 1:
+    F = F1
+    elif FASE == 2:
+        F = F2
+    elif FASE == 3:
+        F = F3
+    
+    F['all_sprites'].add(personagem)
 
-    vidas = 3
-    pontos = 0
+    F['vidas'] = 3
+    F['pontos'] = 0
 
 
-    DONE = 0
+
+    GAME_OVER  = 0
     JOGANDO = 1
     MORRENDO = 2
+    DONE = 3
+    INICIO = 4
+    VITORIA = 5
+
+
 
     keys_down = {}
 
     pygame.mixer.som_fundo.play(loops=-1)
     estado_do_jogo = JOGANDO
     
-    while estado_do_jogo != DONE:
+    while estado_do_jogo == JOGANDO:
         clock.tick(FPS)
 
 
@@ -84,13 +60,13 @@ def jogando(JANELA):
                 if event.type == pygame.KEYDOWN:
                     # DEPENDENDO DA TECLA E SE ALGUM OUTRO MOVIMENTO JÁ ESTÁ ACONTECENDO
                     keys_down[event.key] = True
-                    if event.key == pygame.K_LEFT or event.key == pygame.K_d and velocidadey == 0 :
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_d and personagem.velocidadey == 0 :
                         personagem.velocidadex -= 8
-                    if event.key == pygame.K_RIGHT or event.key == pygame.K_a and velocidadey == 0 :
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_a and personagem.velocidadey == 0 :
                         personagem.velocidadex += 8
-                    if event.key == pygame.K_UP or event.key == pygame.K_w and velocidadex == 0 :
+                    if event.key == pygame.K_UP or event.key == pygame.K_w and personagem.velocidadex == 0 :
                         personagem.velocidadey -= 8
-                    if event.key == pygame.DOWN or event.key == pygame.K_s and velocidadex == 0 :
+                    if event.key == pygame.DOWN or event.key == pygame.K_s and personagem.velocidadex == 0 :
                         personagem.velocidadey +=8
 
 
@@ -110,8 +86,8 @@ def jogando(JANELA):
 
         if estado_do_jogo == JOGANDO:
 
-        #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-            colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
+            #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
+            colisoes_plataformas = pygame.sprite.spritecollide(personagem, F1['plataformas'], False, pygame.sprite.collide_mask)
             if colisoes_plataformas:
                 if personagem.velocidadex !=0:
                     personagem.velocidadex -= personagem.velocidadex  # para o jogador
@@ -119,12 +95,15 @@ def jogando(JANELA):
                     personagem.velocidadey -= personagem.velocidadey  # para o jogador
                 som_caido.play()
 
-
-
+            #COLISOES COM MOEDAS
+            colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask)
+            if colisoes_moedas:
+                pontos+=50
+                som_pegando_moedas.play()
         
         
-        #COLISÃO COM OS ESPINHOS
-            colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask)
+            #COLISÃO COM OS ESPINHOS
+            colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask)
             if colisoes_espinhos:        
                 som_morrendo.play()
                 personagem.kill()
@@ -136,32 +115,36 @@ def jogando(JANELA):
                 estado_do_jogo = MORRENDO
                 hora_da_morte = pygame.time.Clock()
                 duracao_da_morte = t_dos_frames_de_morte*len(morte.anim_da_morte) + 400
-            elif estado_do_jogo == MORRENDO:
-                agora = pygame.time.get_ticks()
+
+            
+            #COLISAO COM A CHEGADA
+            colisao_chegada = pygame.sprite.spritecollide(personagem, F['chegada'], False, pygame.sprite.collide_mask)
+            if colisao_chegada:
+                som_vitoria.play()
+                estado_do_jogo = VITORIA
 
 
-                if agora - hora_da_morte > duracao_da_morte:
-                    if vidas == 0:
-                        estado_do_jogo = DONE
-                    else: 
-                        estado_do_jogo = JOGANDO
-                        personagem = personagem()
-                        all_sprites.add(personagem)
-
-                        resetar_moedas(moedas)
+        elif estado_do_jogo == MORRENDO:
+            agora = pygame.time.get_ticks()
 
 
-        #COLISÃO COM MOEDAS
-            colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask)
-            if colisoes_moedas:
-                pontos+=50
-                som_pegando_moedas.play()
+            if agora - hora_da_morte > duracao_da_morte:
+                if vidas == 0:
+                    estado_do_jogo = GAME_OVER   #A PESSOA MORREU
+                else: 
+                    estado_do_jogo = JOGANDO
+                    personagem = personagem()
+                    F['vidas']-=1
+                    F['all_sprites'].add(personagem)
+
+                    resetar_moedas(F['moedas'])
+
 
         #GERANDO SAIDAS
         JANELA.fill(PRETO)
         JANELA.blit(img_fundo,(0,0))
 
-        all_sprites.draw(JANELA)
+        F['all_sprites'].draw(JANELA)
 
         #PONTUAÇÃO
         perfil_texto = fonte_pontos.render("{:08d}".format(pontos), True, AMARELO)
@@ -177,4 +160,5 @@ def jogando(JANELA):
 
 
         pygame.display.update()
+        return estado_do_jogo
 

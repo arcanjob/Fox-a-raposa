@@ -4,7 +4,11 @@ import pygame
 from parametros import *
 from tela_inicial import *
 from sprites_e_classes import *
+from jogando import *
+from tela0_de_derrota_e_vitoria import *
+
 pygame.init()
+
 
 window = pygame.display.set_mode((1000, 600))
 
@@ -16,24 +20,32 @@ pygame.display.set_caption('NOSSO JOGO')
 
 
 estado_do_jogo = INICIO
-
+FASE = 1
 game = True
 #iniciando o loop dos estados
-while game:
+
+while estado_do_jogo != DONE:
     ultimo_pulo = pygame.time.get_tics()
     #analisa se o jogo foi fechado
     for envent in pygame.event.get():
         if event.type == pygame.QUIT:
-            game = False
-
+            estado_do_jogo = DONE
     if estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial(JANELA)
-    
-    if estado_do_jogo == JOGO:
+    if estado_do_jogo == JOGANDO:
         estado_do_jogo = jogando(JANELA)
-
-    else:
+    if estado_do_jogo == GAME_OVER:
         estado_do_jogo = tela_final(JANELA)
+    if estado_do_jogo == VITORIA:
+        FASE +=1
+        if FASE!=4:
+            estado_do_jogo = tela_de_vitoria(JANELA)
+        else:
+            estado_do_jogo = fim_vitorioso(JANELA)
+
+
+
+
 
 
 
