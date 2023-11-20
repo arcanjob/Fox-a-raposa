@@ -23,8 +23,7 @@ def jogando(JANELA):
     
     F['all_sprites'].add(personagem)
 
-    F['vidas'] = 3
-    F['pontos'] = 0
+    F['vidas'] += 3
 
 
 

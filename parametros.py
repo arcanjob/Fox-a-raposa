@@ -162,6 +162,7 @@ F1 = {}
 
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F1['objetos']= pygame.sprite.Group() 
+F1['vidas'] = 0
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
