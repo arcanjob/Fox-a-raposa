@@ -56,18 +56,22 @@ LARGURA_VITORIA = LARGURA_JANELA
 ALTURA_VITORIA_FINAL = ALTURA_JANELA
 LARGURA_VITORIA_FINAL = LARGURA_JANELA
 
+#CORAÇÕES
+LARGURA_CORACAO = 10
+ALTURA_CORACAO = 10
+
 # Estabelecer as figuras
 img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1)').convert_alpha()
 img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha()
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
-img_coracoes = pygame.image.load('imagens_e_sons/imagens/coracao.png').convert_alpha()
-img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alpha()
-img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()
-img_chegada = pygame.image.load('imagens_e_sons/imagens/chegada.png').convert_alpha()
-img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.png').convert_alpha()
-img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria_final.png').convert_alpha()
+img_coracoes = pygame.image.load('imagens_e_sons/imagens/coracao.png').convert_alpha()   #de vida faltante
+img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alpha() #tela inicial 
+img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()    #tela do game over
+img_chegada = pygame.image.load('imagens_e_sons/imagens/chegada.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
+img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.png').convert_alpha()    #tela do parabens, voce passou de fase
+img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria_final.png').convert_alpha()    #tela de parabens, voce concluiu o jogo
 
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
@@ -82,6 +86,7 @@ img_fim =  pygame.transform.scale(img_fim, (LARGURA_FINAL, ALTURA_FINAL))
 img_chegada = pygame.transform.scale(img_chegada, (LARGURA_CHEGADA, ALTURA_CHEGADA))
 img_vitoria = pygame.transform.scale(img_vitoria, (LARGURA_VITORIA, ALTURA_VITORIA))
 img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_FINAL, ALTURA_VITORIA_FINAL))
+img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO))
 
 #TEXTO
 fonte_pontos =  pygame.font.Font('fontes/pontuacao.ttf', 28)
@@ -162,7 +167,7 @@ F1 = {}
 
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F1['objetos']= pygame.sprite.Group() 
-F1['vidas'] = 0
+
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
