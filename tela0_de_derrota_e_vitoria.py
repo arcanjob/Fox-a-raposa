@@ -5,7 +5,7 @@ from os import path
 
 pygame.init()
 
-from parametros import *
+from parametros import * 
 
 
 
