@@ -24,6 +24,7 @@ FASE = 1
 #iniciando o loop dos estados
 
 while estado_do_jogo != DONE:
+    pontos = 0
     ultimo_pulo = pygame.time.get_tics()
     #analisa se o jogo foi fechado
     for envent in pygame.event.get():

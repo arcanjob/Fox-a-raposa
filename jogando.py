@@ -10,11 +10,11 @@ from sprites_e_classes import *
 
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
-
+    personagem.i = 0
     personagem = personagem()
     
     if FASE == 1:
-    F = F1
+        F = F1
     elif FASE == 2:
         F = F2
     elif FASE == 3:
@@ -40,7 +40,7 @@ def jogando(JANELA):
         clock.tick(FPS)
 
 
-
+        personagem.i +=1
         #EVENTOS
 
         for event in pygame.event.get():
@@ -54,9 +54,9 @@ def jogando(JANELA):
                 if event.type == pygame.KEYDOWN:
                     # DEPENDENDO DA TECLA E SE ALGUM OUTRO MOVIMENTO JÁ ESTÁ ACONTECENDO
                     keys_down[event.key] = True
-                    if event.key == pygame.K_LEFT or event.key == pygame.K_d and personagem.velocidadey == 0 :
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a and personagem.velocidadey == 0 :
                         personagem.velocidadex -= 8
-                    if event.key == pygame.K_RIGHT or event.key == pygame.K_a and personagem.velocidadey == 0 :
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d and personagem.velocidadey == 0 :
                         personagem.velocidadex += 8
                     if event.key == pygame.K_UP or event.key == pygame.K_w and personagem.velocidadex == 0 :
                         personagem.velocidadey -= 8
@@ -84,9 +84,9 @@ def jogando(JANELA):
             colisoes_plataformas = pygame.sprite.spritecollide(personagem, F1['plataformas'], False, pygame.sprite.collide_mask)
             if colisoes_plataformas:
                 if personagem.velocidadex !=0:
-                    personagem.velocidadex -= personagem.velocidadex  # para o jogador
+                    personagem.velocidadex = 0  # para o jogador
                 elif personagem.velocidadey !=0:
-                    personagem.velocidadey -= personagem.velocidadey  # para o jogador
+                    personagem.velocidadey = 0  # para o jogador
                 som_caido.play()
 
             #COLISOES COM MOEDAS

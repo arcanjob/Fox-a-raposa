@@ -8,6 +8,9 @@ class personagem (pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         self.rotacao = 0
+        self.i = 0
+        self.estado = parado
+        
         self.imagem = pygame.transform.rotate(img_personagem, self.rotacao)
         self.mascara = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
@@ -24,6 +27,11 @@ class personagem (pygame.sprite.Sprite):
         self.rect.x += self.velocidadex
         self.rect.y += self.velocidadey
 
+        if self.estado == parado:
+            img_personagem = anim_parado[self.i]
+            self.i +=1
+            if self.i == len(anim_parado):
+                self.i = 0
         #dentro da tela - desacelerando e mantendo dentro da tela - NO FUTURO, DEVO FAZER O MESMO PARA QUANDO O PERSONAGEM COLIDIR COM AS PAREDES
         if self.rect.right >= LARGURA_JANELA:
             self.velocidadex = 0
@@ -55,9 +63,10 @@ class objeto:
         x_original = x
         y_original = y
 
+"""
 class morrendo(pygame.sprite.Sprite):
     # Construtor da classe.
     def __init__(self, center):
 
-
+"""
 ###SPRITE  - MORRENDO
