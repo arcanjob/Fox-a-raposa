@@ -91,11 +91,11 @@ img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_F
 img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO))
 
 #TEXTO
-fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/Pontos.tff', 28)
+fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28)
 
 
 #ESTABELECER OS SONS
-som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3')
 pygame.mixer.music.set_volume(0.4)
 
 som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
