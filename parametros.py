@@ -71,9 +71,9 @@ img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_a
 img_coracoes = pygame.image.load('imagens_e_sons/imagens/coracao.png').convert_alpha()   #de vida faltante
 img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alpha() #tela inicial 
 img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()    #tela do game over
-img_chegada = pygame.image.load('imagens_e_sons/imagens/chegada.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
-img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.png').convert_alpha()    #tela do parabens, voce passou de fase
-img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria_final.png').convert_alpha()    #tela de parabens, voce concluiu o jogo
+img_chegada = pygame.image.load('imagens_e_sons/imagens/portal.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
+img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela do parabens, voce passou de fase
+img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela de parabens, voce concluiu o jogo
 
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
@@ -91,7 +91,7 @@ img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_F
 img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO))
 
 #TEXTO
-fonte_pontos =  pygame.font.Font('fontes/pontuacao.ttf', 28)
+fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/Pontos.tff', 28)
 
 
 #ESTABELECER OS SONS
