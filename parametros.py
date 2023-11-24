@@ -95,16 +95,18 @@ fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28)
 
 
 #ESTABELECER OS SONS
-som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3')
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
 pygame.mixer.music.set_volume(0.4)
 
-som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
-som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/moedas.wav')
-som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg') #quando o cara cai no chao, de fato
-som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.ogg')
-som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg') #acaba as vidas
+som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.mp3')
+
+#Falta esses aqui
+som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/coin.mp3') #Fonte: https://pixabay.com/pt/sound-effects/search/game%20coin/
+som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caindo.mp3') #quando o cara cai no chao, de fato
+som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.mp3') #Fonte: https://pixabay.com/pt/sound-effects/search/dead/
+som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.mp3') #acaba as vidas #Fonte: https://pixabay.com/pt/sound-effects/search/game%20over/
 #som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg') 
-som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.ogg') #quando passa de fase
+som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.mp3') #quando passa de fase #Fonte: https://pixabay.com/pt/sound-effects/search/win/
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
 x_meio_inicial_do_personagem = 32

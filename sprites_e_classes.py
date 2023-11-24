@@ -59,7 +59,7 @@ class objeto:
 
 class morrendo(pygame.sprite.Sprite):
     # Construtor da classe.
-    def __init__(self, center):
+    #def __init__(self, center):
 
 
-###SPRITE  - MORRENDO
+#SPRITE  - MORRENDO
