@@ -80,7 +80,8 @@ class personagem (pygame.sprite.Sprite):
 class objeto:
     def __init__(self, fila, coluna, imagem, orientacao):
         self.imagem = pygame.transform.rotate(imagem,orientacao)
-
+        
+        
         self.rect = self.imagem.get_rect()
 
         self.rect.x = fila
