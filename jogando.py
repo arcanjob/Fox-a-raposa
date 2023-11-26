@@ -74,7 +74,7 @@ def jogando(JANELA):
             personagem.orientacao -= velocidade_de_rotaca_p_frame
 
         
-        all_sprites.update()
+        F['all_sprites'].update()
 
 
         if estado_do_jogo == JOGANDO:
@@ -103,11 +103,11 @@ def jogando(JANELA):
                 vidas -= 1
                 morte = sprite_morrendo(personagem.rect.center)
 
-                all_sprites.add(morte)
+                F['all_sprites'].add(morte)
                 keys_down = {}
                 estado_do_jogo = MORRENDO
                 hora_da_morte = pygame.time.Clock()
-                duracao_da_morte = t_dos_frames_de_morte * len(morte.anim_da_morte) + 400
+                duracao_da_morte = morrendo.espera * len(morrendo.anim_morrendo) + 400
 
             
             #COLISAO COM A CHEGADA
@@ -119,8 +119,6 @@ def jogando(JANELA):
 
         elif estado_do_jogo == MORRENDO:
             agora = pygame.time.get_ticks()
-
-            personagem.imagem = 
 
             if agora - hora_da_morte > duracao_da_morte:
                 if vidas == 0:

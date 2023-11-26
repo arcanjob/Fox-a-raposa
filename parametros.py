@@ -186,7 +186,7 @@ F1['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
-F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, 0))
+F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, de_peh))
 
 F1['plataformas'].add(F1['plataforma1'])
 
@@ -194,7 +194,7 @@ F1['objetos'].add(F1['plataformas'])
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 F1['espinhos'] = pygame.sprite.Group()
-F1['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
+F1['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh)
 
 F1['espinhos'].add(F1['espinho1'])
 
@@ -205,11 +205,11 @@ F1['objetos'].add(F1['espinhos'])
 F1['moedas'] = pygame.sprite.Group()
 
 
-F1['moeda1'] = objeto(23,12, img_moeda)
+F1['moeda1'] = objeto(23,12, img_moeda,de_peh)
 F1['moedas'].add(moeda1)
 
 #CHEGADA
-F1['chegada'] = objeto(90, 0, img_chegada)
+F1['chegada'] = objeto(90, 0, img_chegada,de_peh)
 
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):

@@ -22,3 +22,7 @@
 
 IDEIA:
 - poder escolher a fase que vai jogar - DESCARTADA
+
+
+SE SOBRAR TEMPO
+- fazer com que ele gire em uma velocidade proporcional à distância que ele está caindo 
