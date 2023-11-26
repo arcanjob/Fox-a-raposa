@@ -73,14 +73,20 @@ class personagem (pygame.sprite.Sprite):
             self.rect.bottom = ALTURA_JANELA
             self.velocidadey = 0
 
+
+
+
 class objeto:
-    def __init__(self, x, y, imagem):
-        self.imagem = imagem
+    def __init__(self, x, y, imagem, rotacao):
+        self.imagem = pygame.transform.rotate(imagem)
         self.rect = self.imagem.get_rect()
         self.rect.x = x
         self.rect.y = y
         x_original = x
         y_original = y
+
+
+
 
 
 class morrendo(pygame.sprite.Sprite):
