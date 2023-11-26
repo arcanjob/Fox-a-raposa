@@ -1,7 +1,7 @@
 import pygame
 from math import *
 import os
-from sprites_e_classes import objeto
+
 pygame.mixer.init()
 pygame.init()
 
