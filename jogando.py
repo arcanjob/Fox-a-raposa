@@ -13,7 +13,7 @@ def jogando(JANELA):
     personagem = personagem()
     
     if FASE == 1:
-       F = F1
+        F = F1
     elif FASE == 2:
         F = F2
     elif FASE == 3:
@@ -101,7 +101,7 @@ def jogando(JANELA):
                 som_morrendo.play()
                 personagem.kill()
                 vidas -= 1
-                morte = morrendo(personagem.rect.center)
+                morte = sprite_morrendo(personagem.rect.center)
 
                 all_sprites.add(morte)
                 keys_down = {}
@@ -120,6 +120,7 @@ def jogando(JANELA):
         elif estado_do_jogo == MORRENDO:
             agora = pygame.time.get_ticks()
 
+            personagem.imagem = 
 
             if agora - hora_da_morte > duracao_da_morte:
                 if vidas == 0:

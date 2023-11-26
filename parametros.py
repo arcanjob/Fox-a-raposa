@@ -134,6 +134,7 @@ VITORIA_FINAL = 6
 
 ####################******************ANIMAÇÕES - PRO GRAND FINALE
 anim_morrendo = []
+morrendo = 0
 arquivo_morrendo = 'imagens_e_sons/imagens/garoto/garoto_morrendo'
 for i in range(15):
         # Os arquivos de animação são numerados de 00 a 08
@@ -142,6 +143,7 @@ for i in range(15):
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_morrendo.append(img)
 
+parado = 1
 anim_parado = []
 arquivo_parado = 'imagens_e_sons/imagens/garoto/garoto_parado'
 for i in range(15):
@@ -151,7 +153,7 @@ for i in range(15):
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
 
-
+pulando= 2
 anim_pulando = []
 arquivo_pulando = 'imagens_e_sons/imagens/garoto/garoto_pulando'
 for i in range(15):

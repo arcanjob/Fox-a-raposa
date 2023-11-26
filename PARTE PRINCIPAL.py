@@ -69,9 +69,9 @@ game = True
 while game:
     
     for event in pygame.event.get():
-       
-        if event.type == pygame.KEYDOWN:
-            game = False
+
+    if event.type == pygame.KEYDOWN:
+        game = False
 
 
     window.fill((0, 71, 171)) 

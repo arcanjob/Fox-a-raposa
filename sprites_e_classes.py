@@ -20,7 +20,7 @@ class personagem (pygame.sprite.Sprite):
         self.i = 0
         self.estado = parado
         
-        self.imagem = pygame.transform.rotate(img_personagem, self.rotacao)
+        self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao)
         self.mascara = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
@@ -34,14 +34,31 @@ class personagem (pygame.sprite.Sprite):
     def update(self): #MOVIMENTO - VELOCIDADE À DEFINIR
         #atualizando a posição do player
         
+        #MOVIMENTANDO O PERSONAGEM
         self.rect.x += self.velocidadex
         self.rect.y += self.velocidadey
 
+        #ESTÁ PARADO
+        if self.velocidadex == 0 and self.velocidadey == 0:
+            self.estado = parado
         if self.estado == parado:
-            img_personagem = anim_parado[self.i]
-            self.i +=1
-            if self.i == len(anim_parado):
-                self.i = 0
+            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao)  
+            self.mascara = pygame.mask.from_surface(self.imagem)
+        if self.i == len(anim_parado):
+            self.i = 0
+
+
+        #ESTÁ PULANDO
+        if self.velocidadex != 0 or self.velocidadex != 0:
+            self.estado = pulando
+        if self.estado == pulando:
+            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao) 
+            self.mascara = pygame.mask.from_surface(self.imagem)
+        if self.i == len(anim_pulando):
+            self.i = 0
+        
+
+
         #dentro da tela - desacelerando e mantendo dentro da tela - NO FUTURO, DEVO FAZER O MESMO PARA QUANDO O PERSONAGEM COLIDIR COM AS PAREDES
         if self.rect.right >= LARGURA_JANELA:
             self.velocidadex = 0
