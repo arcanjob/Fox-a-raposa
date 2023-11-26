@@ -39,9 +39,9 @@ def jogando(JANELA):
             for coluna in range(len(mapa[fila])):
                 tipo_bloco = mapa[fila][coluna]
                 if tipo_bloco == B:
-                    tile = objeto(assets[tile_type], row, column)
-                    all_sprites.add(tile)
-                    blocks.add(tile)
+                    tile = objeto(fila, coluna, img_plataformas, 0)
+                    F['all_sprites'].add(tile)
+                    F['blocos'].add(tile)
    
     F['all_sprites'].add(personagem)
     F['vidas'] = 3

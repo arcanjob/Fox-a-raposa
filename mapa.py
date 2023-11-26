@@ -34,7 +34,6 @@ MAPA_3 =[
     [P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L]
     [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L]]
 
-<<<<<<< HEAD
 #Legenda Bara localização
 #O = linha de chegada
 #V= VAZIO
@@ -42,8 +41,6 @@ MAPA_3 =[
 #ec =  espinho Bara cima
 #eB - espinho Bara baixo
 #ed = espinho Bara direita
-=======
->>>>>>> 48a0a343602575e17e17da883fba0329d3e07294
 
 
 MAPA_2= [
