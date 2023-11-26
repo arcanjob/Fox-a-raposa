@@ -64,14 +64,14 @@ def jogando(JANELA):
 
 
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
-        if personagem.velocidadey>0 and personagem.rotacao != de_peh:
-            personagem.rotacao += velocidade_de_rotaca_p_frame
-        if personagem.velocidadey<0 and personagem.rotacao != de_ponta_cabeca:
-            personagem.rotacao -= velocidade_de_rotaca_p_frame
-        if personagem.velocidadex >0 and personagem.rotacao != virado_para_a_direita:
-            personagem.rotacao +=velocidade_de_rotaca_p_frame
-        if personagem.velocidadex<0 and personagem.rotacao != virado_para_a_esquerda:
-            personagem.rotacao -= velocidade_de_rotaca_p_frame
+        if personagem.velocidadey>0 and personagem.orientacao != de_peh:
+            personagem.orientacao += velocidade_de_rotaca_p_frame
+        if personagem.velocidadey<0 and personagem.orientacao != de_ponta_cabeca:
+            personagem.orientacao -= velocidade_de_rotaca_p_frame
+        if personagem.velocidadex >0 and personagem.orientacao != virado_para_a_direita:
+            personagem.orientacao +=velocidade_de_rotaca_p_frame
+        if personagem.velocidadex<0 and personagem.orientacao != virado_para_a_esquerda:
+            personagem.orientacao -= velocidade_de_rotaca_p_frame
 
         
         all_sprites.update()

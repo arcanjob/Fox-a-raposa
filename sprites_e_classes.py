@@ -16,11 +16,13 @@ class personagem (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
-        self.rotacao = 0
+        
+        self.orientacao = de_peh
+
         self.i = 0
         self.estado = parado
         
-        self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao)
+        self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao)
         self.mascara = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
@@ -42,7 +44,7 @@ class personagem (pygame.sprite.Sprite):
         if self.velocidadex == 0 and self.velocidadey == 0:
             self.estado = parado
         if self.estado == parado:
-            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao)  
+            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao)  
             self.mascara = pygame.mask.from_surface(self.imagem)
         if self.i == len(anim_parado):
             self.i = 0
@@ -52,7 +54,7 @@ class personagem (pygame.sprite.Sprite):
         if self.velocidadex != 0 or self.velocidadex != 0:
             self.estado = pulando
         if self.estado == pulando:
-            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.rotacao) 
+            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.oreintacao) 
             self.mascara = pygame.mask.from_surface(self.imagem)
         if self.i == len(anim_pulando):
             self.i = 0
@@ -102,7 +104,7 @@ class sprite_morrendo(pygame.sprite.Sprite):   #Código inspirado no handout do 
 
         
         self.frame = 0  #NUMERANDO O PRIMEIRO FRAME - SE ATUALIZARÁ
-        self.imagem = pygame.transform.rotate(self.anim_morrendo[self.i], self.rotacao)   #SELECIONANDO O ARQUIVO DA ANIMAÇÃO CORRESPONDENTE AO FRAME E
+        self.imagem = pygame.transform.rotate(self.anim_morrendo[self.i], self.orientacao)   #SELECIONANDO O ARQUIVO DA ANIMAÇÃO CORRESPONDENTE AO FRAME E
         #ACRESCENTANDO A ROTACAO
         
         #ATUALIZANDO A POSIÇÃO
