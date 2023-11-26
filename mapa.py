@@ -12,6 +12,7 @@ ED = 3 #espinho virado para a direita
 EB = 4 #espinho virado para baixo
 EC = 5 #espinho virado para cima
 R = 6 #posição inicial do personagem
+O = 7 #ponto de chegada
 
 
 MAPA_3 =[
