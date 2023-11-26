@@ -3,6 +3,7 @@ from math import *
 B = 0 #bloco
 P = 0 #preenchimento
 L = 0 #limite da tela
+
 # os valores anteriores são iguais, para, caso queiramos colocar uma nova imagem para cada um dos elementos, não seja tão complicado
 V = 1 #espaço vazio
 #M = 1 #moeda --> galinha
@@ -33,6 +34,13 @@ MAPA_3 =[
     [P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L]
     [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L]]
 
+#Legenda Bara localização
+#O = linha de chegada
+#V= VAZIO
+#b = BlOco
+#ec =  espinho Bara cima
+#eB - espinho Bara baixo
+#ed = espinho Bara direita
 
 
 MAPA_2= [
