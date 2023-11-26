@@ -41,10 +41,12 @@ def jogando(JANELA):
         for coluna in range(len(mapa[fila])):
             tipo_bloco = mapa[fila][coluna]
             if tipo_bloco == B:
-                tile = objeto(assets[tile_type], row, column)
-                all_sprites.add(tile)
-                blocks.add(tile)
+                bloco = objeto(fila, coluna, img_plataformas, 0)
+                F['all_sprites'].add(bloco)
+                F['blocos'].add(bloco)
+                
 
+                
     F['all_sprites'].add(personagem) # ADICIONANDO O PERSONAGEM
     F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
