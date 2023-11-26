@@ -13,6 +13,7 @@ def jogando(JANELA):
     personagem.i = 0
     personagem = personagem()
     
+    #DEFININDO O MAPA E DE 
     if   FASE == 1:
         F = F1
         mapa = MAPA_1
@@ -35,16 +36,17 @@ def jogando(JANELA):
     pygame.mixer.som_fundo.play(loops=-1)
     estado_do_jogo = JOGANDO
     
+    #FAZENDO O MAPA
     for fila in range(len(mapa)):
-            for coluna in range(len(mapa[fila])):
-                tipo_bloco = mapa[fila][coluna]
-                if tipo_bloco == B:
-                    tile = objeto(assets[tile_type], row, column)
-                    all_sprites.add(tile)
-                    blocks.add(tile)
-   
-    F['all_sprites'].add(personagem)
-    F['vidas'] = 3
+        for coluna in range(len(mapa[fila])):
+            tipo_bloco = mapa[fila][coluna]
+            if tipo_bloco == B:
+                tile = objeto(assets[tile_type], row, column)
+                all_sprites.add(tile)
+                blocks.add(tile)
+
+    F['all_sprites'].add(personagem) # ADICIONANDO O PERSONAGEM
+    F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
 
     while estado_do_jogo == JOGANDO:
@@ -103,7 +105,7 @@ def jogando(JANELA):
             #COLISOES COM MOEDAS
             colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask)
             if colisoes_moedas:
-                pontos += 50
+                pontos += 1
                 som_pegando_moedas.play()
         
 
@@ -124,7 +126,7 @@ def jogando(JANELA):
             
             #COLISAO COM A CHEGADA
             colisao_chegada = pygame.sprite.spritecollide(personagem, F['chegada'], False, pygame.sprite.collide_mask)
-            if colisao_chegada:
+            if colisao_chegada and F['pontos'] == F['galinhas minimas']:
                 som_vitoria.play()
                 estado_do_jogo = VITORIA
 
@@ -151,7 +153,7 @@ def jogando(JANELA):
         F['all_sprites'].draw(JANELA)
 
         #PONTUAÇÃO
-        perfil_texto = fonte_pontos.render("{:08d}".format(pontos), True, AMARELO)
+        perfil_texto = fonte_pontos.render("{:08d}/{}".format(pontos, F['galinhas minimas']), True, AMARELO)
         texto_rect = perfil_texto.get_rect()
         texto_rect.midtop = (LARGURA_JANELA / 2,  10)
         JANELA.blit(perfil_texto, texto_rect)

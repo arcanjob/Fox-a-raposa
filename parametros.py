@@ -63,8 +63,8 @@ LARGURA_CORACAO = 10
 ALTURA_CORACAO = 10
 
 # Estabelecer as figuras
-img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
-img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha()
+#img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
+#img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() - O FUNDO SERÁ UMA ANIMAÇÃO
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
@@ -78,20 +78,19 @@ img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').con
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
 #image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
-img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO))
-img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
+#img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO)) - O FUNDO SERÁ UMA ANIMAÇÃO
+#img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
 img_plataformas = pygame.transform.scale(img_plataformas, (LARGURA_PLATAFORMA, ALTURA_PLATAFORMA))
 img_moeda = pygame.transform.scale(img_moeda, (LARGURA_MOEDA, ALTURA_MOEDA))
 img_espinhos = pygame.transform.scale(img_espinhos, (LARGURA_ESPINHOS, ALTURA_ESPINHOS))
-img_inicio =  pygame.transform.scale(img_inicio, (LARGURA_INICIO, ALTURA_INICIO))
-img_fim =  pygame.transform.scale(img_fim, (LARGURA_FINAL, ALTURA_FINAL))
-img_chegada = pygame.transform.scale(img_chegada, (LARGURA_CHEGADA, ALTURA_CHEGADA))
-img_vitoria = pygame.transform.scale(img_vitoria, (LARGURA_VITORIA, ALTURA_VITORIA))
-img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_FINAL, ALTURA_VITORIA_FINAL))
-img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO))
-
+img_inicio =  pygame.transform.scale(img_inicio, (LARGURA_INICIO, ALTURA_INICIO))  #tela inicial
+img_fim =  pygame.transform.scale(img_fim, (LARGURA_FINAL, ALTURA_FINAL)) #tela final
+img_chegada = pygame.transform.scale(img_chegada, (LARGURA_CHEGADA, ALTURA_CHEGADA)) #linha de chegada
+img_vitoria = pygame.transform.scale(img_vitoria, (LARGURA_VITORIA, ALTURA_VITORIA)) #tela de vitoria - pode passar para a proxima fase
+img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_FINAL, ALTURA_VITORIA_FINAL)) #ultima tela de vitoria
+img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO)) #imagem dos coracoes de vida do personagem
 #TEXTO
-fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28)
+fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos
 
 
 #ESTABELECER OS SONS
@@ -198,8 +197,10 @@ F1['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh)
 
 F1['espinhos'].add(F1['espinho1'])
 
+F1['pontos'] = 0
+
 F1['objetos'].add(F1['espinhos'])
-F1['galinhas minimas'] = 
+F1['galinhas minimas'] = 5  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
 
 
 #MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
@@ -233,15 +234,17 @@ F2['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F2['plataformas'] = pygame.sprite.Group()
-F2['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
+F2['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, de_peh))
 
 F2['plataformas'].add(F2['plataforma1'])
+
+F2['galinhas minimas'] =  4 #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
 
 F2['objetos'].add(F2['plataformas'])
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 F2['espinhos'] = pygame.sprite.Group()
-F2['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
+F2['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh))
 
 F2['espinhos'].add(F2['espinho1'])
 
@@ -250,13 +253,13 @@ F2['objetos'].add(F2['espinhos'])
 
 #MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F2['moedas'] = pygame.sprite.Group()
-
+F2['pontos'] = 0 
 
 F2['moeda1'] = objeto(23,12, img_moeda)
 F2['moedas'].add(moeda1)
-
+F1['galinhas minimas'] = 3  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
 #CHEGADA
-F2['chegada'] = objeto(90, 0, img_chegada)
+F2['chegada'] = objeto(90, 0, img_chegada, de_peh) 
 
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):
@@ -280,7 +283,7 @@ F3['objetos']= pygame.sprite.Group()
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F3['plataformas'] = pygame.sprite.Group()
 F3['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
-
+F3['pontos'] = 0
 F3['plataformas'].add(F3['plataforma1'])
 
 F3['objetos'].add(F3['plataformas'])
