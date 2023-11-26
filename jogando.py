@@ -14,7 +14,7 @@ def jogando(JANELA):
     personagem = personagem()
     
     if FASE == 1:
-        F = F1
+       F = F1
     elif FASE == 2:
         F = F2
     elif FASE == 3:
@@ -108,7 +108,7 @@ def jogando(JANELA):
                 keys_down = {}
                 estado_do_jogo = MORRENDO
                 hora_da_morte = pygame.time.Clock()
-                duracao_da_morte = t_dos_frames_de_morte*len(morte.anim_da_morte) + 400
+                duracao_da_morte = t_dos_frames_de_morte * len(morte.anim_da_morte) + 400
 
             
             #COLISAO COM A CHEGADA

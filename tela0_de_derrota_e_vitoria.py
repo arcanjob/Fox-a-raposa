@@ -8,7 +8,6 @@ pygame.init()
 from parametros import * 
 
 
-
 def tela_inicial(JANELA):
     
     # Carrega o fundo da tela inicial
