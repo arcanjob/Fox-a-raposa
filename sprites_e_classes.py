@@ -75,15 +75,16 @@ class personagem (pygame.sprite.Sprite):
 
 
 
-
 class objeto:
-    def __init__(self, x, y, imagem, rotacao):
+    def __init__(self, fila, coluna, imagem, rotacao):
         self.imagem = pygame.transform.rotate(imagem)
+
         self.rect = self.imagem.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-        x_original = x
-        y_original = y
+        
+        self.rect.x = fila
+        self.rect.y = coluna
+        x_original = fila
+        y_original = coluna
 
 
 
