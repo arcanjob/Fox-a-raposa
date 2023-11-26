@@ -5,7 +5,7 @@ P = 0 #preenchimento
 L = 0 #limite da tela
 # os valores anteriores são iguais, para, caso queiramos colocar uma nova imagem para cada um dos elementos, não seja tão complicado
 V = 1 #espaço vazio
-#M = 1 #moeda --> galinha
+M = 1 #moeda --> galinha
 EE = 2 #espinho virado para a esquerda
 ED = 3 #espinho virado para a direita
 EB = 4 #espinho virado para baixo
