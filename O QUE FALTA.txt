@@ -7,10 +7,10 @@
     - entender como funciona a criação e implementação do código
 - decidir a velocidade de rotacao da raposa - talvez seja necessario aumentar o mapa para caber o giro
 - criar os sprites das animacoes
-    - parado
-    - pulando
-    - morrendo
-    -- colocar as animações no jogo, respeitando as codições que deveriam ser compridas para que cada uma aconteça
+    - parado - NÃO PRECISOU  - FEITO
+    - pulando - NÃO PRECISOU - FEITO
+    - morrendo               - FEITO
+    -- colocar as animações no jogo, respeitando as codições que deveriam ser compridas para que cada uma aconteça - FEITO
 - animação do plano de fundo
 - acertar o caminho para os arquivos
 - apagar os codigos que levam a arquivos que não existem - como os que foram substituidos por animações

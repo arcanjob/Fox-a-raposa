@@ -213,7 +213,7 @@ F1['chegada'] = objeto(90, 0, img_chegada,de_peh)
 
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):
-    for moeda in moedas:
+        for moeda in moedas:
         moeda.rect.x = moeda.x_original
         moeda.rect.y = moeda.y_original
 
