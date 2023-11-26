@@ -54,7 +54,7 @@ class personagem (pygame.sprite.Sprite):
         if self.velocidadex != 0 or self.velocidadex != 0:
             self.estado = pulando
         if self.estado == pulando:
-            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.oreintacao) 
+            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao) 
             self.mascara = pygame.mask.from_surface(self.imagem)
         if self.i == len(anim_pulando):
             self.i = 0
@@ -78,8 +78,8 @@ class personagem (pygame.sprite.Sprite):
 
 
 class objeto:
-    def __init__(self, fila, coluna, imagem, rotacao):
-        self.imagem = pygame.transform.rotate(imagem)
+    def __init__(self, fila, coluna, imagem, orientacao):
+        self.imagem = pygame.transform.rotate(imagem,orientacao)
 
         self.rect = self.imagem.get_rect()
 
@@ -120,35 +120,29 @@ class sprite_morrendo(pygame.sprite.Sprite):   #Código inspirado no handout do 
 
 
     def update(self):
-        # Verifica o tick atual.
-        agora = pygame.time.get_ticks()
-        #### now = pygame.time.get_ticks()
-        # Verifica quantos ticks se passaram desde a ultima mudança de frame.
         
-        tempo_decorrido = agora - self.ultimo_update
+        agora = pygame.time.get_ticks() #ve a posicao atual
+        
+        
+        tempo_decorrido = agora - self.ultimo_update #tempo decorrido desde a ultima mudanca de frame
 
         # Se já está na hora de mudar de imagem...
-        if tempo_decorrido > self.espera:
-            # Marca o tick da nova imagem.
-            self.ultimo_update = agora
-            #### self.last_update = now
+        if tempo_decorrido > self.espera: #se o tempo que passou for maior que o tempo de espera 
+            
+            self.ultimo_update = agora # atualiza o ultimo update para agora
 
             # Avança um quadro.
             self.frame += 1
 
             # Verifica se já chegou no final da animação.
-            """
-            if self.frame == len(self.explosion_anim):
-                # Se sim, tchau explosão!
-                self.kill()
-            """
-            if self.frame == len(self.anim_morrendo):
-                # Se sim, tchau explosão!
+            
+            if self.frame == len(self.anim_morrendo): #se acabar a animacao ele morre
+
                 self.kill()
             else:
-                # Se ainda não chegou ao fim da explosão, troca de imagem.
+                # troca de imagem se n terminou a animacao
                 centro = self.rect.centro
-                self.imagem = self.anim_morrendo[self.frame] #self.explosion_anim[self.frame]
+                self.imagem = self.anim_morrendo[self.frame] 
                 self.rect = self.image.get_rect()
                 self.rect.centro = centro
 
