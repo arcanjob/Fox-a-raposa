@@ -1,6 +1,7 @@
 import pygame
 from math import *
 import os
+from sprites_e_classes import objeto
 
 pygame.mixer.init()
 pygame.init()
@@ -185,7 +186,7 @@ F1['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
-F1['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, de_peh))
+F1['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas, de_peh)
 
 F1['plataformas'].add(F1['plataforma1'])
 
@@ -193,7 +194,7 @@ F1['objetos'].add(F1['plataformas'])
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 F1['espinhos'] = pygame.sprite.Group()
-F1['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh)
+F1['espinho1'] = objeto(200,300), pygame.transform.rotate(img_espinhos, de_peh)
 
 F1['espinhos'].add(F1['espinho1'])
 
@@ -216,8 +217,8 @@ F1['chegada'] = objeto(90, 0, img_chegada,de_peh)
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):
         for moeda in moedas:
-        moeda.rect.x = moeda.x_original
-        moeda.rect.y = moeda.y_original
+                moeda.rect.x = moeda.x_original
+                moeda.rect.y = moeda.y_original
 
 F1['all_sprites'] = pygame.sprite.Group()
 F1['bloco'] =  pygame.sprite.Group()
@@ -234,7 +235,7 @@ F2['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F2['plataformas'] = pygame.sprite.Group()
-F2['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas, de_peh))
+F2['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas, de_peh)
 
 F2['plataformas'].add(F2['plataforma1'])
 
@@ -282,7 +283,7 @@ F3['objetos']= pygame.sprite.Group()
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F3['plataformas'] = pygame.sprite.Group()
-F3['plataforma1'] = objeto(100, 400, pygame.transform.rotate(img_plataformas))
+F3['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas)
 F3['pontos'] = 0
 F3['plataformas'].add(F3['plataforma1'])
 

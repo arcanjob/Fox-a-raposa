@@ -13,7 +13,7 @@ window = pygame.display.set_mode((1000, 600))
 
 # CRIANDO A JANELA
 JANELA = pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA))
-pygame.display.set_caption('NOSSO JOGO')
+pygame.display.set_caption('Fox, a Raposa')
 
 ###############CRIANDO AS PLATAFORMAS
 
@@ -26,24 +26,21 @@ while estado_do_jogo != DONE:
     pontos = 0
     ultimo_pulo = pygame.time.get_tics()
     #analisa se o jogo foi fechado
-    for envent in pygame.event.get():
+    for event in pygame.event.get():
         if event.type == pygame.QUIT:
             estado_do_jogo = DONE
-    if estado_do_jogo == INICIO:
-        estado_do_jogo = tela_inicial(JANELA)
-    if estado_do_jogo == JOGANDO:
-        estado_do_jogo = jogando(JANELA)
-    if estado_do_jogo == GAME_OVER:
-        estado_do_jogo = tela_final(JANELA)
-    if estado_do_jogo == VITORIA:
-        FASE +=1
+        if estado_do_jogo == INICIO:
+            estado_do_jogo = tela_inicial(JANELA)
+        if estado_do_jogo == JOGANDO:
+            estado_do_jogo = jogando(JANELA)
+        if estado_do_jogo == GAME_OVER:
+            estado_do_jogo = tela_final(JANELA)
+        if estado_do_jogo == VITORIA:
+            FASE +=1
         if FASE!=4:
             estado_do_jogo = tela_de_vitoria(JANELA)
         else:
             estado_do_jogo = fim_vitorioso(JANELA)
-
-
-
 
 
 
@@ -53,25 +50,14 @@ pygame.quit()
 
 
 
-
-
-
-
-
-
-
-
-
-
 game = True
 
 
 while game:
     
     for event in pygame.event.get():
-
-    if event.type == pygame.KEYDOWN:
-        game = False
+        if event.type == pygame.KEYDOWN:
+            game = False
 
 
     window.fill((0, 71, 171)) 

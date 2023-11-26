@@ -90,7 +90,7 @@ class objeto:
 
 
 
-class morrendo(pygame.sprite.Sprite):
+#class morrendo(pygame.sprite.Sprite):
     # Construtor da classe.
     #def __init__(self, center):
 
@@ -98,6 +98,7 @@ class morrendo(pygame.sprite.Sprite):
 #SPRITE  - MORRENDO
 class sprite_morrendo(pygame.sprite.Sprite):   
 
+    def __init__(self, centro):
         pygame.sprite.Sprite.__init__(self)
 
         # ATUALIZANDO A ANIMAÇÃO DO PERSONAGEM MORRENDO
@@ -118,29 +119,29 @@ class sprite_morrendo(pygame.sprite.Sprite):
         self.espera = 50 #AGUARDO ENTRE UM FRAME E O PRÓXIMO
 
 
-    def update(self):
-        
-        agora = pygame.time.get_ticks() #ve a posicao atual
-        
-        
-        tempo_decorrido = agora - self.ultimo_update #tempo decorrido desde a ultima mudanca de frame
-
-        # Se já está na hora de mudar de imagem...
-        if tempo_decorrido > self.espera: #se o tempo que passou for maior que o tempo de espera 
+        def update(self):
             
-            self.ultimo_update = agora # atualiza o ultimo update para agora
-
-            # Avança um quadro.
-            self.frame += 1
-
-            # Verifica se já chegou no final da animação.
+            agora = pygame.time.get_ticks() #ve a posicao atual
             
-            if self.frame == len(self.anim_morrendo): #se acabar a animacao ele morre
+            
+            tempo_decorrido = agora - self.ultimo_update #tempo decorrido desde a ultima mudanca de frame
 
-                self.kill()
-            else:
-                # troca de imagem se n terminou a animacao
-                centro = self.rect.centro
-                self.imagem = self.anim_morrendo[self.frame] 
-                self.rect = self.image.get_rect()
-                self.rect.centro = centro
+            # Se já está na hora de mudar de imagem...
+            if tempo_decorrido > self.espera: #se o tempo que passou for maior que o tempo de espera 
+                
+                self.ultimo_update = agora # atualiza o ultimo update para agora
+
+                # Avança um quadro.
+                self.frame += 1
+
+                # Verifica se já chegou no final da animação.
+                
+                if self.frame == len(self.anim_morrendo): #se acabar a animacao ele morre
+
+                    self.kill()
+                else:
+                    # troca de imagem se n terminou a animacao
+                    centro = self.rect.centro
+                    self.imagem = self.anim_morrendo[self.frame] 
+                    self.rect = self.image.get_rect()
+                    self.rect.centro = centro
