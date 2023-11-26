@@ -64,8 +64,8 @@ LARGURA_CORACAO = 10
 ALTURA_CORACAO = 10
 
 # Estabelecer as figuras
-#img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
-#img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() - O FUNDO SERÁ UMA ANIMAÇÃO
+img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
+img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() - #O FUNDO SERÁ UMA ANIMAÇÃO
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
