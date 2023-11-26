@@ -1,15 +1,16 @@
 from math import *
 
-B = 0
-P = 0
-L = 0
+B = 0 #bloco
+P = 0 #preenchimento
+L = 0 #limite da tela
 # os valores anteriores são iguais, para, caso queiramos colocar uma nova imagem para cada um dos elementos, não seja tão complicado
-#V = 1
-M = 1
-EE = 2
-ED = 3
-EB = 4
-EC = 5
+V = 1 #espaço vazio
+#M = 1 #moeda --> galinha
+EE = 2 #espinho virado para a esquerda
+ED = 3 #espinho virado para a direita
+EB = 4 #espinho virado para baixo
+EC = 5 #espinho virado para cima
+R = 6 #posição inicial do personagem
 
 
 MAPA_3 =[
@@ -31,12 +32,6 @@ MAPA_3 =[
     [P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L]
     [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L]]
 
-#Legenda Bara localização
-#V= VAZIO
-#b = BlOco
-#ec =  espinho Bara cima
-#eB - espinho Bara baixo
-#ed = espinho Bara direita
 
 
 MAPA_2= [

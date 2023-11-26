@@ -21,7 +21,7 @@ def jogando(JANELA):
         mapa = MAPA_2
     elif FASE == 3:
         F = F3
-        mapa = MAPA3
+        mapa = MAPA_3
     
     GAME_OVER  = 0
     JOGANDO = 1
