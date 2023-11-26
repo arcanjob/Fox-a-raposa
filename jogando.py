@@ -44,9 +44,16 @@ def jogando(JANELA):
                 bloco = objeto(fila, coluna, img_plataformas, 0)
                 F['all_sprites'].add(bloco)
                 F['blocos'].add(bloco)
+            elif tipo_bloco == M:
+                bloco = objeto(fila, coluna, img_moeda, 0)
+                F['all_sprites'].add(bloco)
+                F['blocos'].add(bloco)
+            elif tipo_bloco == EE:
+                bloco = objeto(fila, coluna, img_espinhos, 0)
+                F['all_sprites'].add(bloco)
+                F['blocos'].add(bloco)
                 
 
-                
     F['all_sprites'].add(personagem) # ADICIONANDO O PERSONAGEM
     F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
