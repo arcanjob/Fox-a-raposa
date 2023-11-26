@@ -34,9 +34,9 @@ MAPA_3 =[
 #Legenda Bara localização
 #V= VAZIO
 #b = BlOco
-#ec =  esBinho Bara cima
-#eB - esBinho Bara baixo
-#ed = esBinho Bara direita
+#ec =  espinho Bara cima
+#eB - espinho Bara baixo
+#ed = espinho Bara direita
 
 
 MAPA_2= [
@@ -83,7 +83,7 @@ MAPA_1=[
 
 
 """
-MABA_MODEBO = [
+MAPA_MODEBO = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]
     [B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B]
     [B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B]
