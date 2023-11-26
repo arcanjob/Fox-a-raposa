@@ -1,0 +1,23 @@
+- colocar as referências dos códigos
+- criar o codigo do mapa - mapa já criado
+    - desenhar o mapa no python - FEITO
+        - redesenhar, levando em conta o movimento de rotação do personagem
+    - fazer com que os espinhos assumam as posições correspondentes
+    - orientar os blocos da plataforma
+    - entender como funciona a criação e implementação do código
+- decidir a velocidade de rotacao da raposa - talvez seja necessario aumentar o mapa para caber o giro
+- criar os sprites das animacoes
+    - parado
+    - pulando
+    - morrendo
+    -- colocar as animações no jogo, respeitando as codições que deveriam ser compridas para que cada uma aconteça
+- animação do plano de fundo
+- acertar o caminho para os arquivos
+- apagar os codigos que levam a arquivos que não existem - como os que foram substituidos por animações
+- só quando o personagem pegar todas as galinhas que ele vai poder seguir a fase - sistema de pontos
+- 
+
+
+
+IDEIA:
+- poder escolher a fase que vai jogar - DESCARTADA
