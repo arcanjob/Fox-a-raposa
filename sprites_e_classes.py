@@ -96,8 +96,7 @@ class morrendo(pygame.sprite.Sprite):
 
 
 #SPRITE  - MORRENDO
-class sprite_morrendo(pygame.sprite.Sprite):   #Código inspirado no handout do pygame presente na academia python
-    def __init__(self, centro):
+class sprite_morrendo(pygame.sprite.Sprite):   
 
         pygame.sprite.Sprite.__init__(self)
 
