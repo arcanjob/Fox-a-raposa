@@ -13,7 +13,7 @@ def jogando(JANELA):
     personagem.i = 0
     personagem = personagem()
     
-    if FASE == 1:
+    if   FASE == 1:
         F = F1
         mapa = MAPA_1
     elif FASE == 2:
@@ -37,9 +37,9 @@ def jogando(JANELA):
     
     for fila in range(len(mapa)):
             for coluna in range(len(mapa[fila])):
-                tile_type = mapa[fila][coluna]
-                if tile_type == BLOCK:
-                    tile = Tile(assets[tile_type], row, column)
+                tipo_bloco = mapa[fila][coluna]
+                if tipo_bloco == B:
+                    tile = objeto(assets[tile_type], row, column)
                     all_sprites.add(tile)
                     blocks.add(tile)
    
@@ -103,7 +103,7 @@ def jogando(JANELA):
             #COLISOES COM MOEDAS
             colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask)
             if colisoes_moedas:
-                pontos+=50
+                pontos += 50
                 som_pegando_moedas.play()
         
 
