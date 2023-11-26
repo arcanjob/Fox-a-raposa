@@ -218,7 +218,7 @@ def resetar_moedas(moedas):
         moeda.rect.y = moeda.y_original
 
 F1['all_sprites'] = pygame.sprite.Group()
-
+F1['bloco'] =  pygame.sprite.Group()
 F1['all_sprites'].add(F1['objetos'], F1['moedas'],F1['chegada'])
 
 
@@ -264,7 +264,7 @@ def resetar_moedas(moedas):
         moeda.rect.y = moeda.y_original
 
 F2['all_sprites'] = pygame.sprite.Group()
-
+F2['bloco'] =  pygame.sprite.Group()
 F2['all_sprites'].add(F2['objetos'], F2['moedas'],F2['chegada'])
 
 
@@ -310,5 +310,5 @@ def resetar_moedas(moedas):
         moeda.rect.y = moeda.y_original
 
 F3['all_sprites'] = pygame.sprite.Group()
-
+F3['bloco'] =  pygame.sprite.Group()
 F3['all_sprites'].add(F3['objetos'], F3['moedas'],F3['chegada'])

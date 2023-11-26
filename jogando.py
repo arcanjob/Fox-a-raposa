@@ -44,7 +44,6 @@ def jogando(JANELA):
                     blocks.add(tile)
    
     F['all_sprites'].add(personagem)
-
     F['vidas'] = 3
 
 
