@@ -17,6 +17,16 @@ MAPA3 =[
     [P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L]
     [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L]]
 
+
+#L = limite
+#V= VAZIO
+#b = BLOCK
+#P = PREENCHIMENTO
+#ec =  espinho para cima
+#eB - espinho para baixo
+#ed = espinho para direita
+
+
 MAPA2V= [
     [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L]
     [L,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,B,V,V,V,V,V,O,L]
