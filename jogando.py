@@ -1,5 +1,6 @@
 import pygame
 import os
+from mapa import *
 from parametros import *
 from math import *
 from sprites_e_classes import *
@@ -14,15 +15,14 @@ def jogando(JANELA):
     
     if FASE == 1:
         F = F1
+        mapa = MAPA_1
     elif FASE == 2:
         F = F2
+        mapa = MAPA_2
     elif FASE == 3:
         F = F3
+        mapa = MAPA3
     
-    F['all_sprites'].add(personagem)
-
-    F['vidas'] = 3
-
     GAME_OVER  = 0
     JOGANDO = 1
     MORRENDO = 2
@@ -35,6 +35,19 @@ def jogando(JANELA):
     pygame.mixer.som_fundo.play(loops=-1)
     estado_do_jogo = JOGANDO
     
+    for fila in range(len(mapa)):
+            for coluna in range(len(mapa[fila])):
+                tile_type = mapa[fila][coluna]
+                if tile_type == BLOCK:
+                    tile = Tile(assets[tile_type], row, column)
+                    all_sprites.add(tile)
+                    blocks.add(tile)
+   
+    F['all_sprites'].add(personagem)
+
+    F['vidas'] = 3
+
+
     while estado_do_jogo == JOGANDO:
         clock.tick(FPS)
 
