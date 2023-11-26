@@ -17,7 +17,6 @@ pygame.display.set_caption('NOSSO JOGO')
 
 ###############CRIANDO AS PLATAFORMAS
 
-
 estado_do_jogo = INICIO
 FASE = 1
 

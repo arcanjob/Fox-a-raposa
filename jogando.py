@@ -7,7 +7,6 @@ from sprites_e_classes import *
 
 ###########################################################JOGO#################################################
 
-
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
     personagem.i = 0
@@ -95,7 +94,7 @@ def jogando(JANELA):
                 pontos+=50
                 som_pegando_moedas.play()
         
-        
+
             #COLISÃO COM OS ESPINHOS
             colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask)
             if colisoes_espinhos:        

@@ -3,6 +3,15 @@ pygame.init()
 
 from parametros import *
 
+'''
+    def cooldown(self):
+        agora = pygame.time.get_ticks()
+
+        delta_pulo = agora - ultimo_pulo
+        if delta_pulo > 50:
+            pular(botao)
+    '''
+
 class personagem (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -24,6 +33,7 @@ class personagem (pygame.sprite.Sprite):
 
     def update(self): #MOVIMENTO - VELOCIDADE À DEFINIR
         #atualizando a posição do player
+        
         self.rect.x += self.velocidadex
         self.rect.y += self.velocidadey
 
@@ -45,14 +55,6 @@ class personagem (pygame.sprite.Sprite):
         if self.rect.bottom >= ALTURA_JANELA:
             self.rect.bottom = ALTURA_JANELA
             self.velocidadey = 0
-    '''
-    def cooldown(self):
-        agora = pygame.time.get_ticks()
-
-        delta_pulo = agora - ultimo_pulo
-        if delta_pulo > 50:
-            pular(botao)
-    '''
 
 class objeto:
     def __init__(self, x, y, imagem):
@@ -66,7 +68,7 @@ class objeto:
 """
 class morrendo(pygame.sprite.Sprite):
     # Construtor da classe.
-    def __init__(self, center):
+    #def __init__(self, center):
 
-"""
-###SPRITE  - MORRENDO
+
+#SPRITE  - MORRENDO

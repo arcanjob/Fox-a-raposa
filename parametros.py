@@ -63,7 +63,7 @@ LARGURA_CORACAO = 10
 ALTURA_CORACAO = 10
 
 # Estabelecer as figuras
-img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1)').convert_alpha()
+img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
 img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha()
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
@@ -71,9 +71,9 @@ img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_a
 img_coracoes = pygame.image.load('imagens_e_sons/imagens/coracao.png').convert_alpha()   #de vida faltante
 img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alpha() #tela inicial 
 img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()    #tela do game over
-img_chegada = pygame.image.load('imagens_e_sons/imagens/chegada.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
-img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.png').convert_alpha()    #tela do parabens, voce passou de fase
-img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria_final.png').convert_alpha()    #tela de parabens, voce concluiu o jogo
+img_chegada = pygame.image.load('imagens_e_sons/imagens/portal.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
+img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela do parabens, voce passou de fase
+img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela de parabens, voce concluiu o jogo
 
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
@@ -91,20 +91,22 @@ img_vitoria_final = pygame.transform.scale(img_vitoria_final, (LARGURA_VITORIA_F
 img_coracoes = pygame.transform.scale(img_coracoes, (LARGURA_CORACAO, ALTURA_CORACAO))
 
 #TEXTO
-fonte_pontos =  pygame.font.Font('fontes/pontuacao.ttf', 28)
+fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28)
 
 
 #ESTABELECER OS SONS
-som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/fundo.ogg')
+som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
 pygame.mixer.music.set_volume(0.4)
 
-som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.wav')
-som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/moedas.wav')
-som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caido.ogg') #quando o cara cai no chao, de fato
-som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.ogg')
-som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.ogg') #acaba as vidas
+som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.mp3')
+
+#Falta esses aqui
+som_pegando_moedas = pygame.mixer.Sound('imagens_e_sons/sons/coin.mp3') #Fonte: https://pixabay.com/pt/sound-effects/search/game%20coin/
+som_caido = pygame.mixer.music.load('imagens_e_sons/sons/caindo.mp3') #quando o cara cai no chao, de fato
+som_morrendo = pygame.mixer.music.load('imagens_e_sons/sons/morrendo.mp3') #Fonte: https://pixabay.com/pt/sound-effects/search/dead/
+som_game_over =pygame.mixer.music.load('imagens_e_sons/sons/game_over.mp3') #acaba as vidas #Fonte: https://pixabay.com/pt/sound-effects/search/game%20over/
 #som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg') 
-som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.ogg') #quando passa de fase
+som_vitoria =  pygame.mixer.music.load('imagens_e_sons/sons/vitoria.mp3') #quando passa de fase #Fonte: https://pixabay.com/pt/sound-effects/search/win/
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
 x_meio_inicial_do_personagem = 32
