@@ -199,6 +199,7 @@ F1['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh)
 F1['espinhos'].add(F1['espinho1'])
 
 F1['objetos'].add(F1['espinhos'])
+F1['galinhas minimas'] = 
 
 
 #MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR

@@ -11,10 +11,10 @@
     - pulando - NÃO PRECISOU - FEITO - BRUNO
     - morrendo               - FEITO - BRUNO
     -- colocar as animações no jogo, respeitando as codições que deveriam ser compridas para que cada uma aconteça - FEITO
-- animação do plano de fundo
-- acertar o caminho para os arquivos
+- animação do plano de fundo - ENCARREGADO - ARCANJO
+- acertar o caminho para os arquivos 
 - apagar os codigos que levam a arquivos que não existem - como os que foram substituidos por animações
-- só quando o personagem pegar todas as galinhas que ele vai poder seguir a fase - sistema de pontos - ***
+- só quando o personagem pegar todas as galinhas que ele vai poder seguir a fase - sistema de pontos - ENCARREGADO: BRUNO
 
 
 
