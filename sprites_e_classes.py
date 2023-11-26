@@ -145,4 +145,3 @@ class sprite_morrendo(pygame.sprite.Sprite):   #Código inspirado no handout do 
                 self.imagem = self.anim_morrendo[self.frame] 
                 self.rect = self.image.get_rect()
                 self.rect.centro = centro
-

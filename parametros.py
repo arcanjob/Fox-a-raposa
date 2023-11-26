@@ -1,7 +1,6 @@
 import pygame
 from math import *
 import os
-from sprites_e_classes import objeto
 
 pygame.mixer.init()
 pygame.init()
@@ -260,9 +259,9 @@ F2['chegada'] = objeto(90, 0, img_chegada)
 
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):
-    for moeda in moedas:
-        moeda.rect.x = moeda.x_original
-        moeda.rect.y = moeda.y_original
+        for moeda in moedas:
+                moeda.rect.x = moeda.x_original
+                moeda.rect.y = moeda.y_original
 
 F2['all_sprites'] = pygame.sprite.Group()
 F2['bloco'] =  pygame.sprite.Group()
