@@ -4,7 +4,7 @@ B = 0
 V = 1
 E = 2
 
-MABA_3 =[
+MAPA_3 =[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]
     [E,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,E]
     [B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,O,B]
@@ -26,12 +26,12 @@ MABA_3 =[
 #Legenda Bara localização
 #V= VAZIO
 #b = BlOco
-#ec =  esBinho Bara cima
-#eB - esBinho Bara baixo
-#ed = esBinho Bara direita
+#ec =  espinho Bara cima
+#eB - espinho Bara baixo
+#ed = espinho Bara direita
 
 
-MABA_2= [
+MAPA_2= [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,O,B]
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B]
@@ -50,7 +50,7 @@ MABA_2= [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B]
     [B,B,B,B,B,B,B,B,B,B,B,B,B,E,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
-MABA_1=[
+MAPA_1=[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B]
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B]
@@ -70,7 +70,7 @@ MABA_1=[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
 """
-MABA_MODEBO = [
+MAPA_MODEBO = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]
     [B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B]
     [B, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,B]
