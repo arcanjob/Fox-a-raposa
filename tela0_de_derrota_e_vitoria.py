@@ -2,10 +2,9 @@ import pygame
 import random
 from parametros import *
 from os import path
-
+from math import *
 pygame.init()
 
-from parametros import * 
 
 
 def tela_inicial(JANELA):

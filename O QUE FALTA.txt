@@ -15,7 +15,8 @@
 - acertar o caminho para os arquivos
 - apagar os codigos que levam a arquivos que não existem - como os que foram substituidos por animações
 - só quando o personagem pegar todas as galinhas que ele vai poder seguir a fase - sistema de pontos
-- 
+- acertar o tamanho das coisas
+- acertar o volume do jogo
 
 
 

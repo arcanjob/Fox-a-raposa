@@ -1,7 +1,7 @@
 import pygame
 import os
 from parametros import *
-
+from math import *
 from sprites_e_classes import *
 
 
@@ -64,13 +64,13 @@ def jogando(JANELA):
 
 
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
-        if personagem.velocidadey>0 and personagem.rotacao != 180:
+        if personagem.velocidadey>0 and personagem.rotacao != de_peh:
             personagem.rotacao += velocidade_de_rotaca_p_frame
-        if personagem.velocidadey<0 and personagem.rotacao != 0:
+        if personagem.velocidadey<0 and personagem.rotacao != de_ponta_cabeca:
             personagem.rotacao -= velocidade_de_rotaca_p_frame
-        if personagem.velocidadex >0 and personagem.rotacao != 270:
+        if personagem.velocidadex >0 and personagem.rotacao != virado_para_a_direita:
             personagem.rotacao +=velocidade_de_rotaca_p_frame
-        if personagem.velocidadex<1 and personagem.rotacao != 90:
+        if personagem.velocidadex<0 and personagem.rotacao != virado_para_a_esquerda:
             personagem.rotacao -= velocidade_de_rotaca_p_frame
 
         

@@ -1,4 +1,5 @@
 import pygame
+from math import *
 import os
 
 pygame.mixer.init()
@@ -6,7 +7,7 @@ pygame.init()
 
 FPS = 60 # Frames por segundo
 
-velocidade_de_rotaca_p_frame = 1 # do personagem, ao cair
+velocidade_de_rotaca_p_frame = radians(1) # do personagem, ao cair
 
 JANELA = pygame.display.set_mode((1000, 500))
 pygame.display.set_caption('Hello World!')
@@ -120,6 +121,15 @@ VERMELHO = (255, 0, 0)
 VERDE = (0, 255, 0)
 AZUL = (0, 0, 255)
 AMARELO = (255, 255, 0)
+
+
+
+#ORIENTAÇÕES
+de_peh = radians(0)
+de_ponta_cabeca = radians(180)
+virado_para_a_esquerda = radians(90)
+virado_para_a_direita = radians(270)
+
 
 
 # Estados para controle do fluxo da aplicação
