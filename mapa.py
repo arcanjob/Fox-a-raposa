@@ -24,6 +24,7 @@ MAPA_3 =[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
 #Legenda Bara localização
+#O = linha de chegada
 #V= VAZIO
 #b = BlOco
 #ec =  espinho Bara cima
