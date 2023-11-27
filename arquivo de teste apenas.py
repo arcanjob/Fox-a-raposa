@@ -853,7 +853,7 @@ def jogando(JANELA, MAPA, F):
 
 ###############CRIANDO AS PLATAFORMAS
 
-estado_do_jogo = JOGANDO
+estado_do_jogo = GAME_OVER
 FASE = 1
 
 #iniciando o loop dos estados
