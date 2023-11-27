@@ -14,7 +14,7 @@ pygame.mixer.music.set_volume(0.6)
 ###########################################################JOGO#################################################
 
 # CRIANDO A JANELA - PARTE PRINCIPAL
-JANELA = pygame.display.set_mode((1000, 500))
+JANELA = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption('Fox, a Raposa')
 
 
@@ -609,6 +609,7 @@ class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do perso
 
 ################################################################# JOGANDO ###############################################
 def jogando(JANELA, MAPA, F):
+    print('jogando')
     cronometro = pygame.time.Clock()
     #chamando o personagem
     global pontos
@@ -846,7 +847,7 @@ def jogando(JANELA, MAPA, F):
 
 ###############CRIANDO AS PLATAFORMAS
 
-estado_do_jogo = JOGANDO
+estado_do_jogo = INICIO
 FASE = 1
 
 #iniciando o loop dos estados
@@ -860,9 +861,11 @@ while estado_do_jogo != DONE:
         if event.type == pygame.QUIT:
             estado_do_jogo = DONE
     if estado_do_jogo == INICIO:
+        print('inicio')
         estado_do_jogo = tela_inicial(JANELA)
     if estado_do_jogo == JOGANDO:        #FECHA NA HORA
-            #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
+        print('jogando')
+        #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
         F = 3
         MAPA = MAPA_1
         
@@ -886,12 +889,15 @@ while estado_do_jogo != DONE:
         
         estado_do_jogo = jogando(JANELA, MAPA, F)                             #PRECISA DO JOGANDO() - FEITO
     if estado_do_jogo == GAME_OVER:
+        print('game over')
         estado_do_jogo = tela_final(JANELA)                           #PRECISA DO TELA_FINAL() - FEITO
     if estado_do_jogo == VITORIA:
         FASE +=1
     if FASE!=4:
+        print('vitoria')
         estado_do_jogo = tela_de_vitoria(JANELA)                      #PRECISA DA TELA_DE_VITORIA()  - FEITO
     else:
+        print('fim vitorioso')
         estado_do_jogo = fim_vitorioso(JANELA)                        #PRECISA DO FIM_VITORIOSO() - FEITO
 
 
