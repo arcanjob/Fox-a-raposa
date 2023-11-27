@@ -4,7 +4,6 @@ from mapa import *
 from parametros import *
 from math import *
 from sprites_e_classes import *
-from PARTE_PRINCIPAL import FASE
 
 
 ###########################################################JOGO#################################################
@@ -15,16 +14,7 @@ def jogando(JANELA):
     
     
     
-    #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
-    if   FASE == 1:
-        F = F1
-        MAPA = MAPA_1
-    elif FASE == 2:
-        F = F2
-        MAPA = MAPA_2
-    elif FASE == 3:
-        F = F3
-        MAPA = MAPA_3
+
     
     #CRIANDO O MAPA
     for linha in range(len(MAPA)):
