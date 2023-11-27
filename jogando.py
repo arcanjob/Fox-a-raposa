@@ -16,7 +16,8 @@ def jogando(JANELA):
     for linha in range(len(MAPA)):
         for coluna in range(len(MAPA)):
                 elemento = MAPA[linha] [coluna]
-
+                linha *= TAMANHO_LINHA_E_COLUNA
+                coluna *= TAMANHO_LINHA_E_COLUNA
                 if elemento == B or elemento == L or elemento == P:
                         imagem = img_plataformas
                         orientacao = de_peh
