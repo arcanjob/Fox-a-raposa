@@ -15,7 +15,8 @@
 - acertar o caminho para os arquivos - FEITO - ARCANJO
 - apagar os codigos que levam a arquivos que não existem - como os que foram substituidos por animações - FEITO - BRUNO
 - só quando o personagem pegar todas as galinhas que ele vai poder seguir a fase - sistema de pontos - FEITO - BRUNO
-- comentar as coisas
+- comentar as coisas - FEITO - BRUNO
+- ajeitar para ver a imagem certa da animacao - para que o  i resete - DEITO - BRUNO
 
 
 - discutir o nome  - fox raposa ou fox, a raposa

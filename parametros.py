@@ -11,7 +11,7 @@ FPS = 60 # Frames por segundo
 velocidade_de_rotaca_p_frame = radians(1) # do personagem, ao cair
 
 JANELA = pygame.display.set_mode((1000, 500))
-pygame.display.set_caption('Hello World!')
+pygame.display.set_caption('Fox, a Raposa')
 
 ####TAMANHOS
 #JANELA
@@ -79,7 +79,7 @@ img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').con
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
 #image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
-#img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO)) - O FUNDO SERÁ UMA ANIMAÇÃO
+img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO)) - O FUNDO SERÁ UMA ANIMAÇÃO
 #img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
 img_plataformas = pygame.transform.scale(img_plataformas, (LARGURA_PLATAFORMA, ALTURA_PLATAFORMA))
 img_moeda = pygame.transform.scale(img_moeda, (LARGURA_MOEDA, ALTURA_MOEDA))
@@ -180,6 +180,10 @@ for i in range(15):
 import sprites_e_classes
 F1 = {}
 
+#POSIÇÃO INICIAL DO PERSONAGEM
+F1['x_meio_inicial_do_personagem'] = 30
+F1['y_peh_inicial_do_personagem'] = 40
+
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F1['objetos']= pygame.sprite.Group() 
 
@@ -229,7 +233,9 @@ F1['all_sprites'].add(F1['objetos'], F1['moedas'],F1['chegada'])
 
 
 F2 = {}
-
+#POSIÇÃO INICIAL DO PERSONAGEM
+F2['x_meio_inicial_do_personagem'] = 30
+F2['y_peh_inicial_do_personagem'] = 40
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F2['objetos']= pygame.sprite.Group() 
 
@@ -277,7 +283,9 @@ F2['all_sprites'].add(F2['objetos'], F2['moedas'],F2['chegada'])
 
 
 F3 = {}
-
+#POSIÇÃO INICIAL DO PERSONAGEM
+F2['x_meio_inicial_do_personagem'] = 30
+F2['y_peh_inicial_do_personagem'] = 40
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F3['objetos']= pygame.sprite.Group() 
 

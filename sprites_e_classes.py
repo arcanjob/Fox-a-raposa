@@ -12,7 +12,7 @@ from parametros import *
             pular(botao)
     '''
 
-class personagem (pygame.sprite.Sprite):
+class persona (pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
 
@@ -20,18 +20,22 @@ class personagem (pygame.sprite.Sprite):
         self.orientacao = de_peh
 
         self.i = 0
+        self.tempo_ult_img = pygame.time.get_ticks()
+
         self.estado = parado
         
-        self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao)
+
+        self.imagem = pygame.transform.rotate(anim_parado[0], self.orientacao)
         self.mascara = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
-        self.rect.centerx = x_meio_inicial_do_personagem
-        self.rect.bottom = y_peh_inicial_do_personagem
+        self.rect.centerx = F['x_meio_inicial_do_personagem']
+        self.rect.bottom = F['y_peh_inicial_do_personagem']
         self.velocidadex = 0
         self.velocidadey = 0
 
+        self.lista_estados = []
 
     def update(self): #MOVIMENTO - VELOCIDADE À DEFINIR
         #atualizando a posição do player
@@ -40,26 +44,33 @@ class personagem (pygame.sprite.Sprite):
         self.rect.x += self.velocidadex
         self.rect.y += self.velocidadey
 
+
         #ESTÁ PARADO
         if self.velocidadex == 0 and self.velocidadey == 0:
             self.estado = parado
+            self.lista_estados.append(self.estado)
         if self.estado == parado:
-            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao)  
+            self.imagem = pygame.transform.rotate(anim_parado[sef(self.i)], self.orientacao)  
             self.mascara = pygame.mask.from_surface(self.imagem)
-        if self.i == len(anim_parado):
-            self.i = 0
 
+        if int(self.i) == len(anim_parado):
+            self.i = 0
+        
 
         #ESTÁ PULANDO
         if self.velocidadex != 0 or self.velocidadex != 0:
             self.estado = pulando
+            self.lista_estados.append(self.estado)
         if self.estado == pulando:
-            self.imagem = pygame.transform.rotate(anim_parado[self.i], self.orientacao) 
+            self.imagem = pygame.transform.rotate(anim_parado[int(self.i)], self.orientacao) 
             self.mascara = pygame.mask.from_surface(self.imagem)
-        if self.i == len(anim_pulando):
+            
+        if int(self.i) == len(anim_pulando):
             self.i = 0
-        
 
+        
+        if self.estado != self.lista_estados[len(self.lista_estados)-1]:
+            self.i = 0
 
         #dentro da tela - desacelerando e mantendo dentro da tela - NO FUTURO, DEVO FAZER O MESMO PARA QUANDO O PERSONAGEM COLIDIR COM AS PAREDES
         if self.rect.right >= LARGURA_JANELA:
@@ -97,7 +108,7 @@ class objeto:
 
 
 #SPRITE  - MORRENDO
-class sprite_morrendo(pygame.sprite.Sprite):   
+class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do personagem
 
     def __init__(self, centro):
         pygame.sprite.Sprite.__init__(self)
@@ -107,7 +118,7 @@ class sprite_morrendo(pygame.sprite.Sprite):
 
         
         self.frame = 0  #NUMERANDO O PRIMEIRO FRAME - SE ATUALIZARÁ
-        self.imagem = pygame.transform.rotate(self.anim_morrendo[self.i], self.orientacao)   #SELECIONANDO O ARQUIVO DA ANIMAÇÃO CORRESPONDENTE AO FRAME E
+        self.imagem = pygame.transform.rotate(self.anim_morrendo[0], self.orientacao)   #SELECIONANDO O ARQUIVO DA ANIMAÇÃO CORRESPONDENTE AO FRAME E
         #ACRESCENTANDO A ROTACAO
         
         #ATUALIZANDO A POSIÇÃO
@@ -120,29 +131,29 @@ class sprite_morrendo(pygame.sprite.Sprite):
         self.espera = 50 #AGUARDO ENTRE UM FRAME E O PRÓXIMO
 
 
-        def update(self):
+    def update(self):
+        
+        agora = pygame.time.get_ticks() #ve a posicao atual
+        
+        
+        tempo_decorrido = agora - self.ultimo_update #tempo decorrido desde a ultima mudanca de frame
+
+        # Se já está na hora de mudar de imagem...
+        if tempo_decorrido > self.espera: #se o tempo que passou for maior que o tempo de espera 
             
-            agora = pygame.time.get_ticks() #ve a posicao atual
+            self.ultimo_update = agora # atualiza o ultimo update para agora
+
+            # Avança um quadro.
+            self.frame += 1
+
+            # Verifica se já chegou no final da animação.
             
-            
-            tempo_decorrido = agora - self.ultimo_update #tempo decorrido desde a ultima mudanca de frame
+            if self.frame == len(self.anim_morrendo): #se acabar a animacao ele morre
 
-            # Se já está na hora de mudar de imagem...
-            if tempo_decorrido > self.espera: #se o tempo que passou for maior que o tempo de espera 
-                
-                self.ultimo_update = agora # atualiza o ultimo update para agora
-
-                # Avança um quadro.
-                self.frame += 1
-
-                # Verifica se já chegou no final da animação.
-                
-                if self.frame == len(self.anim_morrendo): #se acabar a animacao ele morre
-
-                    self.kill()
-                else:
-                    # troca de imagem se n terminou a animacao
-                    centro = self.rect.centro
-                    self.imagem = self.anim_morrendo[self.frame] 
-                    self.rect = self.image.get_rect()
-                    self.rect.centro = centro
+                self.kill()
+            else:
+                # troca de imagem se n terminou a animacao
+                centro = self.rect.centro
+                self.imagem = self.anim_morrendo[self.frame] 
+                self.rect = self.image.get_rect()
+                self.rect.centro = centro

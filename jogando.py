@@ -4,16 +4,18 @@ from mapa import *
 from parametros import *
 from math import *
 from sprites_e_classes import *
+from PARTE_PRINCIPAL import FASE
 
 
 ###########################################################JOGO#################################################
 
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
-    personagem.i = 0
-    personagem = personagem()
+    personagem = persona() #chamando o personagem
+    personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem
     
-    #DEFININDO O MAPA E DE 
+    
+    #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
     if   FASE == 1:
         F = F1
         mapa = MAPA_1
@@ -41,7 +43,7 @@ def jogando(JANELA):
         for coluna in range(len(mapa[fila])):
             tipo_bloco = mapa[fila][coluna]
             if tipo_bloco == B:
-                bloco = objeto(fila, coluna, img_plataformas, 0)
+                bloco = objeto(fila, coluna, img_plataformas, de_peh)
                 F['all_sprites'].add(bloco)
                 F['blocos'].add(bloco)
                 
@@ -52,10 +54,10 @@ def jogando(JANELA):
 
 
     while estado_do_jogo == JOGANDO:
-        clock.tick(FPS)
+        clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
+        
 
-
-        personagem.i +=1
+        
         #EVENTOS
 
         for event in pygame.event.get():
@@ -80,7 +82,7 @@ def jogando(JANELA):
 
 
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
-        if personagem.velocidadey>0 and personagem.orientacao != de_peh:
+        if personagem.velocidadey>0 and personagem.orientacao != de_peh:    
             personagem.orientacao += velocidade_de_rotaca_p_frame
         if personagem.velocidadey<0 and personagem.orientacao != de_ponta_cabeca:
             personagem.orientacao -= velocidade_de_rotaca_p_frame
@@ -105,66 +107,69 @@ def jogando(JANELA):
                 som_caido.play()
 
             #COLISOES COM MOEDAS
-            colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask)
-            if colisoes_moedas:
-                pontos += 1
-                som_pegando_moedas.play()
+            colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            if colisoes_moedas: #CASO TENHAM HAVIDO
+                F['pontos'] += 1 #ADICIONA UM PONTO 
+                som_pegando_moedas.play() #SOM
         
 
             #COLISÃO COM OS ESPINHOS
-            colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask)
+            colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             if colisoes_espinhos:        
-                som_morrendo.play()
-                personagem.kill()
-                vidas -= 1
-                morte = sprite_morrendo(personagem.rect.center)
+                som_morrendo.play() #SOM
+                personagem.kill() #TIRA O PERSONAGEM DA TELA (SERÁ SUBSTITUIDO POR UMA ANIMAÇÃO DELE MORRENDO)
+                F['vidas'] -= 1 #PERDE 1 DAS 3 VIDAS
+                morte = sprite_morrendo(personagem.rect.center) 
 
-                F['all_sprites'].add(morte)
-                keys_down = {}
-                estado_do_jogo = MORRENDO
-                hora_da_morte = pygame.time.Clock()
+                F['all_sprites'].add(morte) #ADICIONA A ANIMAÇÃO DELE MORRENDO
+                keys_down = {}           #LIMPA O DICIONARIO DOS BOTÕES PRESSIONADOS
+                estado_do_jogo = MORRENDO #ATUALIZA O ESTADO DO JOGO
+                hora_da_morte = pygame.time.Clock() 
                 duracao_da_morte = morrendo.espera * len(morrendo.anim_morrendo) + 400
 
             
             #COLISAO COM A CHEGADA
-            colisao_chegada = pygame.sprite.spritecollide(personagem, F['chegada'], False, pygame.sprite.collide_mask)
-            if colisao_chegada and F['pontos'] == F['galinhas minimas']:
+            colisao_chegada = pygame.sprite.spritecollide(personagem, F['chegada'], False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            if colisao_chegada and F['pontos'] == F['galinhas minimas']: #SOMENTE SE A PESSOA COLETOU TODAS AS GALINHAS QUE ELE PODE PROSSEGUIR
                 som_vitoria.play()
-                estado_do_jogo = VITORIA
+                estado_do_jogo = VITORIA #ATUALIZA O ESTADO DO JOGO
+
+            
+            personagem.i +=1/50 #MUDANDO A IMAGEM DO PERSONAGEM QUE SERÁ EXIBIDA
 
 
-        elif estado_do_jogo == MORRENDO:
+        elif estado_do_jogo == MORRENDO: #INDO PRA TELA DA MORTE
             agora = pygame.time.get_ticks()
 
-            if agora - hora_da_morte > duracao_da_morte:
-                if vidas == 0:
-                    estado_do_jogo = GAME_OVER   #A PESSOA MORREU
+            if agora - hora_da_morte > duracao_da_morte: #AVALIANDO SE A ANIMAÇÃO DO PERSONAGEM MORRENDO JÁ ACABOU
+                if F['vidas'] == 0:
+                    estado_do_jogo = GAME_OVER   #A PESSOA MORREU E NÃO TEM MAIS VIDAS
                 else: 
-                    estado_do_jogo = JOGANDO
-                    personagem = personagem()
-                    F['vidas']-=1
-                    F['all_sprites'].add(personagem)
+                    estado_do_jogo = JOGANDO #O JOGO CONTINUA, PORQUE A PESSOA AINDA TEM VIDAS
+                    personagem = persona() #CONVOCA O PERSONAGEM NAS CONFIGURAÇÕES INICIAIS
+                    F['vidas']-=1 #TIRA UMA VIDA 
+                    F['all_sprites'].add(personagem) #ADICIONA O PERSONAGEM DE VOLTA NO JOGO
 
-                    resetar_moedas(F['moedas'])
+                    resetar_moedas(F['moedas'])  #ISSO ESTÁ ESCRITO EM PARAMETROS, QUANDO EU DEFINO OS DICIONARIOS DAS FASES
 
 
         #GERANDO SAIDAS
-        JANELA.fill(PRETO)
-        JANELA.blit(img_fundo,(0,0))
+        JANELA.fill(PRETO) 
+        JANELA.blit(img_fundo,(0,0)) #COLOCA O FUNDO
 
-        F['all_sprites'].draw(JANELA)
+        F['all_sprites'].draw(JANELA) #POEM OS SPRITES NA TELA
 
         #PONTUAÇÃO
-        perfil_texto = fonte_pontos.render("{:08d}/{}".format(pontos, F['galinhas minimas']), True, AMARELO)
-        texto_rect = perfil_texto.get_rect()
-        texto_rect.midtop = (LARGURA_JANELA / 2,  10)
-        JANELA.blit(perfil_texto, texto_rect)
+        perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(F['pontos'], F['galinhas minimas']), True, AMARELO)  #diz quantas de quantas galinhas a pessoa já pegou
+        texto_rect = perfil_texto.get_rect() 
+        texto_rect.midtop = (LARGURA_JANELA / 2,  10) #posiciona o texto
+        JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
         #VIDAS
-        perfil_texto = fonte_pontos.render(chr(9829) * vidas, True, VERMELHO)
-        texto_rect = perfil_texto.get_rect()
-        texto_rect.bottomleft = (10, ALTURA_JANELA - 10)
-        JANELA.blit(perfil_texto, texto_rect)
+        perfil_texto = fonte_pontos.render(chr(9829) * vidas, True, VERMELHO) #faz o coração
+        texto_rect = perfil_texto.get_rect() 
+        texto_rect.bottomleft = (10, ALTURA_JANELA - 10) #posiciona o texto
+        JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
 
         pygame.display.update()
