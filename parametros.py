@@ -13,7 +13,8 @@ velocidade_de_rotaca_p_frame = radians(1) # do personagem, ao cair
 JANELA = pygame.display.set_mode((1000, 500))
 pygame.display.set_caption('Fox, a Raposa')
 
-####TAMANHOS
+####TAMANHOS 
+
 #JANELA
 LARGURA_JANELA = 1000 # Largura da tela - A DEFINIR
 ALTURA_JANELA =  600# Altura da tela - A DEFINIR
@@ -279,7 +280,7 @@ F2['bloco'] =  pygame.sprite.Group()
 F2['all_sprites'].add(F2['objetos'], F2['moedas'],F2['chegada'])
 
 
-#########################################################CENÁRIO FASE 3 ###################################################
+######################################################### CENÁRIO FASE 3 ###################################################
 
 
 F3 = {}
