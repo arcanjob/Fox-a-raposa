@@ -611,11 +611,12 @@ def jogando(JANELA, MAPA, F):
     global ALTURA_JANELA
     #CRIANDO O MAPA
     print(f'linhas do mapa: {range(len(MAPA))}')
-    for linha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
+    for ilinha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
+        linha = MAPA[ilinha]
         
-        for coluna in range(len(MAPA[linha])):
-            print(f'a linha é {linha}')
-            elemento = MAPA[linha] [coluna]
+        for icoluna in range(len(linha)):
+            
+            elemento = MAPA[ilinha] [icoluna]
             linha *= TAMANHO_LINHA_E_COLUNA
             coluna *= TAMANHO_LINHA_E_COLUNA
             if elemento == B or elemento == L or elemento == P:
