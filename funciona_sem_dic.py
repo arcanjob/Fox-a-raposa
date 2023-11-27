@@ -875,6 +875,9 @@ while estado_do_jogo != DONE:
             #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
         F = 3
         MAPA = MAPA_1
+        
+        
+        
         """
         if  FASE == 1:
             F = F1                                                   #PRECISA DO F1 - FEITO
@@ -885,6 +888,8 @@ while estado_do_jogo != DONE:
         elif FASE == 3:
             F = F3                                                   #PRECISA DO F3
             MAPA = MAPA_3                                            #PRECISA DO MAPA3 - FEITO
+            
+            
             """
         estado_do_jogo = jogando(JANELA, MAPA, F)                             #PRECISA DO JOGANDO() - FEITO
     if estado_do_jogo == GAME_OVER:
@@ -898,7 +903,6 @@ while estado_do_jogo != DONE:
 
 
 #fecha a janela
-
 
 
 game = True
