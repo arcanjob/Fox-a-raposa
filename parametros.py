@@ -3,6 +3,7 @@ from math import *
 import os
 from sprites_e_classes import objeto, persona
 
+
 pygame.mixer.init()
 pygame.init()
 
