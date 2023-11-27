@@ -1,4 +1,3 @@
-from math import *
 
 B = 0 #bloco
 P = 0 #preenchimento

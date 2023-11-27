@@ -3,7 +3,7 @@
 import pygame
 from parametros import *
 from sprites_e_classes import *
-from jogando import *
+from jogando import INICIO
 from tela0_de_derrota_e_vitoria import *
 from math import *
 from mapa import *

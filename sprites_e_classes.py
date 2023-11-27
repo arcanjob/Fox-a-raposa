@@ -3,6 +3,9 @@ pygame.init()
 
 from parametros import *
 from PARTE_PRINCIPAL import *
+
+
+
 '''
     def cooldown(self):
         agora = pygame.time.get_ticks()

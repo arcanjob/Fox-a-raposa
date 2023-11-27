@@ -8,6 +8,7 @@ from sprites_e_classes import *
 
 ###########################################################JOGO#################################################
 
+
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
     #chamando o personagem
