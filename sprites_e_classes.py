@@ -14,7 +14,7 @@ from parametros import *
 
 class persona (pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
+        pygame.sprite.Sprite.__init__(self,linha,coluna)
 
         
         self.orientacao = de_peh
@@ -30,8 +30,8 @@ class persona (pygame.sprite.Sprite):
         self.rect = self.imagem.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
-        self.rect.centerx = F['x_meio_inicial_do_personagem']
-        self.rect.bottom = F['y_peh_inicial_do_personagem']
+        self.rect.centerx =coluna
+        self.rect.bottom = linha
         self.velocidadex = 0
         self.velocidadey = 0
 

@@ -1,7 +1,7 @@
 import pygame
 from math import *
 import os
-from sprites_e_classes import objeto
+from sprites_e_classes import objeto, persona
 
 pygame.mixer.init()
 pygame.init()
@@ -189,9 +189,10 @@ F1['y_peh_inicial_do_personagem'] = 40
 F1['objetos']= pygame.sprite.Group() 
 
 
+
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
-F1['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas, de_peh)
+F1['plataforma1'] = objeto(100, 400, img_plataformas, de_peh)
 
 F1['plataformas'].add(F1['plataforma1'])
 
@@ -199,7 +200,7 @@ F1['objetos'].add(F1['plataformas'])
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 F1['espinhos'] = pygame.sprite.Group()
-F1['espinho1'] = objeto(200,300), pygame.transform.rotate(img_espinhos, de_peh)
+F1['espinho1'] = objeto(4,3, img_espinhos, de_peh)
 
 F1['espinhos'].add(F1['espinho1'])
 
@@ -213,11 +214,11 @@ F1['galinhas minimas'] = 5  #o minimo de galinhas que a pessoa tem que pegar par
 F1['moedas'] = pygame.sprite.Group()
 
 
-F1['moeda1'] = objeto(23,12, img_moeda,de_peh)
+F1['moeda1'] = objeto(9,12, img_moeda,de_peh, de_peh)
 F1['moedas'].add(moeda1)
 
 #CHEGADA
-F1['chegada'] = objeto(90, 0, img_chegada,de_peh)
+F1['chegada'] = objeto(9, 0, img_chegada,de_peh, de_peh)
 
 # Função para reposicionar as moedas
 def resetar_moedas(moedas):
@@ -230,99 +231,3 @@ F1['bloco'] =  pygame.sprite.Group()
 F1['all_sprites'].add(F1['objetos'], F1['moedas'],F1['chegada'])
 
 
-#########################################################CENÁRIO FASE 2 ###################################################
-
-
-F2 = {}
-#POSIÇÃO INICIAL DO PERSONAGEM
-F2['x_meio_inicial_do_personagem'] = 30
-F2['y_peh_inicial_do_personagem'] = 40
-#OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
-F2['objetos']= pygame.sprite.Group() 
-
-#PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F2['plataformas'] = pygame.sprite.Group()
-F2['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas, de_peh)
-
-F2['plataformas'].add(F2['plataforma1'])
-
-F2['galinhas minimas'] =  4 #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
-
-F2['objetos'].add(F2['plataformas'])
-
-#ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
-F2['espinhos'] = pygame.sprite.Group()
-F2['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, de_peh))
-
-F2['espinhos'].add(F2['espinho1'])
-
-F2['objetos'].add(F2['espinhos'])
-
-
-#MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F2['moedas'] = pygame.sprite.Group()
-F2['pontos'] = 0 
-
-F2['moeda1'] = objeto(23,12, img_moeda)
-F2['moedas'].add(moeda1)
-F1['galinhas minimas'] = 3  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
-#CHEGADA
-F2['chegada'] = objeto(90, 0, img_chegada, de_peh) 
-
-# Função para reposicionar as moedas
-def resetar_moedas(moedas):
-        for moeda in moedas:
-                moeda.rect.x = moeda.x_original
-                moeda.rect.y = moeda.y_original
-
-F2['all_sprites'] = pygame.sprite.Group()
-F2['bloco'] =  pygame.sprite.Group()
-F2['all_sprites'].add(F2['objetos'], F2['moedas'],F2['chegada'])
-
-
-######################################################### CENÁRIO FASE 3 ###################################################
-
-
-F3 = {}
-#POSIÇÃO INICIAL DO PERSONAGEM
-F2['x_meio_inicial_do_personagem'] = 30
-F2['y_peh_inicial_do_personagem'] = 40
-#OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
-F3['objetos']= pygame.sprite.Group() 
-
-#PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F3['plataformas'] = pygame.sprite.Group()
-F3['plataforma1'] = objeto(100, 400), pygame.transform.rotate(img_plataformas)
-F3['pontos'] = 0
-F3['plataformas'].add(F3['plataforma1'])
-
-F3['objetos'].add(F3['plataformas'])
-
-#ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
-F3['espinhos'] = pygame.sprite.Group()
-F3['espinho1'] = objeto(200,300, pygame.transform.rotate(img_espinhos, 0))
-
-F3['espinhos'].add(F3['espinho1'])
-
-F3['objetos'].add(F3['espinhos'])
-
-
-#MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F3['moedas'] = pygame.sprite.Group()
-
-
-F3['moeda1'] = objeto(23,12, img_moeda)
-F3['moedas'].add(moeda1)
-
-#CHEGADA
-F3['chegada'] = objeto(90, 0, img_chegada)
-
-# Função para reposicionar as moedas
-def resetar_moedas(moedas):
-        for moeda in moedas:
-                moeda.rect.x = moeda.x_original
-                moeda.rect.y = moeda.y_original
-
-F3['all_sprites'] = pygame.sprite.Group()
-F3['bloco'] =  pygame.sprite.Group()
-F3['all_sprites'].add(F3['objetos'], F3['moedas'],F3['chegada'])
