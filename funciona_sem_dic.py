@@ -449,6 +449,10 @@ class objeto (pygame.sprite.Sprite):                  ##########################
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 objetos = pygame.sprite.Group() 
 
+#GRUPO COM O OBJETIVO - PARA A COLISÃO
+objetivo = pygame.sprite.Group() 
+
+
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 plataformas = pygame.sprite.Group()
 
@@ -678,7 +682,8 @@ def jogando(JANELA, MAPA, F):
                     imagem = img_chegada
                     orientacao = de_peh
 
-                    objetivo = objeto(largura_linha, largura_coluna, imagem, orientacao)
+                    sprite_objetivo = objeto(largura_linha, largura_coluna, imagem, orientacao)
+                    objetivo.add(sprite_objetivo)
                     objetos.add(objetivo)
                     all_sprites.add(objetivo)
 
