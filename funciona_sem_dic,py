@@ -443,30 +443,30 @@ class objeto:                                                             #SPRIT
 ######################################################### CENÁRIO FASE 1 ###################################################    SPRITES_E_CLASSES
 
 
-F1 = {}
+
 
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
-F1['objetos']= pygame.sprite.Group() 
+objetos = pygame.sprite.Group() 
 
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F1['plataformas'] = pygame.sprite.Group()
+plataformas = pygame.sprite.Group()
 
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
-F1['espinhos'] = pygame.sprite.Group()
+espinhos = pygame.sprite.Group()
 
 #QUANTAS GALINHAS A RAPOSA PEGOU
-F1['pontos'] = 0
+pontos = 0
 
-F1['galinhas minimas'] = 5  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
+galinhas_minimas = 5  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
 
-F1['blocos'] = pygame.sprite.Group()
+blocos = pygame.sprite.Group()
 
 #MOEDAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
-F1['moedas'] = pygame.sprite.Group()
+moedas = pygame.sprite.Group()
 
 
-F1['all_sprites'] = pygame.sprite.Group()
+all_sprites = pygame.sprite.Group()
 
 ################################################ FIM DO CENÁRIO 1 - PARAMETROS
 
@@ -604,7 +604,11 @@ class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do perso
 def jogando(JANELA, MAPA, F):
     cronometro = pygame.time.Clock()
     #chamando o personagem
-    
+    global pontos
+    global LARGURA_JANELA
+    global vidas
+    global VERMELHO
+    global ALTURA_JANELA
     #CRIANDO O MAPA
     for linha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
         for coluna in range(len(MAPA)):
@@ -615,63 +619,63 @@ def jogando(JANELA, MAPA, F):
                         imagem = img_plataformas
                         orientacao = de_peh
                         bloco = objeto(linha,coluna, imagem, orientacao)                            ### CHAMA A CLASSE OBJETO()  - FEITO
-                        F['plataformas'].add(bloco)                                                 # CHAMA O DICIONARIO F1, P EX - DIC F1 - FEITO
-                        F['blocos'].add(bloco)                                                      #O VALOR DO F - será determinado ainda - no principal
-                        F['objetos'].add(bloco)
-                        F['all_sprites'].add(bloco)
+                        plataformas.add(bloco)                                                 # CHAMA O DICIONARIO F1, P EX - DIC F1 - FEITO
+                        blocos.add(bloco)                                                      #O VALOR DO F - será determinado ainda - no principal
+                        objetos.add(bloco)
+                        all_sprites.add(bloco)
                 
                 if elemento == M:
                         imagem = img_moeda
                         orientacao = de_peh
                         moeda = objeto(linha,coluna, imagem, orientacao)
-                        F['moedas'].add(moeda)
-                        F['all_sprites'].add(moeda)
-                        F['objetos'].add(moeda)
+                        moedas.add(moeda)
+                        all_sprites.add(moeda)
+                        objetos.add(moeda)
                         
                 
                 if elemento == EE:
                         imagem = img_espinhos
                         orientacao = virado_para_a_esquerda
                         espinho = objeto(linha, coluna, imagem, orientacao)
-                        F['objetos'].add(espinho)
-                        F['all_sprites'].add(espinho)
-                        F['espinhos'].add(espinho)
+                        objetos.add(espinho)
+                        all_sprites.add(espinho)
+                        espinhos.add(espinho)
                 
                 if elemento == ED:
                         imagem = img_espinhos
                         orientacao = virado_para_a_direita
                         espinho = objeto(linha, coluna, imagem, orientacao)
-                        F['objetos'].add(espinho)
-                        F['all_sprites'].add(espinho)
-                        F['espinhos'].add(espinho)
+                        objetos.add(espinho)
+                        all_sprites.add(espinho)
+                        espinhos.add(espinho)
                 
                 if elemento == EC:
                         imagem = img_espinhos
                         orientacao = de_peh
                         espinho = objeto(linha, coluna, imagem, orientacao)                            #objeto - FEITO
-                        F['objetos'].add(espinho)
-                        F['all_sprites'].add(espinho)
-                        F['espinhos'].add(espinho)
+                        objetos.add(espinho)
+                        all_sprites.add(espinho)
+                        espinhos.add(espinho)
                 
                 if elemento == EB:
                         imagem = img_espinhos
                         orientacao = de_ponta_cabeca
                         espinho = objeto(linha, coluna, imagem, orientacao)
-                        F['objetos'].add(espinho)
-                        F['all_sprites'].add(espinho)
-                        F['espinhos'].add(espinho)
+                        objetos.add(espinho)
+                        all_sprites.add(espinho)
+                        espinhos.add(espinho)
                 
                 if elemento == R:
                         personagem = persona(linha, coluna)                                           #persona - FEITO 
-                        F['all_sprites'].add(personagem)
+                        all_sprites.add(personagem)
                 
                 if elemento == O:
                         imagem = img_chegada
                         orientacao = de_peh
 
                         objetivo = objeto(linha, coluna, imagem, orientacao)
-                        F['objetos'].add(objetivo)
-                        F['all_sprites'].add(objetivo)
+                        objetos.add(objetivo)
+                        all_sprites.add(objetivo)
 
     
 
@@ -690,21 +694,21 @@ def jogando(JANELA, MAPA, F):
             tipo_bloco = MAPA[fila][coluna]
             if tipo_bloco == B:                                                                                      #OS MAPAS, EM SI - DEVE SER MOSTRADO MAIS À FRENTE
                 bloco = objeto(fila, coluna, img_plataformas, de_peh)                                                #O SIGNIFICADO DE CADA ORIENTACAO - FEITO
-                F['all_sprites'].add(bloco)
-                F['blocos'].add(bloco)
+                all_sprites.add(bloco)
+                blocos.add(bloco)
             elif tipo_bloco == M:
                 bloco = objeto(fila, coluna, img_moeda, 0)
-                F['all_sprites'].add(bloco)
-                F['blocos'].add(bloco)
+                all_sprites.add(bloco)
+                blocos.add(bloco)
             
             elif tipo_bloco == EE:
                 bloco = objeto(fila, coluna, img_espinhos, 0)
-                F['all_sprites'].add(bloco)
-                F['blocos'].add(bloco)
+                all_sprites.add(bloco)
+                blocos.add(bloco)
                 
 
-    F['all_sprites'].add(personagem) # ADICIONANDO O PERSONAGEM
-    F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
+    all_sprites.add(personagem) # ADICIONANDO O PERSONAGEM
+    vidas = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
 
 
@@ -751,13 +755,13 @@ def jogando(JANELA, MAPA, F):
             personagem.orientacao -= velocidade_de_rotaca_p_frame
 
         
-        F['all_sprites'].update()
+        all_sprites.update()
 
 
         if estado_do_jogo == JOGANDO:
 
             #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-            colisoes_plataformas = pygame.sprite.spritecollide(personagem, F1['plataformas'], False, pygame.sprite.collide_mask)
+            colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
             if colisoes_plataformas:
                 if personagem.velocidadex !=0:
                     personagem.velocidadex = 0  # para o jogador
@@ -766,24 +770,24 @@ def jogando(JANELA, MAPA, F):
                 som_caido.play()
 
             #COLISOES COM MOEDAS
-            colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            colisoes_moedas = pygame.sprite.spritecollide(personagem, moedas, True, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             
             if colisoes_moedas: #CASO TENHAM HAVIDO
                 
-                F['pontos'] += 1 #ADICIONA UM PONTO 
+                pontos += 1 #ADICIONA UM PONTO 
                 som_pegando_moedas.play() #SOM
         
 
             #COLISÃO COM OS ESPINHOS
-            colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            colisoes_espinhos = pygame.sprite.spritecollide(personagem, espinhos, False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             if colisoes_espinhos:        
                 
                 som_morrendo.play() #SOM
                 personagem.kill() #TIRA O PERSONAGEM DA TELA (SERÁ SUBSTITUIDO POR UMA ANIMAÇÃO DELE MORRENDO)
-                F['vidas'] -= 1 #PERDE 1 DAS 3 VIDAS
+                vidas -= 1 #PERDE 1 DAS 3 VIDAS
                 morte = sprite_morrendo(personagem.rect.center)                                                            #SPRITE_MORRENDO - FEITO
 
-                F['all_sprites'].add(morte) #ADICIONA A ANIMAÇÃO DELE MORRENDO
+                all_sprites.add(morte) #ADICIONA A ANIMAÇÃO DELE MORRENDO
                 keys_down = {}           #LIMPA O DICIONARIO DOS BOTÕES PRESSIONADOS
                 estado_do_jogo = MORRENDO #ATUALIZA O ESTADO DO JOGO
                 hora_da_morte = pygame.time.Clock() 
@@ -791,8 +795,8 @@ def jogando(JANELA, MAPA, F):
 
             
             #COLISAO COM A CHEGADA
-            colisao_chegada = pygame.sprite.spritecollide(personagem, F['chegada'], False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
-            if colisao_chegada and F['pontos'] == F['galinhas minimas']: #SOMENTE SE A PESSOA COLETOU TODAS AS GALINHAS QUE ELE PODE PROSSEGUIR
+            colisao_chegada = pygame.sprite.spritecollide(personagem, chegada, False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            if colisao_chegada and pontos == galinhas_minimas: #SOMENTE SE A PESSOA COLETOU TODAS AS GALINHAS QUE ELE PODE PROSSEGUIR
                 som_vitoria.play()
                 estado_do_jogo = VITORIA #ATUALIZA O ESTADO DO JOGO
 
@@ -804,31 +808,32 @@ def jogando(JANELA, MAPA, F):
             agora = pygame.time.get_ticks()
 
             if agora - hora_da_morte > duracao_da_morte: #AVALIANDO SE A ANIMAÇÃO DO PERSONAGEM MORRENDO JÁ ACABOU
-                if F['vidas'] == 0:
+                if vidas == 0:
                     estado_do_jogo = GAME_OVER   #A PESSOA MORREU E NÃO TEM MAIS VIDAS
                 else: 
                     estado_do_jogo = JOGANDO #O JOGO CONTINUA, PORQUE A PESSOA AINDA TEM VIDAS
                     personagem = persona(persona.posicao_inicial_x, persona.posicao_inicial_y) #CONVOCA O PERSONAGEM NAS CONFIGURAÇÕES INICIAIS
-                    F['vidas']-=1 #TIRA UMA VIDA 
-                    F['all_sprites'].add(personagem) #ADICIONA O PERSONAGEM DE VOLTA NO JOGO
+                    vidas -=1 #TIRA UMA VIDA 
+                    all_sprites.add(personagem) #ADICIONA O PERSONAGEM DE VOLTA NO JOGO
 
-                    #resetar_moedas(F['moedas'])  #ISSO ESTÁ ESCRITO EM PARAMETROS, QUANDO EU DEFINO OS DICIONARIOS DAS FASES
+                    #resetar_moedas(moedas)  #ISSO ESTÁ ESCRITO EM PARAMETROS, QUANDO EU DEFINO OS DICIONARIOS DAS FASES
 
 
         #GERANDO SAIDAS
         JANELA.fill(PRETO) 
         JANELA.blit(img_fundo,(0,0)) #COLOCA O FUNDO
 
-        F['all_sprites'].draw(JANELA) #POEM OS SPRITES NA TELA
+        all_sprites.draw(JANELA) #POEM OS SPRITES NA TELA
 
+        
         #PONTUAÇÃO
-        perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(F['pontos'], F['galinhas minimas']), True, AMARELO)  #diz quantas de quantas galinhas a pessoa já pegou     
+        perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(pontos, galinhas_minimas), True, AMARELO)  #diz quantas de quantas galinhas a pessoa já pegou     
         texto_rect = perfil_texto.get_rect() 
         texto_rect.midtop = (LARGURA_JANELA / 2,  10) #posiciona o texto
         JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
         #VIDAS
-        perfil_texto = fonte_pontos.render(chr(9829) * F['vidas'] , True, VERMELHO) #faz o coração
+        perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, VERMELHO) #faz o coração
         texto_rect = perfil_texto.get_rect() 
         texto_rect.bottomleft = (10, ALTURA_JANELA - 10) #posiciona o texto
         JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
@@ -870,9 +875,9 @@ while estado_do_jogo != DONE:
         estado_do_jogo = tela_inicial(JANELA)
     if estado_do_jogo == JOGANDO:        #FECHA NA HORA
             #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
-        F = F1
+        F = 3
         MAPA = MAPA_1
-        
+        """
         if  FASE == 1:
             F = F1                                                   #PRECISA DO F1 - FEITO
             MAPA = MAPA_1                                            #PRECISA DO MAPA_1 - FEITO
@@ -882,7 +887,7 @@ while estado_do_jogo != DONE:
         elif FASE == 3:
             F = F3                                                   #PRECISA DO F3
             MAPA = MAPA_3                                            #PRECISA DO MAPA3 - FEITO
-        
+            """
         estado_do_jogo = jogando(JANELA, MAPA, F)                             #PRECISA DO JOGANDO() - FEITO
     if estado_do_jogo == GAME_OVER:
         estado_do_jogo = tela_final(JANELA)                           #PRECISA DO TELA_FINAL() - FEITO

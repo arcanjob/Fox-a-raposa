@@ -1,7 +1,6 @@
 import pygame
-import os
-
 from math import *
+import os
 from sprites_e_classes import objeto, persona
 
 
@@ -72,7 +71,7 @@ ALTURA_FINAL = ALTURA_JANELA
 
 
 clock = pygame.time.Clock()
-FPS = 30
+FPS = 60
 
 # Estabelecer as figuras
 img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
