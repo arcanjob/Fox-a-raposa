@@ -883,7 +883,7 @@ while estado_do_jogo != DONE:
             MAPA = MAPA_3                                            #PRECISA DO MAPA3 - FEITO
             
             
-            """
+        """
         
 
         
