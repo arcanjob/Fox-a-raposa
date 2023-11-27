@@ -33,6 +33,7 @@ while estado_do_jogo != DONE:
             estado_do_jogo = tela_inicial(JANELA)
         if estado_do_jogo == JOGANDO:
                 #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
+            
             if   FASE == 1:
                 F = F1
                 MAPA = MAPA_1
@@ -42,6 +43,7 @@ while estado_do_jogo != DONE:
             elif FASE == 3:
                 F = F3
                 MAPA = MAPA_3
+                
             estado_do_jogo = jogando(JANELA)
         if estado_do_jogo == GAME_OVER:
             estado_do_jogo = tela_final(JANELA)

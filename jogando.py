@@ -93,13 +93,13 @@ def jogando(JANELA):
 
     keys_down = {}
 
-    pygame.mixer.som_fundo.play(loops=-1)
+    
     estado_do_jogo = JOGANDO
     
     #FAZENDO O MAPA
-    for fila in range(len(mapa)):
-        for coluna in range(len(mapa[fila])):
-            tipo_bloco = mapa[fila][coluna]
+    for fila in range(len(MAPA)):
+        for coluna in range(len(MAPA[fila])):
+            tipo_bloco = MAPA[fila][coluna]
             if tipo_bloco == B:
                 bloco = objeto(fila, coluna, img_plataformas, de_peh)
                 F['all_sprites'].add(bloco)
@@ -121,8 +121,6 @@ def jogando(JANELA):
 
     while estado_do_jogo == JOGANDO:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
-        
-
         
         #EVENTOS
 
@@ -222,7 +220,7 @@ def jogando(JANELA):
                     F['vidas']-=1 #TIRA UMA VIDA 
                     F['all_sprites'].add(personagem) #ADICIONA O PERSONAGEM DE VOLTA NO JOGO
 
-                    resetar_moedas(F['moedas'])  #ISSO ESTÁ ESCRITO EM PARAMETROS, QUANDO EU DEFINO OS DICIONARIOS DAS FASES
+                    #resetar_moedas(F['moedas'])  #ISSO ESTÁ ESCRITO EM PARAMETROS, QUANDO EU DEFINO OS DICIONARIOS DAS FASES
 
 
         #GERANDO SAIDAS
