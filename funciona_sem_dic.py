@@ -614,8 +614,7 @@ def jogando(JANELA, MAPA, F):
     
     for ilinha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
         
-        print(len(linha))
-
+        linha = MAPA[ilinha]
         for icoluna in range(len(linha)):
             
             elemento = MAPA[ilinha] [icoluna]
@@ -800,7 +799,7 @@ def jogando(JANELA, MAPA, F):
 
             
             #COLISAO COM A CHEGADA
-            colisao_chegada = pygame.sprite.spritecollide(personagem, chegada, False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            colisao_chegada = pygame.sprite.spritecollide(personagem, objetivo, False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             if colisao_chegada and pontos == galinhas_minimas: #SOMENTE SE A PESSOA COLETOU TODAS AS GALINHAS QUE ELE PODE PROSSEGUIR
                 som_vitoria.play()
                 estado_do_jogo = VITORIA #ATUALIZA O ESTADO DO JOGO
