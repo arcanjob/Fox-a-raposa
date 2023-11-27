@@ -900,7 +900,6 @@ while estado_do_jogo != DONE:
 #fecha a janela
 
 
-
 game = True
 """
 
