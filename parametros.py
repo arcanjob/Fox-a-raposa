@@ -64,6 +64,9 @@ LARGURA_VITORIA_FINAL = LARGURA_JANELA
 LARGURA_CORACAO = 10
 ALTURA_CORACAO = 10
 
+clock = pygame.time.Clock()
+FPS = 30
+
 # Estabelecer as figuras
 img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
 img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() #O FUNDO SERÁ UMA ANIMAÇÃO
