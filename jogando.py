@@ -92,7 +92,7 @@ def jogando(JANELA):
 
     keys_down = {}
 
-    pygame.mixer.som_fundo.play(loops=-1)
+    
     estado_do_jogo = JOGANDO
     
     #FAZENDO O MAPA
@@ -121,8 +121,7 @@ def jogando(JANELA):
     while estado_do_jogo == JOGANDO:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
         
-
-        
+        pygame.mixer.som_fundo.play(loops=-1)
         #EVENTOS
 
         for event in pygame.event.get():
