@@ -236,7 +236,7 @@ def jogando(JANELA):
         JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
         #VIDAS
-        perfil_texto = fonte_pontos.render(chr(9829) * vidas, True, VERMELHO) #faz o coração
+        perfil_texto = fonte_pontos.render(chr(9829) * F['vidas'] , True, VERMELHO) #faz o coração
         texto_rect = perfil_texto.get_rect() 
         texto_rect.bottomleft = (10, ALTURA_JANELA - 10) #posiciona o texto
         JANELA.blit(perfil_texto, texto_rect) #coloca o texto na tela
