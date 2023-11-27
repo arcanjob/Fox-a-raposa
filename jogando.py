@@ -12,10 +12,6 @@ def jogando(JANELA):
     cronometro = pygame.time.Clock()
     #chamando o personagem
     
-    
-    
-
-    
     #CRIANDO O MAPA
     for linha in range(len(MAPA)):
         for coluna in range(len(MAPA)):

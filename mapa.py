@@ -1,5 +1,5 @@
 from math import *
-
+from PARTE_PRINCIPAL import *
 B = 0 #bloco
 P = 0 #preenchimento
 L = 0 #limite da tela

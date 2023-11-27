@@ -24,7 +24,7 @@ FASE = 1
 
 while estado_do_jogo != DONE:
     pontos = 0
-    ultimo_pulo = pygame.time.get_tics()
+    ultimo_pulo = pygame.time.get_ticks()
     #analisa se o jogo foi fechado
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
