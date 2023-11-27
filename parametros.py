@@ -65,7 +65,7 @@ ALTURA_CORACAO = 10
 
 # Estabelecer as figuras
 img_personagem = pygame.image.load('imagens_e_sons/imagens/garoto/garoto_parado/Idle (1).png').convert_alpha()
-img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() - #O FUNDO SERÁ UMA ANIMAÇÃO
+img_fundo = pygame.image.load('imagens_e_sons/fundo/Fundo_jogo.jpg').convert_alpha() #O FUNDO SERÁ UMA ANIMAÇÃO
 img_plataformas = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
 img_moeda = pygame.image.load('imagens_e_sons/imagens/moeda.png').convert_alpha()
 img_espinhos = pygame.image.load('imagens_e_sons/imagens/espinho.png').convert_alpha()
@@ -79,7 +79,7 @@ img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').con
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
 #image = pygame.transform.scale(image, (125, 166)) para obter uma nova imagem de 125 X 166 pixels.
-img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO)) - O FUNDO SERÁ UMA ANIMAÇÃO
+img_fundo = pygame.transform.scale(img_fundo, (LARGURA_FUNDO, ALTURA_FUNDO)) #O FUNDO SERÁ UMA ANIMAÇÃO
 #img_personagem = pygame.transform.scale(img_personagem, (LARGURA_JOGADOR, ALTURA_JOGADOR))
 img_plataformas = pygame.transform.scale(img_plataformas, (LARGURA_PLATAFORMA, ALTURA_PLATAFORMA))
 img_moeda = pygame.transform.scale(img_moeda, (LARGURA_MOEDA, ALTURA_MOEDA))

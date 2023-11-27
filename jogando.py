@@ -92,10 +92,13 @@ def jogando(JANELA):
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
         if personagem.velocidadey>0 and personagem.orientacao != de_peh:    
             personagem.orientacao += velocidade_de_rotaca_p_frame
+        
         if personagem.velocidadey<0 and personagem.orientacao != de_ponta_cabeca:
             personagem.orientacao -= velocidade_de_rotaca_p_frame
+        
         if personagem.velocidadex >0 and personagem.orientacao != virado_para_a_direita:
             personagem.orientacao +=velocidade_de_rotaca_p_frame
+        
         if personagem.velocidadex<0 and personagem.orientacao != virado_para_a_esquerda:
             personagem.orientacao -= velocidade_de_rotaca_p_frame
 
@@ -116,7 +119,9 @@ def jogando(JANELA):
 
             #COLISOES COM MOEDAS
             colisoes_moedas = pygame.sprite.spritecollide(personagem, F['moedas'], True, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
+            
             if colisoes_moedas: #CASO TENHAM HAVIDO
+                
                 F['pontos'] += 1 #ADICIONA UM PONTO 
                 som_pegando_moedas.play() #SOM
         
@@ -124,6 +129,7 @@ def jogando(JANELA):
             #COLISÃO COM OS ESPINHOS
             colisoes_espinhos = pygame.sprite.spritecollide(personagem, F['espinhos'], False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             if colisoes_espinhos:        
+                
                 som_morrendo.play() #SOM
                 personagem.kill() #TIRA O PERSONAGEM DA TELA (SERÁ SUBSTITUIDO POR UMA ANIMAÇÃO DELE MORRENDO)
                 F['vidas'] -= 1 #PERDE 1 DAS 3 VIDAS
@@ -143,7 +149,7 @@ def jogando(JANELA):
                 estado_do_jogo = VITORIA #ATUALIZA O ESTADO DO JOGO
 
             
-            personagem.i +=1/50 #MUDANDO A IMAGEM DO PERSONAGEM QUE SERÁ EXIBIDA
+            personagem.i += 1/50 #MUDANDO A IMAGEM DO PERSONAGEM QUE SERÁ EXIBIDA
 
 
         elif estado_do_jogo == MORRENDO: #INDO PRA TELA DA MORTE
