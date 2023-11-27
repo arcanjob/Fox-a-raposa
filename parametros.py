@@ -105,7 +105,6 @@ fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como 
 
 #ESTABELECER OS SONS
 som_fundo = pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-pygame.mixer.music.set_volume(0.6)
 
 som_caindo = pygame.mixer.Sound('imagens_e_sons/sons/caindo.mp3')
 
