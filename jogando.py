@@ -117,7 +117,7 @@ def jogando(JANELA):
     F['all_sprites'].add(personagem) # ADICIONANDO O PERSONAGEM
     F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
-    pygame.mixer.som_fundo.play(loops=-1)
+
     while estado_do_jogo == JOGANDO:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
         
