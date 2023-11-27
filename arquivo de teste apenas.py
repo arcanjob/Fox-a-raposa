@@ -711,7 +711,7 @@ def jogando(JANELA, MAPA, F):
 
     
     
-    while estado_do_jogo == JOGANDO:
+    while estado_do_jogo == INICIO:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
         
         #EVENTOS
