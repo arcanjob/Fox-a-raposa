@@ -18,14 +18,85 @@ def jogando(JANELA):
     #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
     if   FASE == 1:
         F = F1
-        mapa = MAPA_1
+        MAPA = MAPA_1
     elif FASE == 2:
         F = F2
-        mapa = MAPA_2
+        MAPA = MAPA_2
     elif FASE == 3:
         F = F3
-        mapa = MAPA_3
+        MAPA = MAPA_3
     
+    #CRIANDO O MAPA
+    for linha in range(len(MAPA)):
+        for coluna in range(len(MAPA)):
+                elemento = MAPA[linha] [coluna]
+
+                if elemento == B or elemento == L or elemento == P:
+                        imagem = img_plataformas
+                        orientacao = de_peh
+                        bloco = objeto(linha,coluna, imagem, orientacao)
+                        F['plataformas'].add(bloco)
+                        F['blocos'].add(bloco)
+                        F['objetos'].add(bloco)
+                        F['all_sprites'].add(bloco)
+                
+                if elemento == M:
+                        imagem = img_moeda
+                        orientacao = de_peh
+                        moeda = objeto(linha,coluna, imagem, orientacao)
+                        F['moedas'].add(moeda)
+                        F['all_sprites'].add(moeda)
+                        F['objetos'].add(moeda)
+                        
+                
+                if elemento == EE:
+                        imagem = img_espinhos
+                        orientacao = virado_para_a_esquerda
+                        espinho = objeto(linha, coluna, imagem, orientacao)
+                        F['objetos'].add(espinho)
+                        F['all_sprites'].add(espinho)
+                        F['espinhos'].add(espinho)
+                
+                if elemento == ED:
+                        imagem = img_espinhos
+                        orientacao = virado_para_a_direita
+                        espinho = objeto(linha, coluna, imagem, orientacao)
+                        F['objetos'].add(espinho)
+                        F['all_sprites'].add(espinho)
+                        F['espinhos'].add(espinho)
+                
+                if elemento == EC:
+                        imagem = img_espinhos
+                        orientacao = de_peh
+                        espinho = objeto(linha, coluna, imagem, orientacao)
+                        F['objetos'].add(espinho)
+                        F['all_sprites'].add(espinho)
+                        F['espinhos'].add(espinho)
+                
+                if elemento == EB:
+                        imagem = img_espinhos
+                        orientacao = de_ponta_cabeca
+                        espinho = objeto(linha, coluna, imagem, orientacao)
+                        F['objetos'].add(espinho)
+                        F['all_sprites'].add(espinho)
+                        F['espinhos'].add(espinho)
+                
+                if elemento == R:
+                        jogador = persona(linha, coluna)
+                        F['all_sprites'].add(jogador)
+                
+                if elemento == O:
+                        imagem = img_chegada
+                        orientacao = de_peh
+
+                        objetivo = objeto(linha, coluna, imagem, orientacao)
+                        F['objetos'].add(objetivo)
+                        F['all_sprites'].add(objetivo)
+
+
+
+
+
     GAME_OVER  = 0
     JOGANDO = 1
     MORRENDO = 2
