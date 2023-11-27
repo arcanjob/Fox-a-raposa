@@ -845,7 +845,7 @@ def jogando(JANELA, MAPA, F):
         pygame.display.update()
         return estado_do_jogo
 
-############################## FIM DO JOGANDO ############################################33
+##############################   FIM DO JOGANDO   ############################################
 
 
 # pylint: disable=no-member
