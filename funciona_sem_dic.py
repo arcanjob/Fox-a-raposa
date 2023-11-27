@@ -617,12 +617,12 @@ def jogando(JANELA, MAPA, F):
         for icoluna in range(len(linha)):
             
             elemento = MAPA[ilinha] [icoluna]
-            linha *= TAMANHO_LINHA_E_COLUNA
-            coluna *= TAMANHO_LINHA_E_COLUNA
+            largura_linha = ilinha * TAMANHO_LINHA_E_COLUNA
+            largura_coluna = icoluna * TAMANHO_LINHA_E_COLUNA
             if elemento == B or elemento == L or elemento == P:
                     imagem = img_plataformas
                     orientacao = de_peh
-                    bloco = objeto(linha,coluna, imagem, orientacao)                            ### CHAMA A CLASSE OBJETO()  - FEITO
+                    bloco = objeto(largura_linha,largura_coluna, imagem, orientacao)                            ### CHAMA A CLASSE OBJETO()  - FEITO
                     plataformas.add(bloco)                                                 # CHAMA O DICIONARIO F1, P EX - DIC F1 - FEITO
                     blocos.add(bloco)                                                      #O VALOR DO F - será determinado ainda - no principal
                     objetos.add(bloco)
@@ -631,7 +631,7 @@ def jogando(JANELA, MAPA, F):
             if elemento == M:   
                     imagem = img_moeda
                     orientacao = de_peh
-                    moeda = objeto(linha,coluna, imagem, orientacao)
+                    moeda = objeto(largura_linha,largura_coluna, imagem, orientacao)
                     moedas.add(moeda)
                     all_sprites.add(moeda)
                     objetos.add(moeda)
@@ -640,7 +640,7 @@ def jogando(JANELA, MAPA, F):
             if elemento == EE:
                     imagem = img_espinhos
                     orientacao = virado_para_a_esquerda
-                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    espinho = objeto(largura_linha, largura_coluna, imagem, orientacao)
                     objetos.add(espinho)
                     all_sprites.add(espinho)
                     espinhos.add(espinho)
@@ -648,7 +648,7 @@ def jogando(JANELA, MAPA, F):
             if elemento == ED:
                     imagem = img_espinhos
                     orientacao = virado_para_a_direita
-                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    espinho = objeto(largura_linha, largura_coluna, imagem, orientacao)
                     objetos.add(espinho)
                     all_sprites.add(espinho)
                     espinhos.add(espinho)
@@ -656,7 +656,7 @@ def jogando(JANELA, MAPA, F):
             if elemento == EC:
                     imagem = img_espinhos
                     orientacao = de_peh
-                    espinho = objeto(linha, coluna, imagem, orientacao)                            #objeto - FEITO
+                    espinho = objeto(largura_linha, largura_coluna, imagem, orientacao)                            #objeto - FEITO
                     objetos.add(espinho)
                     all_sprites.add(espinho)
                     espinhos.add(espinho)
@@ -664,23 +664,22 @@ def jogando(JANELA, MAPA, F):
             if elemento == EB:
                     imagem = img_espinhos
                     orientacao = de_ponta_cabeca
-                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    espinho = objeto(largura_linha, largura_coluna, imagem, orientacao)
                     objetos.add(espinho)
                     all_sprites.add(espinho)
                     espinhos.add(espinho)
             
             if elemento == R:
-                    personagem = persona(linha, coluna)                                           #persona - FEITO 
+                    personagem = persona(largura_linha, largura_coluna)                                           #persona - FEITO 
                     all_sprites.add(personagem)
             
             if elemento == O:
                     imagem = img_chegada
                     orientacao = de_peh
 
-                    objetivo = objeto(linha, coluna, imagem, orientacao)
+                    objetivo = objeto(largura_linha, largura_coluna, imagem, orientacao)
                     objetos.add(objetivo)
                     all_sprites.add(objetivo)
-
 
 
     personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem                  #EVOCAÇÃO DO SPRITE DO PERSONAGEM - FEITO
