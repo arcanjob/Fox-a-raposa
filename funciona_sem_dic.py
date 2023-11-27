@@ -434,6 +434,7 @@ class objeto (pygame.sprite.Sprite):                  ##########################
     def __init__(self, fila, coluna, imagem, orientacao):
         pygame.sprite.Sprite.__init__(self)                                                            #SPRITES_E_CLASSES
         self.imagem = pygame.transform.rotate(imagem,orientacao)
+        self.image = self.imagem
         self.mask = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         self.rect.x = fila
@@ -490,6 +491,7 @@ class persona (pygame.sprite.Sprite):                  #########################
         
 
         self.imagem = pygame.transform.rotate(anim_parado[0], self.orientacao)
+        self.image = self.imagem
         self.mask = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
