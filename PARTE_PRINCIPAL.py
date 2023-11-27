@@ -6,6 +6,7 @@ from sprites_e_classes import *
 from jogando import *
 from tela0_de_derrota_e_vitoria import *
 from math import *
+from mapa import *
 pygame.init()
 
 
@@ -34,7 +35,7 @@ while estado_do_jogo != DONE:
         if estado_do_jogo == JOGANDO:
                 #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
             
-            if   FASE == 1:
+            if  FASE == 1:
                 F = F1
                 MAPA = MAPA_1
             elif FASE == 2:

@@ -80,7 +80,7 @@ def jogando(JANELA):
                         F['objetos'].add(objetivo)
                         F['all_sprites'].add(objetivo)
 
-
+    
 
     personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem
 
@@ -119,6 +119,10 @@ def jogando(JANELA):
     F['vidas'] = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
 
+
+    pygame.mixer.music.set_volume(0.6)
+    pygame.mixer.som_fundo.play(loops=-1)
+    
     while estado_do_jogo == JOGANDO:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
         
