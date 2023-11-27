@@ -11,8 +11,8 @@ from PARTE_PRINCIPAL import FASE
 
 def jogando(JANELA):
     cronometro = pygame.time.Clock()
-    personagem = persona() #chamando o personagem
-    personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem
+    #chamando o personagem
+    
     
     
     #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
@@ -82,8 +82,8 @@ def jogando(JANELA):
                         F['espinhos'].add(espinho)
                 
                 if elemento == R:
-                        jogador = persona(linha, coluna)
-                        F['all_sprites'].add(jogador)
+                        personagem = persona(linha, coluna)
+                        F['all_sprites'].add(personagem)
                 
                 if elemento == O:
                         imagem = img_chegada
@@ -95,7 +95,7 @@ def jogando(JANELA):
 
 
 
-
+    personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem
 
     GAME_OVER  = 0
     JOGANDO = 1

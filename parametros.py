@@ -180,32 +180,19 @@ for i in range(15):
 import sprites_e_classes
 F1 = {}
 
-#POSIÇÃO INICIAL DO PERSONAGEM
-F1['x_meio_inicial_do_personagem'] = 30
-F1['y_peh_inicial_do_personagem'] = 40
-
 #OBJETOS - ISSO PODE INCLUIR PAREDES E OUTROS
 F1['objetos']= pygame.sprite.Group() 
 
-
-
 #PLATAFORMAS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR
 F1['plataformas'] = pygame.sprite.Group()
-F1['plataforma1'] = objeto(100, 400, img_plataformas, de_peh)
 
-F1['plataformas'].add(F1['plataforma1'])
-
-F1['objetos'].add(F1['plataformas'])
 
 #ESPINHOS - POSIÇÕES E IMAGEM (E TAMANHO) A DEFINIR)
 F1['espinhos'] = pygame.sprite.Group()
-F1['espinho1'] = objeto(4,3, img_espinhos, de_peh)
 
-F1['espinhos'].add(F1['espinho1'])
-
+#QUANTAS GALINHAS A RAPOSA PEGOU
 F1['pontos'] = 0
 
-F1['objetos'].add(F1['espinhos'])
 F1['galinhas minimas'] = 5  #o minimo de galinhas que a pessoa tem que pegar para poder mudar de fase
 
 
@@ -213,20 +200,6 @@ F1['galinhas minimas'] = 5  #o minimo de galinhas que a pessoa tem que pegar par
 F1['moedas'] = pygame.sprite.Group()
 
 
-F1['moeda1'] = objeto(9,12, img_moeda,de_peh, de_peh)
-F1['moedas'].add(moeda1)
-
-#CHEGADA
-F1['chegada'] = objeto(9, 0, img_chegada,de_peh, de_peh)
-
-# Função para reposicionar as moedas
-def resetar_moedas(moedas):
-        for moeda in moedas:
-                moeda.rect.x = moeda.x_original
-                moeda.rect.y = moeda.y_original
-
 F1['all_sprites'] = pygame.sprite.Group()
-F1['bloco'] =  pygame.sprite.Group()
-F1['all_sprites'].add(F1['objetos'], F1['moedas'],F1['chegada'])
 
 
