@@ -430,9 +430,9 @@ def fim_vitorioso(JANELA):
     return estado_do_jogo
 
 
-class objeto:                                                             #SPRITES_E_CLASSES
+class objeto (pygame.sprite.Sprite):                  ###############################################SPRITES_E_CLASSES
     def __init__(self, fila, coluna, imagem, orientacao):
-        
+        pygame.sprite.Sprite.__init__(self)                                                            #SPRITES_E_CLASSES
         self.imagem = pygame.transform.rotate(imagem,orientacao)
         self.rect = self.imagem.get_rect()
         self.rect.x = fila
@@ -472,8 +472,8 @@ all_sprites = pygame.sprite.Group()
 
 
 class persona (pygame.sprite.Sprite):                  ###############################################SPRITES_E_CLASSES
-    def __init__(self):
-        pygame.sprite.Sprite.__init__(self,linha,coluna)             #SERÁ DADO QUANDO FOR EVOCADO
+    def __init__(self,linha,coluna):
+        pygame.sprite.Sprite.__init__(self)             #SERÁ DADO QUANDO FOR EVOCADO
 
         
         self.orientacao = de_peh
@@ -610,74 +610,77 @@ def jogando(JANELA, MAPA, F):
     global VERMELHO
     global ALTURA_JANELA
     #CRIANDO O MAPA
+    print(f'linhas do mapa: {range(len(MAPA))}')
     for linha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
-        for coluna in range(len(MAPA)):
-                elemento = MAPA[linha] [coluna]
-                linha *= TAMANHO_LINHA_E_COLUNA
-                coluna *= TAMANHO_LINHA_E_COLUNA
-                if elemento == B or elemento == L or elemento == P:
-                        imagem = img_plataformas
-                        orientacao = de_peh
-                        bloco = objeto(linha,coluna, imagem, orientacao)                            ### CHAMA A CLASSE OBJETO()  - FEITO
-                        plataformas.add(bloco)                                                 # CHAMA O DICIONARIO F1, P EX - DIC F1 - FEITO
-                        blocos.add(bloco)                                                      #O VALOR DO F - será determinado ainda - no principal
-                        objetos.add(bloco)
-                        all_sprites.add(bloco)
-                
-                if elemento == M:
-                        imagem = img_moeda
-                        orientacao = de_peh
-                        moeda = objeto(linha,coluna, imagem, orientacao)
-                        moedas.add(moeda)
-                        all_sprites.add(moeda)
-                        objetos.add(moeda)
-                        
-                
-                if elemento == EE:
-                        imagem = img_espinhos
-                        orientacao = virado_para_a_esquerda
-                        espinho = objeto(linha, coluna, imagem, orientacao)
-                        objetos.add(espinho)
-                        all_sprites.add(espinho)
-                        espinhos.add(espinho)
-                
-                if elemento == ED:
-                        imagem = img_espinhos
-                        orientacao = virado_para_a_direita
-                        espinho = objeto(linha, coluna, imagem, orientacao)
-                        objetos.add(espinho)
-                        all_sprites.add(espinho)
-                        espinhos.add(espinho)
-                
-                if elemento == EC:
-                        imagem = img_espinhos
-                        orientacao = de_peh
-                        espinho = objeto(linha, coluna, imagem, orientacao)                            #objeto - FEITO
-                        objetos.add(espinho)
-                        all_sprites.add(espinho)
-                        espinhos.add(espinho)
-                
-                if elemento == EB:
-                        imagem = img_espinhos
-                        orientacao = de_ponta_cabeca
-                        espinho = objeto(linha, coluna, imagem, orientacao)
-                        objetos.add(espinho)
-                        all_sprites.add(espinho)
-                        espinhos.add(espinho)
-                
-                if elemento == R:
-                        personagem = persona(linha, coluna)                                           #persona - FEITO 
-                        all_sprites.add(personagem)
-                
-                if elemento == O:
-                        imagem = img_chegada
-                        orientacao = de_peh
+        
+        for coluna in range(len(MAPA[linha])):
+            print(f'a linha é {linha}')
+            elemento = MAPA[linha] [coluna]
+            linha *= TAMANHO_LINHA_E_COLUNA
+            coluna *= TAMANHO_LINHA_E_COLUNA
+            if elemento == B or elemento == L or elemento == P:
+                    imagem = img_plataformas
+                    orientacao = de_peh
+                    bloco = objeto(linha,coluna, imagem, orientacao)                            ### CHAMA A CLASSE OBJETO()  - FEITO
+                    plataformas.add(bloco)                                                 # CHAMA O DICIONARIO F1, P EX - DIC F1 - FEITO
+                    blocos.add(bloco)                                                      #O VALOR DO F - será determinado ainda - no principal
+                    objetos.add(bloco)
+                    all_sprites.add(bloco)
+            
+            if elemento == M:   
+                    imagem = img_moeda
+                    orientacao = de_peh
+                    moeda = objeto(linha,coluna, imagem, orientacao)
+                    moedas.add(moeda)
+                    all_sprites.add(moeda)
+                    objetos.add(moeda)
+                    
+            
+            if elemento == EE:
+                    imagem = img_espinhos
+                    orientacao = virado_para_a_esquerda
+                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    objetos.add(espinho)
+                    all_sprites.add(espinho)
+                    espinhos.add(espinho)
+            
+            if elemento == ED:
+                    imagem = img_espinhos
+                    orientacao = virado_para_a_direita
+                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    objetos.add(espinho)
+                    all_sprites.add(espinho)
+                    espinhos.add(espinho)
+            
+            if elemento == EC:
+                    imagem = img_espinhos
+                    orientacao = de_peh
+                    espinho = objeto(linha, coluna, imagem, orientacao)                            #objeto - FEITO
+                    objetos.add(espinho)
+                    all_sprites.add(espinho)
+                    espinhos.add(espinho)
+            
+            if elemento == EB:
+                    imagem = img_espinhos
+                    orientacao = de_ponta_cabeca
+                    espinho = objeto(linha, coluna, imagem, orientacao)
+                    objetos.add(espinho)
+                    all_sprites.add(espinho)
+                    espinhos.add(espinho)
+            
+            if elemento == R:
+                    personagem = persona(linha, coluna)                                           #persona - FEITO 
+                    all_sprites.add(personagem)
+            
+            if elemento == O:
+                    imagem = img_chegada
+                    orientacao = de_peh
 
-                        objetivo = objeto(linha, coluna, imagem, orientacao)
-                        objetos.add(objetivo)
-                        all_sprites.add(objetivo)
+                    objetivo = objeto(linha, coluna, imagem, orientacao)
+                    objetos.add(objetivo)
+                    all_sprites.add(objetivo)
 
-    
+
 
     personagem.i = 0 #essa contagem, posteriormente será utilizada para a animação do personagem                  #EVOCAÇÃO DO SPRITE DO PERSONAGEM - FEITO
 
