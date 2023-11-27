@@ -757,7 +757,7 @@ def jogando(JANELA, MAPA, F):
         if estado_do_jogo == JOGANDO:
 
             #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-            colisoes_plataformas = pygame.sprite.spritecollide(personagem, F1['plataformas'], False, pygame.sprite.collide_mask)
+            colisoes_plataformas = pygame.sprite.spritecollide(personagem, F['plataformas'], False, pygame.sprite.collide_mask)
             if colisoes_plataformas:
                 if personagem.velocidadex !=0:
                     personagem.velocidadex = 0  # para o jogador
