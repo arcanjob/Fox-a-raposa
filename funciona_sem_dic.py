@@ -896,6 +896,9 @@ while estado_do_jogo != DONE:
             
             
             """
+        
+
+        
         estado_do_jogo = jogando(JANELA, MAPA, F)                             #PRECISA DO JOGANDO() - FEITO
     if estado_do_jogo == GAME_OVER:
         estado_do_jogo = tela_final(JANELA)                           #PRECISA DO TELA_FINAL() - FEITO
