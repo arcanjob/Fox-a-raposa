@@ -556,20 +556,20 @@ class persona (pygame.sprite.Sprite):                  #########################
 #SPRITE  - MORRENDO
 class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do personagem
 
-    def __init__(self, centro):
+    def __init__(self, centro, orientacao):
         pygame.sprite.Sprite.__init__(self)
 
         # ATUALIZANDO A ANIMAÇÃO DO PERSONAGEM MORRENDO
         self.anim_morrendo = anim_morrendo
 
-        
+        self.orientacao = orientacao
         self.frame = 0  #NUMERANDO O PRIMEIRO FRAME - SE ATUALIZARÁ
         self.imagem = pygame.transform.rotate(self.anim_morrendo[0], self.orientacao)   #SELECIONANDO O ARQUIVO DA ANIMAÇÃO CORRESPONDENTE AO FRAME E
         #ACRESCENTANDO A ROTACAO
         
         #ATUALIZANDO A POSIÇÃO
         self.rect = self.image.get_rect()
-        self.rect.centro = centro # O CENTRO SERÁ DADO QUANDO A CLASSE FOR EVOCADO
+        self.rect.center = centro # O CENTRO SERÁ DADO QUANDO A CLASSE FOR EVOCADO
         
         
         self.ultimo_update = pygame.time.get_ticks() #QUANDO A PRIMEIRA IMAGEM FOI MOSTRADA
@@ -599,10 +599,10 @@ class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do perso
                 self.kill()
             else:
                 # troca de imagem se n terminou a animacao
-                centro = self.rect.centro
+                centro = self.rect.center
                 self.imagem = self.anim_morrendo[self.frame] 
                 self.rect = self.image.get_rect()
-                self.rect.centro = centro
+                self.rect.center = centro
 
 
 ################################################################# JOGANDO ###############################################
@@ -696,24 +696,7 @@ def jogando(JANELA, MAPA, F):
 
     
     estado_do_jogo = JOGANDO
-    
-    #FAZENDO O MAPA
-    for fila in range(len(MAPA)):                                                                                   #O MAPA EM SI - FEITO
-        for coluna in range(len(MAPA[fila])):
-            tipo_bloco = MAPA[fila][coluna]
-            if tipo_bloco == B:                                                                                      #OS MAPAS, EM SI - DEVE SER MOSTRADO MAIS À FRENTE
-                bloco = objeto(fila, coluna, img_plataformas, de_peh)                                                #O SIGNIFICADO DE CADA ORIENTACAO - FEITO
-                all_sprites.add(bloco)
-                blocos.add(bloco)
-            elif tipo_bloco == M:
-                bloco = objeto(fila, coluna, img_moeda, 0)
-                all_sprites.add(bloco)
-                blocos.add(bloco)
-            
-            elif tipo_bloco == EE:
-                bloco = objeto(fila, coluna, img_espinhos, 0)
-                all_sprites.add(bloco)
-                blocos.add(bloco)
+
                 
 
     all_sprites.add(personagem) # ADICIONANDO O PERSONAGEM
