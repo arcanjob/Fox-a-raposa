@@ -614,6 +614,7 @@ def jogando(JANELA, MAPA, F):
     for ilinha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
         linha = MAPA[ilinha]
         print(len(linha))
+
         for icoluna in range(len(linha)):
             
             elemento = MAPA[ilinha] [icoluna]
