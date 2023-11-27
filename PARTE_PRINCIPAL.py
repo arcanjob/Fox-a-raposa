@@ -13,7 +13,7 @@ pygame.init()
 window = pygame.display.set_mode((1000, 600))
 
 # CRIANDO A JANELA
-JANELA = pygame.display.set_mode((LARGURA_JANELA, ALTURA_JANELA))
+JANELA = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption('Fox, a Raposa')
 
 ###############CRIANDO AS PLATAFORMAS
@@ -56,11 +56,8 @@ while estado_do_jogo != DONE:
             estado_do_jogo = fim_vitorioso(JANELA)
 
 
-
-
 #fecha a janela
 pygame.quit()
-
 
 
 game = True
