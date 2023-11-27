@@ -434,6 +434,7 @@ class objeto (pygame.sprite.Sprite):                  ##########################
     def __init__(self, fila, coluna, imagem, orientacao):
         pygame.sprite.Sprite.__init__(self)                                                            #SPRITES_E_CLASSES
         self.imagem = pygame.transform.rotate(imagem,orientacao)
+        self.mask = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         self.rect.x = fila
         self.rect.y = coluna
@@ -485,7 +486,7 @@ class persona (pygame.sprite.Sprite):                  #########################
         
 
         self.imagem = pygame.transform.rotate(anim_parado[0], self.orientacao)
-        self.mascara = pygame.mask.from_surface(self.imagem)
+        self.mask = pygame.mask.from_surface(self.imagem)
         self.rect = self.imagem.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
@@ -610,9 +611,9 @@ def jogando(JANELA, MAPA, F):
     global VERMELHO
     global ALTURA_JANELA
     #CRIANDO O MAPA
-    print(f'linhas do mapa: {range(len(MAPA))}')
+    
     for ilinha in range(len(MAPA)):                                                                   ### QUANDO O JOGANDO FOR CHAMADO, O MAPA JÁ TERÁ SIDO DEFINIDO
-        linha = MAPA[ilinha]
+        
         print(len(linha))
 
         for icoluna in range(len(linha)):
@@ -715,7 +716,7 @@ def jogando(JANELA, MAPA, F):
     vidas = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
 
-
+    print(personagem)
 
     
     
