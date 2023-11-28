@@ -3,15 +3,31 @@
     - fazer o personagem girar na direção em que está caindo
 - ajustar a colisão no eixo x do bloco
 - comentar as coisas
-
+- colocar os espinhos
+    - colocar o conflito com os espinhos
+    - colocar a morte
+- colocar as galinhas
+    - contar os pontos quando ele coletar as galinhas
+- contar quantas vidas o cara tem
 
 2°
+- exibir o numero de galinhas pegas
+    - exibir quantas de quantas galinhas o cara pegou
+- exibir quantas vidas ele tem 
+    - skin do coração
 - tela inicial
 - tela de derrota
+- arrumar o mapa 1
 
 3°
-- novas fases
+- criar um dic para cada fase
+    - novas fases
 - tela de vitoria - pode passar para a proxima fase
+- animações
+    - parado
+    - pulando/caindo
+        - pulando + pulando reverso
+    - morrendo
 
 - tela de vitoria final
 

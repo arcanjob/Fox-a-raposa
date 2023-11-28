@@ -20,7 +20,7 @@ TITULO = 'Fox, a raposa'
 largura = 1350
 altura = 680 
 tamanho_azulejo = 40
-largura_do_jogador = tamanho_azulejo + 5 
+largura_do_jogador = tamanho_azulejo
 altura_do_jogador = int(tamanho_azulejo * 1.5)
 FPS = 60
 
@@ -29,9 +29,9 @@ bonequinho = 'moeda_img'
 
 BLACK = (0, 0, 0)
 
-velocidade_de_queda = 5
+#velocidade_de_queda = 5
 
-quanto_pula = tamanho_azulejo
+#quanto_pula = tamanho_azulejo
 
 velocidade_no_eixo_x = 10
 
@@ -79,7 +79,8 @@ class Tile(pygame.sprite.Sprite):
 
        
         self.image = foto_do_azulejo
-       
+        self.mask = pygame.mask.from_surface(self.image)
+        self.mask_rect = self.mask.get_rect()
         self.rect = self.image.get_rect()
 
         
@@ -103,8 +104,8 @@ class Player(pygame.sprite.Sprite):
 
         
         self.image = bonequinho
-        
-        
+        self.mask = pygame.mask.from_surface(self.image)
+        self.mask_rect = self.mask.get_rect()
         self.rect = self.image.get_rect()
 
        
@@ -121,14 +122,18 @@ class Player(pygame.sprite.Sprite):
     
     def update(self):
         
-        self.speedy += velocidade_de_queda
-        
+        #self.speedy += velocidade_de_queda
+        """
         if self.speedy > 0:
+          self.estado_do_jogo = caindo
+        """
+
+        if self.speedy != 0 or self.speedx != 0:
             self.estado_do_jogo = caindo
         
         self.rect.y += self.speedy
         
-        colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False)
+        colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False, pygame.sprite.collide_mask)
         
         for colisao in colisoes:
             
@@ -137,14 +142,14 @@ class Player(pygame.sprite.Sprite):
                 
                 self.speedy = 0
                 
-                self.estado_do_jogo = paradinho
+                #self.estado_do_jogo = paradinho
            
             elif self.speedy < 0:
                 self.rect.top = colisao.rect.bottom
                 
                 self.speedy = 0
                 
-                self.estado_do_jogo = paradinho
+                #self.estado_do_jogo = paradinho
 
        
         self.rect.x += self.speedx
@@ -154,22 +159,25 @@ class Player(pygame.sprite.Sprite):
         elif self.rect.right >= largura:
             self.rect.right = largura - 1
         
-        colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False)
+        colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False, pygame.sprite.collide_mask)
         
         for colisao in colisoes:
             
             if self.speedx > 0:
                 self.rect.right = colisao.rect.left
+                self.speedx = 0
             
             elif self.speedx < 0:
                 self.rect.left = colisao.rect.right
+                self.speedx = 0
 
-    
+    """
     def jump(self):
         
         if self.estado_do_jogo == paradinho:
             self.speedy -= quanto_pula
             self.estado_do_jogo = pulando
+    """
 
 
 

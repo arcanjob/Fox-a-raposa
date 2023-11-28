@@ -39,7 +39,7 @@ def tela_do_jogo(janela):
                 tile = Tile(assets[tile_type], filas, colunas)
                 todos_os_sprites.add(tile)
                 piso_parede.add(tile)
-          
+
                 
     
     todos_os_sprites.add(player)
@@ -62,20 +62,24 @@ def tela_do_jogo(janela):
             if event.type == pygame.KEYDOWN:
                 
                 if event.key == pygame.K_LEFT:
-                    player.speedx -= velocidade_no_eixo_x
+                    player.speedx = -velocidade_no_eixo_x
                 elif event.key == pygame.K_RIGHT:
-                    player.speedx += velocidade_no_eixo_x
-                elif event.key == pygame.K_UP or event.key == pygame.K_SPACE:
-                    player.jump()
+                    player.speedx = +velocidade_no_eixo_x
+                #elif event.key == pygame.K_UP or event.key == pygame.K_SPACE:
+                #    player.jump()
+                elif event.key == pygame.K_UP:
+                    player.speedy = -velocidade_no_eixo_x
+                elif event.key == pygame.K_DOWN:
+                    player.speedy = velocidade_no_eixo_x
 
-            
+            """
             if event.type == pygame.KEYUP:
                 
                 if event.key == pygame.K_LEFT:
                     player.speedx += velocidade_no_eixo_x
                 elif event.key == pygame.K_RIGHT:
                     player.speedx -= velocidade_no_eixo_x
-
+            """
         #
         todos_os_sprites.update()
         img_fundo = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() #O FUNDO SERÁ UMA ANIMAÇÃO

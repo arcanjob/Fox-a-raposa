@@ -1,3 +1,4 @@
+'''
 import pygame
 import os
 from math import *
@@ -926,13 +927,14 @@ pygame.quit()
 
 ############################################# SPRITES_E_CLASSES ##################################################################
 '''
+"""
     def cooldown(self):
         agora = pygame.time.get_ticks()
 
         delta_pulo = agora - ultimo_pulo
         if delta_pulo > 50:
             pular(botao)
-    '''
+'''"""
 
 
 
@@ -948,3 +950,4 @@ pygame.quit()
 
 
 #################################### FIM DOS SPRITES E CLASSES
+"""
