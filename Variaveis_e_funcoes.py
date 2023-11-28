@@ -15,7 +15,6 @@ clock = pygame.time.Clock()
 img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png')#tela inicial 
 
 
-
 TITULO = 'Fox, a raposa'
 largura = 1350
 altura = 680 
@@ -96,7 +95,6 @@ class Tile(pygame.sprite.Sprite):
         self.rect.y = tamanho_azulejo * filas
 
 
-
 class Player(pygame.sprite.Sprite):
 
     def __init__(self, bonequinho, filas, colunas, piso_parede):
@@ -104,22 +102,17 @@ class Player(pygame.sprite.Sprite):
         
         pygame.sprite.Sprite.__init__(self)
 
-        
         self.estado_do_jogo = paradinho
 
-       
-        bonequinho = pygame.transform.scale(bonequinho, (70, 40))
+        bonequinho = pygame.transform.scale(bonequinho, (largura_do_jogador, altura_do_jogador))
 
-        
         self.image = bonequinho
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()
         self.rect = self.image.get_rect()
 
-       
         self.piso_parede = piso_parede
 
-        
         self.rect.x = colunas * tamanho_azulejo
         self.rect.bottom = filas * tamanho_azulejo
 
