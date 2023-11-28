@@ -133,9 +133,6 @@ def tela_do_jogo(janela):
         pygame.display.flip()
 
 
-
-
-
 pygame.display.set_caption(TITULO)
 
 try:
