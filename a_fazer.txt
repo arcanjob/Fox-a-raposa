@@ -14,4 +14,9 @@
 
 - tela de vitoria final
 
-4°criar a colisão com as máscaras
+4°
+- criar a colisão com as máscaras
+
+5° 
+
+- dividir o código
