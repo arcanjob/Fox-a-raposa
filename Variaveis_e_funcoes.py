@@ -55,11 +55,12 @@ V = 2
 #Define onde estarão as galinhas que a raposa irá buscar
 G = 3
 
-#As próximas 4 variáveis vão definir o que é um espinho e para qual lado ele irá apontar
+#As próximas 5 variáveis vão definir o que é um espinho e para qual lado ele irá apontar
 ED = 4
 EE = 5
 EB = 6
 EB = 7
+E = 10
 
 #A variável "O" define o ponto final, uma espécie de portal pelo qual a raposa tenta chegar
 O = 8
@@ -67,11 +68,10 @@ O = 8
 #O "R" vai definir em que parte do mapa a raposa irá ser gerada
 R = 9
 
+
+
+
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
-E = 10
-
-
-EMPTY = -1
 MAPA =[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
@@ -126,7 +126,7 @@ class Tile(pygame.sprite.Sprite):
         
         foto_do_azulejo = pygame.transform.rotate(pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo)), orientacao)
 
-        
+        #Puxa as imagens
         self.image = foto_do_azulejo
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()

@@ -76,7 +76,6 @@ def tela_do_jogo(janela):
     jogando = 0
     DONE = 1
 
-
     estado_do_jogo = jogando
     while estado_do_jogo != DONE:
 
