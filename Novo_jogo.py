@@ -102,12 +102,14 @@ def tela_do_jogo(janela):
     #marca o inicio da variavel de ponto
     pontos = 0
 
+    pode_passar = 200000000000000000000000
     #Cuida do estado de jogo
     jogando = 0
     DONE = 1
     morreu_de_vez = 2
     morreu = 3
     vitoria = 4
+    sim = 5
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
     
@@ -126,16 +128,14 @@ def tela_do_jogo(janela):
         for colisao in colisoes:
             pontos +=1
             if pontos == n_galinhas:
-
-                estado_do_jogo = vitoria
-                
+                pode_passar = sim
                 return estado_do_jogo
 
         #COLISAO COM OS ESPINHOS
         colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
 
         if colisoes:
-            vidas-=1
+            vidas -= 1
 
             player.kill()
             if vidas == 0:
@@ -169,6 +169,14 @@ def tela_do_jogo(janela):
         #Atualiza o grupo com todos os sprites
         todos_os_sprites.update()
         
+        fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
+        perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, BLACK) #faz o coração
+        texto_rect = perfil_texto.get_rect() 
+        texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
+        janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
+
+
+
         #Define a imagem de fundo
         img_fundo = assets["img_fundo"]
         img_plataformas = assets["plataformas"]
