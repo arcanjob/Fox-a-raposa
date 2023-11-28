@@ -82,12 +82,13 @@ def tela_do_jogo(janela):
             if tile_type == G:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
+                galinhas.add(tile)
                 n_galinhas+=1
 
             if tile_type == O:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
-                galinhas.add(tile)
+                
             if tile_type == R:
                 y = filas
                 x = colunas
@@ -121,7 +122,7 @@ def tela_do_jogo(janela):
 
         #COLISAO COM AS GALINHAS
         colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-        print(colisoes)
+
         for colisao in colisoes:
             pontos +=1
             if pontos == n_galinhas:
@@ -140,7 +141,7 @@ def tela_do_jogo(janela):
                 return morreu_de_vez
             else:
                 estado_do_jogo = morreu
-                
+
 
 
 
