@@ -52,6 +52,28 @@ def tela_do_jogo(janela):
         piso_parede = pygame.sprite.Group()
         galinhas = pygame.sprite.Group()
 
+        #COLISAO COM AS GALINHAS
+        colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
+
+        for colisao in colisoes:
+            pontos +=1
+            if pontos == n_galinhas:
+                pode_passar = sim
+                return estado_do_jogo
+
+        #COLISAO COM OS ESPINHOS
+        colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
+
+        if colisoes:
+            vidas -= 1
+
+            player.kill()
+            if vidas == 0:
+                estado_do_jogo = morreu_de_vez
+                return morreu_de_vez
+            else:
+                estado_do_jogo = morreu
+
 
 
         #Cria o mapa usando um laço de rpetição (FOR) para ler a nossa lista de listas que define o mapa em si 
@@ -105,6 +127,20 @@ def tela_do_jogo(janela):
         
         #marca o inicio da variavel de ponto
         pontos = 0
+        fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
+        perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, BLACK) #faz o coração
+        texto_rect = perfil_texto.get_rect() 
+        texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
+        janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
+
+
+
+        #Define a imagem de fundo
+        img_fundo = assets["img_fundo"]
+        img_plataformas = assets["plataformas"]
+        
+        janela.blit(img_fundo, (0,0))
+        todos_os_sprites.draw(janela)
 
         estado_do_jogador = vivo
 
