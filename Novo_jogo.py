@@ -40,7 +40,7 @@ def tela_do_jogo(janela):
     assets = bases_carregando(0)
     vidas = 3
     pontos = 0
-
+    n_galinhas = 0
     
     #define os grupos de sprites nas suas respectivas variáveis, isso será usado ao longo de todo o código
     todos_os_sprites= pygame.sprite.Group()
@@ -82,6 +82,7 @@ def tela_do_jogo(janela):
             if tile_type == G:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
+                n_galinhas+=1
 
             if tile_type == O:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
@@ -105,7 +106,7 @@ def tela_do_jogo(janela):
     DONE = 1
     morreu_de_vez = 2
     morreu = 3
-
+    vitoria = 4
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
     
@@ -123,7 +124,9 @@ def tela_do_jogo(janela):
 
         for colisao in colisoes:
             pontos +=1
-            print(pontos)
+            if pontos == n_galinhas:
+                estado_do_jogo = vitoria
+                return estado_do_jogo
 
         #COLISAO COM OS ESPINHOS
         colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
@@ -133,8 +136,10 @@ def tela_do_jogo(janela):
             player.kill()
             if vidas == 0:
                 estado_do_jogo = morreu_de_vez
+                return morreu_de_vez
             else:
                 estado_do_jogo = morreu
+                
 
 
 
