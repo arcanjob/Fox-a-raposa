@@ -36,30 +36,38 @@ BLACK = (0, 0, 0)
 velocidade_no_eixo_x = 10
 
 
-B = 0
-P = B
-V = -1
-L = B
-G = 10
+B = 1
+V = 2
+G = 3
+ED = 4
+EE = 5
+EB = 6
+EB = 7
+O = 8
+R = 9
+
+
+
 EMPTY = -1
-MAPA = [
-    [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,B],
-    [L,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [L,G,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [L,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [L,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [L,P,P,P,P,P,P,V,P,P,P,P,P,P,P,P,P,P,P,V,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [L,B,B,B,B,B,P,V,P,P,P,P,P,P,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,V,V,V,L,B],
-    [B,V,V,V,V,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,V,V,V,V,B,B,B,B,B,B,B,B,L,B],
-    [L,V,V,V,V,V,B,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,L,B],
-    [L,V,V,B,B,B,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,L,B],
-    [L,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,B,V,B,B,B,P,P,P,P,L,B],
-    [L,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,B,B,V,V,V,V,V,B,P,P,P,P,P,P,L,B],
-    [L,V,V,B,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,V,V,V,V,V,B,P,P,P,P,P,P,L,B],
-    [L,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,P,P,P,P,P,P,L,B],
-    [L,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L,B],
-    [L,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,B,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L,B],
-    [L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,L,B]]
+MAPA =[
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,O,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,V,V,V,V,V,V,B],
+    [ED,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B],
+    [B,V,V,V,V,V,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+
 
 
 paradinho = 0
@@ -151,7 +159,7 @@ class Player(pygame.sprite.Sprite):
                 
                 #self.estado_do_jogo = paradinho
 
-       
+
         self.rect.x += self.speedx
         
         if self.rect.left < 0:
