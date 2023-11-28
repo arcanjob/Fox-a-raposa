@@ -280,7 +280,7 @@ MAPA_1=[
     [L,B,B,B,B,B,P,P,P,P,P,P,P,P,P,P,P,P,P,B,V,V,V,V,V,M,V,V,V,V,V,V,L],
     [ED,V,V,V,V,M,B,P,P,P,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,L],
     [L,V,V,V,V,V,B,P,P,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,L],
-    [L,V,V,B,B,B,P,P,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,P,P,P,P,L],
+    [L,V,V,B,B,B,P,P,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,P,P,P,P,L],
     [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,P,P,P,P,L],
     [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
     [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
@@ -752,7 +752,9 @@ def jogando(JANELA, MAPA, F):
         if estado_do_jogo == JOGANDO:
 
             #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
-            colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
+
+            colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)            
+
             if colisoes_plataformas:
                 print('bateu')
                 if personagem.velocidadex !=0:
