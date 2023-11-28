@@ -36,14 +36,14 @@ def tela_do_jogo(janela):
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
 
+    pontos = 0
     #define os grupos de sprites nas suas respectivas variáveis, isso será usado ao longo de todo o código
     todos_os_sprites= pygame.sprite.Group()
     espinhos = pygame.sprite.Group()
     piso_parede = pygame.sprite.Group()
     galinhas = pygame.sprite.Group()
 
-    #Define e cria o próprio jogador (ou player)
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
+
 
     #Cria o mapa usando um laço de rpetição (FOR) para ler a nossa lista de listas que define o mapa em si 
     for filas in range(len(MAPA)):
@@ -89,18 +89,33 @@ def tela_do_jogo(janela):
     #Adiciona o player por último para que ele fique desenhado por cima de todos os outros sprites
     todos_os_sprites.add(player)
 
+    
 
     jogando = 0
     DONE = 1
 
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
+    
+
+
     while estado_do_jogo != DONE:
         
         #marca o tempo
         clock.tick(FPS)
     
-        #Verifica os eventos dentro do jogo
+        
+
+        #COLISAO COM AS GALINHAS
+        colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
+
+        for colisao in colisoes:
+            pontos +=1
+            print(pontos)
+
+
+
+        # Verifica os eventos dentro do jogo
         for event in pygame.event.get():
 
             if event.type == pygame.QUIT:
