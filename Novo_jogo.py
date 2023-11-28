@@ -7,10 +7,9 @@ velocidade_no_eixo_x = 10
 pygame.init()
 pygame.mixer.init()
 
+janela = pygame.display.set_mode((1350, 680))
+
 #ESTABELECER OS SONS
-pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play(loops=-1)
 
 def bases_carregando(img_dir):
     assets = {}
@@ -20,6 +19,9 @@ def bases_carregando(img_dir):
 
 
 def tela_do_jogo(janela):
+    pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
+    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.play(loops=-1)
     
     clock = pygame.time.Clock()
     assets = bases_carregando(img_dir)
@@ -37,14 +39,15 @@ def tela_do_jogo(janela):
                 tile = Tile(assets[tile_type], filas, colunas)
                 todos_os_sprites.add(tile)
                 piso_parede.add(tile)
-
+          
+                
     
     todos_os_sprites.add(player)
 
     jogando = 0
     DONE = 1
 
-    estado_do_jogo = jogando
+  
     estado_do_jogo = jogando
     while estado_do_jogo != DONE:
 
@@ -88,13 +91,10 @@ def tela_do_jogo(janela):
 
 
 
-
-janela = pygame.display.set_mode((largura, altura))
-
-
 pygame.display.set_caption(TITULO)
 
 try:
     tela_do_jogo(janela)
+    #tela_do_jogo(janela)
 finally:
     pygame.quit()

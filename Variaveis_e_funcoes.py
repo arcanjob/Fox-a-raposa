@@ -2,125 +2,19 @@ import pygame
 import random
 from os import path
 
+pygame.init()
+pygame.mixer.init()
+
+
+
 jogando = 0
 DONE = 1
 inicio = 3
+clock = pygame.time.Clock()
 
-def tela_do_jogo(janela):
-    
-    clock = pygame.time.Clock()
-    assets = bases_carregando(img_dir)
-
-    todos_os_sprites= pygame.sprite.Group()
-    
-    piso_parede = pygame.sprite.Group()
-
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
-
-    for filas in range(len(MAPA)):
-        for colunas in range(len(MAPA[filas])):
-            tile_type = MAPA[filas][colunas]
-            if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
-                todos_os_sprites.add(tile)
-                piso_parede.add(tile)
-
-img_dir = path.join(path.dirname(__file__), 'imagens_e_sons')
-def bases_carregando(img_dir):
-    assets = {}
-    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
-    assets["sons"] = []
-    return assets
-
-def tela_inicial(JANELA):
-
-    
-    pygame.mixer.music.play(loops=-1)
-    # Carrega o fundo da tela inicial
-    estado_do_jogo = jogando
-    while estado_do_jogo == inicio:
-
-        # Ajusta a velocidade do jogo.
-        clock.tick(FPS)                                                            #CHAMA O FPS - FEITO
-
-        # Processa os eventos (mouse, teclado, botão, etc).
-        for evento in pygame.event.get():
-            # Verifica se foi fechado.
-            if evento.type == pygame.QUIT:
-                pygame.quit()
-            #0 = game over, congrats;   1 - fecha; 2,3,5 - congrats, 4 - nao fecha 
-            if evento.type == pygame.KEYUP:
-                estado_do_jogo = jogando
-
-        # A cada loop, redesenha o fundo e os sprites
-        JANELA.blit(img_inicio, (0, 0)) #imagem com o escrito "para recomeçar, pressione qualquer tecla"             - CHAMA A IMG_INICIO - FEITO
+img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png')#tela inicial 
 
 
-        # Depois de desenhar tudo, inverte o display.??????
-        pygame.display.flip() 
-
-    return estado_do_jogo
-
-
-def tela_do_jogo(janela):
-    
-    clock = pygame.time.Clock()
-
-    
-    assets = bases_carregando(img_dir)
-
-    
-    all_sprites = pygame.sprite.Group()
-    
-    piso_parede = pygame.sprite.Group()
-
-    
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
-
-    for filas in range(len(MAPA)):
-        for colunas in range(len(MAPA[filas])):
-            tile_type = MAPA[filas][colunas]
-            if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
-                all_sprites.add(tile)
-                piso_parede.add(tile)
-
-    
-    all_sprites.add(player)
-
-    jogando = 0
-    DONE = 1
-
-    estado_do_jogo = jogando
- 
-def tela_do_jogo(janela):
-    
-    clock = pygame.time.Clock()
-
-    assets = bases_carregando(img_dir)
-
-    all_sprites = pygame.sprite.Group()
-    
-    piso_parede = pygame.sprite.Group()
-    
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
-
-    for filas in range(len(MAPA)):
-        for colunas in range(len(MAPA[filas])):
-            tile_type = MAPA[filas][colunas]
-            if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
-                all_sprites.add(tile)
-                piso_parede.add(tile)
-
-    
-    all_sprites.add(player)
-
-    jogando = 0
-    DONE = 1
-
-    estado_do_jogo = jogando
 
 TITULO = 'Fox, a raposa'
 largura = 1350
@@ -205,7 +99,7 @@ class Player(pygame.sprite.Sprite):
         self.estado_do_jogo = paradinho
 
        
-        bonequinho = pygame.transform.scale(bonequinho, (largura_do_jogador, altura_do_jogador))
+        bonequinho = pygame.transform.scale(bonequinho, (40, 100))
 
         
         self.image = bonequinho
@@ -224,6 +118,7 @@ class Player(pygame.sprite.Sprite):
         self.speedy = 0
 
     velocidade_no_eixo_x = 10
+    
     def update(self):
         
         self.speedy += velocidade_de_queda
