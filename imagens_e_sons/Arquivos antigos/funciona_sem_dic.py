@@ -435,10 +435,11 @@ class objeto (pygame.sprite.Sprite):                  ##########################
         pygame.sprite.Sprite.__init__(self)                                                            #SPRITES_E_CLASSES
         self.imagem = pygame.transform.rotate(imagem,orientacao)
         self.image = self.imagem
-        self.mask = pygame.mask.from_surface(self.imagem)
+        
         self.rect = self.imagem.get_rect()
         self.rect.x = fila
         self.rect.y = coluna
+        self.mask = pygame.mask.from_surface(self.imagem)
         x_original = fila
         y_original = coluna
 
@@ -492,7 +493,7 @@ class persona (pygame.sprite.Sprite):                  #########################
 
         self.image = pygame.transform.rotate(anim_parado[0], self.orientacao)
         #self.image = self.imagem
-        self.mask = pygame.mask.from_surface(self.image)
+        
         self.rect = self.image.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
@@ -504,7 +505,7 @@ class persona (pygame.sprite.Sprite):                  #########################
         self.velocidadey = 0
 
         self.lista_estados = []
-
+        self.mask = pygame.mask.from_surface(self.image)
     def update(self): #MOVIMENTO - VELOCIDADE À DEFINIR
         #atualizando a posição do player
         
@@ -726,22 +727,22 @@ def jogando(JANELA, MAPA, F):
                 if event.type == pygame.KEYDOWN:
                     # DEPENDENDO DA TECLA E SE ALGUM OUTRO MOVIMENTO JÁ ESTÁ ACONTECENDO
                     keys_down[event.key] = True
-                    if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and personagem.velocidadey == 0 :
-                        personagem.velocidadex -= 8
-                        if  personagem.orientacao != virado_para_a_esquerda:
-                            personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
-                    if (event.key == pygame.K_RIGHT or event.key == pygame.K_d )and personagem.velocidadey == 0 :
-                        personagem.velocidadex += 8
-                        if personagem.orientacao != virado_para_a_direita:
-                            personagem.velocidade_de_rotacao_do_personagem  = +velocidade_de_rotaca_p_frame
-                    if (event.key == pygame.K_UP or event.key == pygame.K_w) and personagem.velocidadex == 0 :
-                        personagem.velocidadey -= 8
-                        if personagem.orientacao != de_ponta_cabeca:
-                            personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
-                    if (event.key == pygame.K_DOWN or event.key == pygame.K_s) and personagem.velocidadex == 0 :
-                        personagem.velocidadey +=8
-                        if  personagem.orientacao != de_peh:    
-                            personagem.velocidade_de_rotacao_do_personagem  = velocidade_de_rotaca_p_frame
+                    if event.key == pygame.K_LEFT: #and personagem.velocidadey == 0 
+                        personagem.velocidadex = -8
+                        #if  personagem.orientacao != virado_para_a_esquerda:
+                            #personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
+                    if event.key == pygame.K_RIGHT :#and personagem.velocidadey == 0 :
+                        personagem.velocidadex = 8
+                        #if personagem.orientacao != virado_para_a_direita:
+                        #    personagem.velocidade_de_rotacao_do_personagem  = velocidade_de_rotaca_p_frame
+                    if event.key == pygame.K_UP: #and personagem.velocidadex == 0 :
+                        personagem.velocidadey = -8
+                        #if personagem.orientacao != de_ponta_cabeca:
+                        #  personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
+                    if event.key == pygame.K_DOWN :#and personagem.velocidadex == 0 :
+                        personagem.velocidadey =8
+                        #if  personagem.orientacao != de_peh:    
+                        #    personagem.velocidade_de_rotacao_do_personagem  = velocidade_de_rotaca_p_frame
         
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
         
