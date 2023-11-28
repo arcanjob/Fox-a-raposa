@@ -11,6 +11,7 @@
 - posicionar o jogador de acordo com o mapa
 - ajustar o tamanho do jogador ou o do mapa
 
+
 2°
 - exibir o numero de galinhas pegas
     - exibir quantas de quantas galinhas o cara pegou
