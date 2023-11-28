@@ -102,12 +102,14 @@ def tela_do_jogo(janela):
     #marca o inicio da variavel de ponto
     pontos = 0
 
+    pode_passar = 200000000000000000000000
     #Cuida do estado de jogo
     jogando = 0
     DONE = 1
     morreu_de_vez = 2
     morreu = 3
     vitoria = 4
+    sim = 5
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
     
@@ -126,7 +128,7 @@ def tela_do_jogo(janela):
         for colisao in colisoes:
             pontos +=1
             if pontos == n_galinhas:
-                estado_do_jogo = vitoria
+                pode_passar = sim
                 return estado_do_jogo
 
         #COLISAO COM OS ESPINHOS
