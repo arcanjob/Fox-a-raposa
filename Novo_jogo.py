@@ -47,7 +47,7 @@ def tela_do_jogo(janela):
     jogando = 0
     DONE = 1
 
-  
+
     estado_do_jogo = jogando
     while estado_do_jogo != DONE:
 
@@ -61,15 +61,16 @@ def tela_do_jogo(janela):
 
             if event.type == pygame.KEYDOWN:
                 
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT and player.speedy == 0:
+
                     player.speedx = -velocidade_no_eixo_x
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_RIGHT and player.speedy == 0:
                     player.speedx = +velocidade_no_eixo_x
                 #elif event.key == pygame.K_UP or event.key == pygame.K_SPACE:
                 #    player.jump()
-                elif event.key == pygame.K_UP:
+                elif event.key == pygame.K_UP and player.speedx == 0:
                     player.speedy = -velocidade_no_eixo_x
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_DOWN and player.speedx == 0:
                     player.speedy = velocidade_no_eixo_x
 
             """

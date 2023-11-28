@@ -164,11 +164,11 @@ class Player(pygame.sprite.Sprite):
         for colisao in colisoes:
             
             if self.speedx > 0:
-                self.rect.right = colisao.rect.left
+                self.mask_rect.right = colisao.rect.left #+largura_do_jogador/2
                 self.speedx = 0
             
             elif self.speedx < 0:
-                self.rect.left = colisao.rect.right
+                self.mask_rect.left = colisao.rect.right 
                 self.speedx = 0
 
     """
