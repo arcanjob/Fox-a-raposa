@@ -13,11 +13,11 @@ janela = pygame.display.set_mode((largura, altura))
 
 def bases_carregando(img_dir):
     assets = {}
-    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
     assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
     assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha()
     assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
     assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
+    assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
     return assets
 
 
@@ -34,7 +34,7 @@ def tela_do_jogo(janela):
     piso_parede = pygame.sprite.Group()
     galinhas = pygame.sprite.Group()
 
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
+
 
     #CRIANDO O MAPA 
     for filas in range(len(MAPA)):
@@ -67,11 +67,13 @@ def tela_do_jogo(janela):
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
                 galinhas.add(tile)
-
+            if tile_type == R:
+                y = filas
+                x = colunas
+    player = Player(assets[R], y, x, piso_parede)
+    todos_os_sprites.add(player)
 
                 
-    
-    todos_os_sprites.add(player)
 
     jogando = 0
     DONE = 1
