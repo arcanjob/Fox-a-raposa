@@ -99,7 +99,7 @@ class Player(pygame.sprite.Sprite):
         self.estado_do_jogo = paradinho
 
        
-        bonequinho = pygame.transform.scale(bonequinho, (40, 100))
+        bonequinho = pygame.transform.scale(bonequinho, (70, 40))
 
         
         self.image = bonequinho

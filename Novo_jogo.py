@@ -24,7 +24,7 @@ def tela_do_jogo(janela):
     pygame.mixer.music.play(loops=-1)
     
     clock = pygame.time.Clock()
-    assets = bases_carregando(img_dir)
+    assets = bases_carregando(0)
 
     todos_os_sprites= pygame.sprite.Group()
     
