@@ -121,7 +121,7 @@ def tela_do_jogo(janela):
 
         #COLISAO COM AS GALINHAS
         colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-
+        print(colisoes)
         for colisao in colisoes:
             pontos +=1
             if pontos == n_galinhas:
@@ -133,6 +133,7 @@ def tela_do_jogo(janela):
 
         if colisoes:
             vidas-=1
+
             player.kill()
             if vidas == 0:
                 estado_do_jogo = morreu_de_vez
