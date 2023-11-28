@@ -36,7 +36,7 @@ def tela_do_jogo(janela):
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
 
-    #define os grupos de sprites nas suas respectivas variáveis, isos será usado ao longo de todo o código
+    #define os grupos de sprites nas suas respectivas variáveis, isso será usado ao longo de todo o código
     todos_os_sprites= pygame.sprite.Group()
     espinhos = pygame.sprite.Group()
     piso_parede = pygame.sprite.Group()
@@ -81,6 +81,7 @@ def tela_do_jogo(janela):
             if tile_type == R:
                 y = filas
                 x = colunas
+
     player = Player(assets[R], y, x, piso_parede)
     todos_os_sprites.add(player)
 
