@@ -35,7 +35,7 @@ def tela_do_jogo(janela):
     #define e usa o tempo no jogo
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
-
+    vidas = 3
     pontos = 0
     #define os grupos de sprites nas suas respectivas variáveis, isso será usado ao longo de todo o código
     todos_os_sprites= pygame.sprite.Group()
@@ -93,6 +93,8 @@ def tela_do_jogo(janela):
 
     jogando = 0
     DONE = 1
+    morreu_de_vez = 2
+    morreu = 3
 
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
@@ -112,6 +114,17 @@ def tela_do_jogo(janela):
         for colisao in colisoes:
             pontos +=1
             print(pontos)
+
+        #COLISAO COM OS ESPINHOS
+        colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
+
+        if colisoes:
+            vidas-=1
+            player.kill()
+            if vidas == 0:
+                estado_do_jogo = morreu_de_vez
+            else:
+                estado_do_jogo = morreu
 
 
 
@@ -144,7 +157,6 @@ def tela_do_jogo(janela):
         janela.blit(img_fundo, (0,0))
         todos_os_sprites.draw(janela)
 
-        
         pygame.display.flip()
 
 
