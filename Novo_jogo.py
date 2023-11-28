@@ -14,7 +14,9 @@ pygame.mixer.init()
 janela = pygame.display.set_mode((largura, altura))
 
 #Estabelece as imagens a serem usadas
-def bases_carregando(img_dir):
+
+
+def bases_carregando(none):
     assets = {}
     assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
     assets["img_fundo"] = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
@@ -26,6 +28,7 @@ def bases_carregando(img_dir):
     assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
     return assets
 
+
 #Define a tela do jogo e como ela irá funcionar
 def tela_do_jogo(janela):
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
@@ -36,7 +39,7 @@ def tela_do_jogo(janela):
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
 
-    pontos = 0
+    
     #define os grupos de sprites nas suas respectivas variáveis, isso será usado ao longo de todo o código
     todos_os_sprites= pygame.sprite.Group()
     espinhos = pygame.sprite.Group()
@@ -56,24 +59,29 @@ def tela_do_jogo(janela):
                 todos_os_sprites.add(tile)
                 piso_parede.add(tile)
             if tile_type == EE:
+
                 tile_type = E
                 tile = Tile(assets[tile_type], filas, colunas, com_o_peh_pra_direita)
                 todos_os_sprites.add(tile)
                 espinhos.add(tile)
+
             if tile_type == ED:
                 tile_type = E
                 tile = Tile(assets[tile_type], filas, colunas, com_o_peh_pra_esquerda)
                 todos_os_sprites.add(tile)
                 espinhos.add(tile)
+
             if tile_type == EB:
                 tile_type = E
                 tile = Tile(assets[tile_type], filas, colunas, de_ponta_cabeca)
                 todos_os_sprites.add(tile)
                 espinhos.add(tile)
+
             if tile_type == G:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
                 galinhas.add(tile)
+
             if tile_type == O:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
@@ -90,7 +98,10 @@ def tela_do_jogo(janela):
     todos_os_sprites.add(player)
 
     
+    #marca o inicio da variavel de ponto
+    pontos = 0
 
+    #Cuida do estado de jogo
     jogando = 0
     DONE = 1
 
@@ -152,6 +163,5 @@ pygame.display.set_caption(TITULO)
 
 try:
     tela_do_jogo(janela)
-    #tela_do_jogo(janela)
 finally:
     pygame.quit()
