@@ -126,7 +126,9 @@ def tela_do_jogo(janela):
         for colisao in colisoes:
             pontos +=1
             if pontos == n_galinhas:
+
                 estado_do_jogo = vitoria
+                
                 return estado_do_jogo
 
         #COLISAO COM OS ESPINHOS
