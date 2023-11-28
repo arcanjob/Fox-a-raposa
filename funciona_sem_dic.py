@@ -38,7 +38,7 @@ velocidade_de_rotaca_p_frame = radians(1) # do personagem, ao cair
 ####TAMANHOS 
 
 # TAMANHO DA LINHA E COLUNA
-TAMANHO_LINHA_E_COLUNA = 3
+TAMANHO_LINHA_E_COLUNA = 30
 
 #JANELA
 LARGURA_JANELA = 1000 # Largura da tela - A DEFINIR
@@ -176,7 +176,7 @@ arquivo_morrendo = 'imagens_e_sons/imagens/garoto/garoto_morrendo'
 for i in range(15):
         # Os arquivos de animação são numerados de 00 a 08
         filename = os.path.join(arquivo_morrendo, f'Dead ({i+1}).png')
-        img = pygame.image.load(filename).convert()
+        img = pygame.image.load(filename).convert_alpha()
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_morrendo.append(img)
 
@@ -186,7 +186,7 @@ arquivo_parado = 'imagens_e_sons/imagens/garoto/garoto_parado'
 for i in range(15):
         # Os arquivos de animação são numerados de 00 a 08
         filename = os.path.join(arquivo_parado, f'Idle ({i+1}).png')
-        img = pygame.image.load(filename).convert()
+        img = pygame.image.load(filename).convert_alpha()
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
 
@@ -196,7 +196,7 @@ arquivo_pulando = 'imagens_e_sons/imagens/garoto/garoto_pulando'
 for i in range(15):
         # Os arquivos de animação são numerados de 00 a 08
         filename = os.path.join(arquivo_pulando, f'Jump ({i+1}).png')
-        img = pygame.image.load(filename).convert()
+        img = pygame.image.load(filename).convert_alpha()
         img = pygame.transform.scale(img, (LARGURA_JOGADOR, ALTURA_JOGADOR))
         anim_parado.append(img)
 
@@ -278,12 +278,12 @@ MAPA_1=[
     [L,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,L],
     [L,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,V,V,V,L],
     [L,B,B,B,B,B,P,P,P,P,P,P,P,P,P,P,P,P,P,B,V,V,V,V,V,M,V,V,V,V,V,V,L],
-    [ED,V,V,V,V,M,B,V,V,V,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,L],
-    [L,V,V,V,V,V,B,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,L],
-    [L,V,V,B,B,B,V,V,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,P,P,P,P,L],
-    [L,V,V,B,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,P,P,P,P,L],
-    [L,V,V,B,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
-    [L,V,V,B,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
+    [ED,V,V,V,V,M,B,P,P,P,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,L],
+    [L,V,V,V,V,V,B,P,P,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,P,P,P,P,L],
+    [L,V,V,B,B,B,P,P,V,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,P,P,P,P,L],
+    [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,P,P,P,P,L],
+    [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
+    [L,V,V,B,P,P,P,P,P,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,P,P,P,P,P,P,L],
     [L,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,P,P,P,P,P,P,L],
     [L,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L],
     [L,V,V,R,V,V,V,V,V,V,V,V,V,V,V,M,V,B,P,P,P,P,P,P,P,P,P,P,P,P,P,P,L],
@@ -431,7 +431,7 @@ def fim_vitorioso(JANELA):
 
 
 class objeto (pygame.sprite.Sprite):                  ###############################################SPRITES_E_CLASSES
-    def __init__(self, fila, coluna, imagem, orientacao):
+    def __init__(self, coluna,fila, imagem, orientacao):
         pygame.sprite.Sprite.__init__(self)                                                            #SPRITES_E_CLASSES
         self.imagem = pygame.transform.rotate(imagem,orientacao)
         self.image = self.imagem
@@ -482,18 +482,18 @@ class persona (pygame.sprite.Sprite):                  #########################
         pygame.sprite.Sprite.__init__(self)             #SERÁ DADO QUANDO FOR EVOCADO
 
         
-        self.orientacao = de_peh
-
+        self.orientacao = de_ponta_cabeca
+        self.velocidade_de_rotacao_do_personagem = radians(0)
         self.i = 0
         self.tempo_ult_img = pygame.time.get_ticks()
 
         self.estado = parado
         
 
-        self.imagem = pygame.transform.rotate(anim_parado[0], self.orientacao)
-        self.image = self.imagem
-        self.mask = pygame.mask.from_surface(self.imagem)
-        self.rect = self.imagem.get_rect()
+        self.image = pygame.transform.rotate(anim_parado[0], self.orientacao)
+        #self.image = self.imagem
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
         
         #ESTADO INICIAL DO PERSONAGEM - POSIÇÃO E PARADO
         posicao_inicial_x = coluna 
@@ -511,7 +511,7 @@ class persona (pygame.sprite.Sprite):                  #########################
         #MOVIMENTANDO O PERSONAGEM
         self.rect.x += self.velocidadex
         self.rect.y += self.velocidadey
-
+        self.orientacao += self.velocidade_de_rotacao_do_personagem
 
         #ESTÁ PARADO
         if self.velocidadex == 0 and self.velocidadey == 0:
@@ -536,10 +536,10 @@ class persona (pygame.sprite.Sprite):                  #########################
         if int(self.i) == len(anim_pulando):
             self.i = 0
 
-        
+        """
         if self.estado != self.lista_estados[len(self.lista_estados)-1]:
             self.i = 0
-
+        """
         #dentro da tela - desacelerando e mantendo dentro da tela - NO FUTURO, DEVO FAZER O MESMO PARA QUANDO O PERSONAGEM COLIDIR COM AS PAREDES
         if self.rect.right >= LARGURA_JANELA:
             self.velocidadex = 0
@@ -609,7 +609,7 @@ class sprite_morrendo(pygame.sprite.Sprite):    #vai gerar a animação do perso
 
 ################################################################# JOGANDO ###############################################
 def jogando(JANELA, MAPA, F):
-    print('jogando')
+    #print('jogando')
     cronometro = pygame.time.Clock()
     #chamando o personagem
     global pontos
@@ -702,15 +702,15 @@ def jogando(JANELA, MAPA, F):
 
                 
 
-    all_sprites.add(personagem) # ADICIONANDO O PERSONAGEM
+
     vidas = 3 #NUMERO DE VIDAS NO INICIO DA FASE
 
 
-    print(personagem)
+    #print(personagem)
 
     
     
-    while estado_do_jogo == JOGANDO:
+    while estado_do_jogo != DONE:
         clock.tick(FPS) #INTERVALO ENTRE CADA FRAME
         
         #EVENTOS
@@ -726,38 +726,35 @@ def jogando(JANELA, MAPA, F):
                 if event.type == pygame.KEYDOWN:
                     # DEPENDENDO DA TECLA E SE ALGUM OUTRO MOVIMENTO JÁ ESTÁ ACONTECENDO
                     keys_down[event.key] = True
-                    if event.key == pygame.K_LEFT or event.key == pygame.K_a and personagem.velocidadey == 0 :
+                    if (event.key == pygame.K_LEFT or event.key == pygame.K_a) and personagem.velocidadey == 0 :
                         personagem.velocidadex -= 8
-                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d and personagem.velocidadey == 0 :
+                        if  personagem.orientacao != virado_para_a_esquerda:
+                            personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
+                    if (event.key == pygame.K_RIGHT or event.key == pygame.K_d )and personagem.velocidadey == 0 :
                         personagem.velocidadex += 8
-                    if event.key == pygame.K_UP or event.key == pygame.K_w and personagem.velocidadex == 0 :
+                        if personagem.orientacao != virado_para_a_direita:
+                            personagem.velocidade_de_rotacao_do_personagem  = +velocidade_de_rotaca_p_frame
+                    if (event.key == pygame.K_UP or event.key == pygame.K_w) and personagem.velocidadex == 0 :
                         personagem.velocidadey -= 8
-                    if event.key == pygame.K_DOWN or event.key == pygame.K_s and personagem.velocidadex == 0 :
+                        if personagem.orientacao != de_ponta_cabeca:
+                            personagem.velocidade_de_rotacao_do_personagem  = -velocidade_de_rotaca_p_frame
+                    if (event.key == pygame.K_DOWN or event.key == pygame.K_s) and personagem.velocidadex == 0 :
                         personagem.velocidadey +=8
-
-
+                        if  personagem.orientacao != de_peh:    
+                            personagem.velocidade_de_rotacao_do_personagem  = velocidade_de_rotaca_p_frame
+        
         #ROTACIONANDO EM RELAÇÃO AO SEU MOVIMENTO - ***CALIBRAR A VELO DISSO
-        if personagem.velocidadey>0 and personagem.orientacao != de_peh:    
-            personagem.orientacao += velocidade_de_rotaca_p_frame
-        
-        if personagem.velocidadey<0 and personagem.orientacao != de_ponta_cabeca:
-            personagem.orientacao -= velocidade_de_rotaca_p_frame
-        
-        if personagem.velocidadex >0 and personagem.orientacao != virado_para_a_direita:
-            personagem.orientacao +=velocidade_de_rotaca_p_frame
-        
-        if personagem.velocidadex<0 and personagem.orientacao != virado_para_a_esquerda:
-            personagem.orientacao -= velocidade_de_rotaca_p_frame
-
         
         all_sprites.update()
 
+        
 
         if estado_do_jogo == JOGANDO:
 
             #RESPONDENDO ÀS COLISÕES COM AS PLATAFORMAS
             colisoes_plataformas = pygame.sprite.spritecollide(personagem, plataformas, False, pygame.sprite.collide_mask)
             if colisoes_plataformas:
+                print('bateu')
                 if personagem.velocidadex !=0:
                     personagem.velocidadex = 0  # para o jogador
                 elif personagem.velocidadey !=0:
@@ -793,6 +790,7 @@ def jogando(JANELA, MAPA, F):
             colisao_chegada = pygame.sprite.spritecollide(personagem, objetivo, False, pygame.sprite.collide_mask) #MOSTRA SE HOUVERAM COLISÕES
             if colisao_chegada and pontos == galinhas_minimas: #SOMENTE SE A PESSOA COLETOU TODAS AS GALINHAS QUE ELE PODE PROSSEGUIR
                 som_vitoria.play()
+                print('colidiu com o objetivo')
                 estado_do_jogo = VITORIA #ATUALIZA O ESTADO DO JOGO
 
             
@@ -864,7 +862,7 @@ while estado_do_jogo != DONE:
         print('inicio')
         estado_do_jogo = tela_inicial(JANELA)
     if estado_do_jogo == JOGANDO:        #FECHA NA HORA
-        print('jogando')
+    
         #DEFININDO O MAPA E OS DICIONÁRIOS A SEREM UTILIZADOS
         F = 3
         MAPA = MAPA_1
@@ -893,12 +891,12 @@ while estado_do_jogo != DONE:
         estado_do_jogo = tela_final(JANELA)                           #PRECISA DO TELA_FINAL() - FEITO
     if estado_do_jogo == VITORIA:
         FASE +=1
-    if FASE!=4:
-        print('vitoria')
-        estado_do_jogo = tela_de_vitoria(JANELA)                      #PRECISA DA TELA_DE_VITORIA()  - FEITO
-    else:
-        print('fim vitorioso')
-        estado_do_jogo = fim_vitorioso(JANELA)                        #PRECISA DO FIM_VITORIOSO() - FEITO
+        if FASE!=4:
+            print('vitoria')
+            estado_do_jogo = tela_de_vitoria(JANELA)                      #PRECISA DA TELA_DE_VITORIA()  - FEITO
+        else:
+            print('fim vitorioso')
+            estado_do_jogo = fim_vitorioso(JANELA)                        #PRECISA DO FIM_VITORIOSO() - FEITO
 
 
 #fecha a janela
