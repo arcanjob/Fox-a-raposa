@@ -110,6 +110,21 @@ class azulejo(pygame.sprite.Sprite):
         #adicona a foto do azulejo a uma variável
         foto_do_azulejo = pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo))
 
+vidas = 3
+
+
+pode_passar = 200000000000000000000000
+#Cuida do estado de jogo
+jogando = 0
+DONE = 1
+morreu_de_vez = 2
+morreu = 3
+vitoria = 4
+sim = 5
+vivo = 6
+#Marca o loop principal em que o jogo irá funcionar
+estado_do_jogo = jogando
+estado_do_jogador = vivo
 
 #ORIENTACAO
 de_peh = 0
