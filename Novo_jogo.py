@@ -90,13 +90,11 @@ def tela_do_jogo(janela):
                 y = filas
                 x = colunas
 
+    #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
     player = Player(assets[R], y, x, piso_parede)
-    todos_os_sprites.add(player)
-
                 
     #Adiciona o player por último para que ele fique desenhado por cima de todos os outros sprites
     todos_os_sprites.add(player)
-
     
     #marca o inicio da variavel de ponto
     pontos = 0
