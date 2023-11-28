@@ -44,7 +44,7 @@ EB = 6
 EB = 7
 O = 8
 R = 9
-
+E = 10
 
 
 EMPTY = -1
@@ -61,7 +61,7 @@ MAPA =[
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
-    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,G,B,B,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
@@ -73,18 +73,24 @@ paradinho = 0
 pulando = 1
 caindo = 2
 
+#ORIENTACAO
+de_peh = 0
+com_o_peh_pra_direita = 90
+com_o_peh_pra_esquerda = 270
+de_ponta_cabeca = 180
+
 
 class Tile(pygame.sprite.Sprite):
 
     # Construtor da classe.
-    def __init__(self, foto_do_azulejo, filas, colunas):
+    def __init__(self, foto_do_azulejo, filas, colunas, orientacao):
         
         pygame.sprite.Sprite.__init__(self)
 
         
-        foto_do_azulejo = pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo))
+        foto_do_azulejo = pygame.transform.rotate(pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo)), orientacao)
 
-       
+        
         self.image = foto_do_azulejo
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()

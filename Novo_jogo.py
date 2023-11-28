@@ -15,6 +15,9 @@ def bases_carregando(img_dir):
     assets = {}
     assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
     assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
+    assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha()
+    assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
+    assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
     return assets
 
 
@@ -27,18 +30,44 @@ def tela_do_jogo(janela):
     assets = bases_carregando(0)
 
     todos_os_sprites= pygame.sprite.Group()
-    
+    espinhos = pygame.sprite.Group()
     piso_parede = pygame.sprite.Group()
+    galinhas = pygame.sprite.Group()
 
     player = Player(assets[bonequinho], 12, 2, piso_parede)
 
+    #CRIANDO O MAPA 
     for filas in range(len(MAPA)):
         for colunas in range(len(MAPA[filas])):
             tile_type = MAPA[filas][colunas]
             if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
+                tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
                 piso_parede.add(tile)
+            if tile_type == EE:
+                tile_type = E
+                tile = Tile(assets[tile_type], filas, colunas, com_o_peh_pra_direita)
+                todos_os_sprites.add(tile)
+                espinhos.add(tile)
+            if tile_type == ED:
+                tile_type = E
+                tile = Tile(assets[tile_type], filas, colunas, com_o_peh_pra_esquerda)
+                todos_os_sprites.add(tile)
+                espinhos.add(tile)
+            if tile_type == EB:
+                tile_type = E
+                tile = Tile(assets[tile_type], filas, colunas, de_ponta_cabeca)
+                todos_os_sprites.add(tile)
+                espinhos.add(tile)
+            if tile_type == G:
+                tile = Tile(assets[tile_type], filas, colunas, de_peh)
+                todos_os_sprites.add(tile)
+                galinhas.add(tile)
+            if tile_type == O:
+                tile = Tile(assets[tile_type], filas, colunas, de_peh)
+                todos_os_sprites.add(tile)
+                galinhas.add(tile)
+
 
                 
     
