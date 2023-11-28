@@ -13,3 +13,5 @@
 - tela de vitoria - pode passar para a proxima fase
 
 - tela de vitoria final
+
+4°criar a colisão com as máscaras
