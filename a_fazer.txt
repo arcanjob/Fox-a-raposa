@@ -1,14 +1,16 @@
 1°
-- fazer o personagem cair na direção do que o jogador aperta - agora ele esta andando como em um jogo de plataforma
-    - fazer o personagem girar na direção em que está caindo
-- ajustar a colisão no eixo x do bloco
-- comentar as coisas
+
+- fazer o personagem girar na direção em que está caindo
+----------------------------- comentar as coisas
+- ajeitar o mapa
 - colocar os espinhos
     - colocar o conflito com os espinhos
     - colocar a morte
 - colocar as galinhas
     - contar os pontos quando ele coletar as galinhas
 - contar quantas vidas o cara tem
+- posicionar o jogador de acordo com o mapa
+- ajustar o tamanho do jogador ou o do mapa
 
 2°
 - exibir o numero de galinhas pegas
