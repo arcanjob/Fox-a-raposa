@@ -1,7 +1,7 @@
 import pygame
 import random
 from os import path
-from variaveis_e_funcoes import *
+from Variaveis_e_funcoes import *
 velocidade_no_eixo_x = 10
 
 pygame.init()
