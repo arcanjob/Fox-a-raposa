@@ -155,12 +155,13 @@ def tela_do_jogo(janela):
 
             #COLISAO COM AS GALINHAS
             colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-
+            """
             for colisao in colisoes:
                 pontos +=1
                 if pontos == n_galinhas:
                     pode_passar = sim
-
+            """
+            #print(n_galinhas)
             #COLISAO COM OS ESPINHOS
             colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
 
@@ -175,11 +176,11 @@ def tela_do_jogo(janela):
                     estado_do_jogador = morreu
 
             colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
-            """
+            
             if colisoes and pode_passar == sim:
                 player.kill()    
                 estado_do_jogo = vitoria
-            """
+            
 
             # Verifica os eventos dentro do jogo
             for event in pygame.event.get():
