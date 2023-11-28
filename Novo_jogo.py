@@ -110,13 +110,13 @@ def tela_do_jogo(janela):
             if event.type == pygame.KEYDOWN:
 
                 #confere cada tecla de movimento
-                if event.key == pygame.K_LEFT and player.speedy == 0:
+                if event.key == pygame.K_LEFT and player.speedy == 0 and player.speedx == 0:
                     player.speedx = -velocidade_no_eixo_x
-                elif event.key == pygame.K_RIGHT and player.speedy == 0:
+                elif event.key == pygame.K_RIGHT and player.speedy == 0 and player.speedx == 0:
                     player.speedx = +velocidade_no_eixo_x
-                elif event.key == pygame.K_UP and player.speedx == 0:
+                elif event.key == pygame.K_UP and player.speedx == 0 and player.speedy == 0 :
                     player.speedy = -velocidade_no_eixo_x
-                elif event.key == pygame.K_DOWN and player.speedx == 0:
+                elif event.key == pygame.K_DOWN and player.speedx==0  and player.speedy == 0 :
                     player.speedy = velocidade_no_eixo_x
 
         #Atualiza o grupo com todos os sprites
