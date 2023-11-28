@@ -14,7 +14,7 @@ pygame.mixer.music.set_volume(0.6)
 ###########################################################JOGO#################################################
 
 # CRIANDO A JANELA - PARTE PRINCIPAL
-JANELA = pygame.display.set_mode((1000, 500))
+JANELA = pygame.display.set_mode((1000, 600))
 pygame.display.set_caption('Fox, a Raposa')
 
 
@@ -105,7 +105,7 @@ img_inicio = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alph
 img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()    #tela do game over
 img_chegada = pygame.image.load('imagens_e_sons/imagens/portal.png').convert_alpha() #linha de chegada/porta/portal ... = objetivo final da fase
 img_vitoria = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela do parabens, voce passou de fase
-img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/vitoria.webp').convert_alpha()    #tela de parabens, voce concluiu o jogo
+img_vitoria_final = pygame.image.load('imagens_e_sons/imagens/final.jpeg').convert_alpha()    #tela de parabens, voce concluiu o jogo
 
 #REDIMENSIONANDO AS FIGURAS
 #redimensionando as imagens
