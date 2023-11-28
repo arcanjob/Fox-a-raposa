@@ -1,10 +1,13 @@
+
+#Chama todas as bibliotécas que serão usadas ao longo de todo o código
 import pygame
 import random
 from os import path
 
+#inicializa  o pygame
 pygame.init()
+#inicializa  o pygame mixer (parte que controla o som)
 pygame.mixer.init()
-
 
 #Define as variáveis que controlarão o jogo, 
 jogando = 0
@@ -67,8 +70,6 @@ O = 8
 
 #O "R" vai definir em que parte do mapa a raposa irá ser gerada
 R = 9
-
-
 
 
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
