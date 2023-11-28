@@ -1,7 +1,9 @@
 1°
 - fazer o personagem cair na direção do que o jogador aperta - agora ele esta andando como em um jogo de plataforma
+
     - fazer o personagem girar na direção em que está caindo
 - ajustar a colisão no eixo x do bloco
+
 - comentar as coisas
 - colocar os espinhos
     - colocar o conflito com os espinhos
