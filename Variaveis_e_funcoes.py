@@ -3,6 +3,75 @@ import random
 from os import path
 
 img_dir = path.join(path.dirname(__file__), 'imagens_e_sons')
+def load_assets(img_dir):
+    assets = {}
+    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
+    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
+    return assets
+
+
+def game_screen(janela):
+    
+    clock = pygame.time.Clock()
+
+    
+    assets = load_assets(img_dir)
+
+    
+    all_sprites = pygame.sprite.Group()
+    
+    piso_parede = pygame.sprite.Group()
+
+    
+    player = Player(assets[bonequinho], 12, 2, piso_parede)
+
+    for filas in range(len(MAPA)):
+        for colunas in range(len(MAPA[filas])):
+            tile_type = MAPA[filas][colunas]
+            if tile_type == B:
+                tile = Tile(assets[tile_type], filas, colunas)
+                all_sprites.add(tile)
+                piso_parede.add(tile)
+
+    
+    all_sprites.add(player)
+
+    PLAYING = 0
+    DONE = 1
+
+    estado_do_jogo = PLAYING
+
+    
+def game_screen(janela):
+    
+    clock = pygame.time.Clock()
+
+    
+    assets = load_assets(img_dir)
+
+    
+    all_sprites = pygame.sprite.Group()
+    
+    piso_parede = pygame.sprite.Group()
+
+    
+    player = Player(assets[bonequinho], 12, 2, piso_parede)
+
+    for filas in range(len(MAPA)):
+        for colunas in range(len(MAPA[filas])):
+            tile_type = MAPA[filas][colunas]
+            if tile_type == B:
+                tile = Tile(assets[tile_type], filas, colunas)
+                all_sprites.add(tile)
+                piso_parede.add(tile)
+
+    
+    all_sprites.add(player)
+
+    PLAYING = 0
+    DONE = 1
+
+    estado_do_jogo = PLAYING
 
 
 TITULO = 'Fox, a raposa'
@@ -167,40 +236,3 @@ class Player(pygame.sprite.Sprite):
 
 
 
-def load_assets(img_dir):
-    assets = {}
-    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
-    return assets
-
-
-def game_screen(janela):
-    
-    clock = pygame.time.Clock()
-
-    
-    assets = load_assets(img_dir)
-
-    
-    all_sprites = pygame.sprite.Group()
-    
-    piso_parede = pygame.sprite.Group()
-
-    
-    player = Player(assets[bonequinho], 12, 2, piso_parede)
-
-    for filas in range(len(MAPA)):
-        for colunas in range(len(MAPA[filas])):
-            tile_type = MAPA[filas][colunas]
-            if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
-                all_sprites.add(tile)
-                piso_parede.add(tile)
-
-    
-    all_sprites.add(player)
-
-    PLAYING = 0
-    DONE = 1
-
-    estado_do_jogo = PLAYING

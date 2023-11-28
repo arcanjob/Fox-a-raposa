@@ -1,8 +1,55 @@
 import pygame
 import random
 from os import path
-from Variaveis_e_funcoes import * 
+from variaveis_e_funcoes import *
 
+
+pygame.init()
+pygame.mixer.init()
+
+#ESTABELECER OS SONS
+pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(loops=-1)
+
+def load_assets(img_dir):
+    assets = {}
+    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
+    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
+    return assets
+
+
+def game_screen(janela):
+    
+    clock = pygame.time.Clock()
+
+    
+    assets = load_assets(img_dir)
+
+    
+    all_sprites = pygame.sprite.Group()
+    
+    piso_parede = pygame.sprite.Group()
+
+    
+    player = Player(assets[bonequinho], 12, 2, piso_parede)
+
+    for filas in range(len(MAPA)):
+        for colunas in range(len(MAPA[filas])):
+            tile_type = MAPA[filas][colunas]
+            if tile_type == B:
+                tile = Tile(assets[tile_type], filas, colunas)
+                all_sprites.add(tile)
+                piso_parede.add(tile)
+
+    
+    all_sprites.add(player)
+
+    PLAYING = 0
+    DONE = 1
+
+    estado_do_jogo = PLAYING
+    estado_do_jogo = PLAYING
     while estado_do_jogo != DONE:
 
         
@@ -46,8 +93,7 @@ from Variaveis_e_funcoes import *
 
 
 
-pygame.init()
-pygame.mixer.init()
+
 
 
 janela = pygame.display.set_mode((largura, altura))
