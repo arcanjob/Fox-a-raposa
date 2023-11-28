@@ -68,6 +68,10 @@ O = 8
 R = 9
 
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
+E = 10
+
+
+EMPTY = -1
 MAPA =[
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
@@ -81,7 +85,7 @@ MAPA =[
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
-    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,G,B,B,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
@@ -104,7 +108,25 @@ class azulejo(pygame.sprite.Sprite):
         #adicona a foto do azulejo a uma variável
         foto_do_azulejo = pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo))
 
-       #puxa as imagens
+
+#ORIENTACAO
+de_peh = 0
+com_o_peh_pra_direita = 90
+com_o_peh_pra_esquerda = 270
+de_ponta_cabeca = 180
+
+
+class Tile(pygame.sprite.Sprite):
+
+    # Construtor da classe.
+    def __init__(self, foto_do_azulejo, filas, colunas, orientacao):
+        
+        pygame.sprite.Sprite.__init__(self)
+
+        
+        foto_do_azulejo = pygame.transform.rotate(pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo)), orientacao)
+
+        
         self.image = foto_do_azulejo
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()
