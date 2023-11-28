@@ -2,12 +2,12 @@ import pygame
 import random
 from os import path
 from Variaveis_e_funcoes import *
-velocidade_no_eixo_x = 10
+
 
 pygame.init()
 pygame.mixer.init()
 
-janela = pygame.display.set_mode((1350, 680))
+janela = pygame.display.set_mode((largura, altura))
 
 #ESTABELECER OS SONS
 
@@ -36,9 +36,9 @@ def tela_do_jogo(janela):
         for colunas in range(len(MAPA[filas])):
             tile_type = MAPA[filas][colunas]
             if tile_type == B:
-                tile = Tile(assets[tile_type], filas, colunas)
-                todos_os_sprites.add(tile)
-                piso_parede.add(tile)
+                Azulejo = azulejo(assets[tile_type], filas, colunas)
+                todos_os_sprites.add(Azulejo)
+                piso_parede.add(Azulejo)
 
                 
     

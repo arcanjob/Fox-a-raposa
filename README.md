@@ -12,4 +12,4 @@
 
 
 
-*Durante a elaboração do jogo alguns dos códigos utilizados tiveram como base os códigos presentes no handout do pygame da academia python.
+*Durante a elaboração do jogo alguns dos códigos utilizados tiveram como base os códigos presentes no handout do pygame da academia python.*
