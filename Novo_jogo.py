@@ -82,7 +82,6 @@ def tela_do_jogo(janela):
             if tile_type == G:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)
                 todos_os_sprites.add(tile)
-                galinhas.add(tile)
 
             if tile_type == O:
                 tile = Tile(assets[tile_type], filas, colunas, de_peh)

@@ -2,13 +2,10 @@
 
 - fazer o personagem girar na direção em que está caindo
 ----------------------------- comentar as coisas
-- fazer a galinha sumir
-- colocar o conflito com os espinhos
+
 - colocar a morte
 
-- contar os pontos quando ele coletar as galinhas
 - contar quantas vidas o cara tem
-- posicionar o jogador de acordo com o mapa
 - ajustar o tamanho do jogador ou o do mapa
 
 
