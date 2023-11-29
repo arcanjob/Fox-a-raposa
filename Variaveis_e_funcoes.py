@@ -99,6 +99,26 @@ MAPAS['MAPA1'] =  [
     [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+
+MAPAS['MAPA2'] = [
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,EB,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B,B,V,V,V,V,V,G,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,G,B,B,B,B,V,V,B,B,B,B],
+    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,G,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,V,V,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
+    [B,G,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,R,V,V,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,V,V,V,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+
 MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [ED,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,G,V,V,V,V,V,V,V,V,EE],
@@ -117,25 +137,6 @@ MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-MAPAS['MAPA2'] = [
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,R,V,V,B,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-
 #Estabelece as imagens a serem usadas
 def bases_carregando(none):
     assets = {}
