@@ -35,21 +35,3 @@ while True:
         fase = x[0]
         estado_do_jogo = x[1]
         
-
-
-
-
-"""
-state = INIT
-while state != QUIT:
-    if state == INIT:
-        state = init_screen(window)
-    elif state == GAME:
-        state = game_screen(window)
-    else:
-        state = QUIT
-
-# ===== Finalização =====
-pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
-
-"""
