@@ -249,14 +249,15 @@ class Player(pygame.sprite.Sprite):
 
 
 
-frases_para_serem_exibidas = [
+
+
+#fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
+def tela_inicial_de_texto(janela):
+    frases_para_serem_exibidas = [
     'Você está prestes a jogar um incìrivel jogo',
     'Há poucas regras para se atentar',
     'uepa!!!', 'para se mover basta clicar nas setinhas do teclado', 'para passar, você precisará pegar todas as galinhas' ]
 
-#fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
-def tela_inicial_de_texto(janela):
-    
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
@@ -304,6 +305,93 @@ def tela_inicial_de_texto(janela):
     print('to quase')
     return jogando
 
+def tela_de_derrota(janela):
+    frase_para_derrota = ["Infelizmente você morreu, aperte espaço para continuar"]
+    #Define a fonte do texto que será usada
+    font = pygame.font.SysFont(None, 45)
 
+    #inicializa o indice do texto para que ele seja percorrido
+    indice_do_texto = 0
 
+    #loop principal da tela de inicio, em que será rodado e exibido os textos
+    while indice_do_texto < len(frase_para_derrota):
 
+        #usa o tmepo de acordo com a taxa de FPS determinada previamente
+        clock.tick(FPS)
+
+        #para cada evento ele vai ficar conferindo e vendo o que há para fazer dentro dos "IFs"
+        for evento in pygame.event.get():
+            
+            #Determina quando tem que sair dessa tela
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+
+            #Verifica o fenomeno de apertar uma tecla
+            if evento.type == pygame.KEYDOWN:
+
+                #coonfere se a tecla pressionada era o espaço
+                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
+                    indice_do_texto += 1
+
+        
+        if indice_do_texto < len(frase_para_derrota):
+            texto = frase_para_derrota[indice_do_texto]
+        else:
+            texto = ''
+        texto_image = font.render(texto, True, branco)
+        img_fim = pygame.image.load('imagens_e_sons/imagens/fim.png').convert_alpha()    #tela do game over
+        img_fim =  pygame.transform.scale(img_fim, (largura, altura)) #tela final
+        janela.blit(img_fim, (0,0))
+   
+        #define em que posição o texto irá ser gerado
+        janela.blit(texto_image, (375, 550))
+        pygame.display.flip()
+
+    return jogando
+
+def tela_de_vitoria(janela):
+    frase_para_derrota = ['''
+                                MEUS PARABÉNS 
+                          você ganhou essa partida!!!
+                          ''']
+    #Define a fonte do texto que será usada
+    font = pygame.font.SysFont(None, 50)
+
+    #inicializa o indice do texto para que ele seja percorrido
+    indice_do_texto = 0
+
+    #loop principal da tela de inicio, em que será rodado e exibido os textos
+    while indice_do_texto < len(frase_para_derrota):
+
+        #usa o tmepo de acordo com a taxa de FPS determinada previamente
+        clock.tick(FPS)
+
+        #para cada evento ele vai ficar conferindo e vendo o que há para fazer dentro dos "IFs"
+        for evento in pygame.event.get():
+            
+            #Determina quando tem que sair dessa tela
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+
+            #Verifica o fenomeno de apertar uma tecla
+            if evento.type == pygame.KEYDOWN:
+
+                #coonfere se a tecla pressionada era o espaço
+                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
+                    indice_do_texto += 1
+
+        
+        if indice_do_texto < len(frase_para_derrota):
+            texto = frase_para_derrota[indice_do_texto]
+        else:
+            texto = ''
+        texto_image = font.render(texto, True, branco)
+        img_fundo = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
+        img_fundo =  pygame.transform.scale(img_fundo, (largura, altura)) #tela final
+        janela.blit(img_fundo, (0,0))
+   
+        #define em que posição o texto irá ser gerado
+        janela.blit(texto_image, (375, 550))
+        pygame.display.flip()
+
+    return jogando
