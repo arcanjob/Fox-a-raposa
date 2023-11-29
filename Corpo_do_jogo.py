@@ -20,7 +20,7 @@ def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
 #Define a tela do jogo e como ela irá funcionar
 def tela_do_jogo(janela, FASE, MAPA):
     
-    
+    som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')
     
     vidas = 3
     estado_do_jogo = jogando
@@ -121,6 +121,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             
             if colisoess:
                 pontos +=1
+                som_de_galinha.play()
                 #print(pontos)
             
             """

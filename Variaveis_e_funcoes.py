@@ -161,6 +161,7 @@ def bases_carregando(none):
 
 
 
+
 #Cria a função 
 class azulejo(pygame.sprite.Sprite):
 
