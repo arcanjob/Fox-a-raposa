@@ -129,10 +129,6 @@ MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
 
-#Variáveis que irão ser usada para definir o estado do jogador
-paradinho = 0
-pulando = 1
-caindo = 2
 
 
 #Estabelece as imagens a serem usadas
@@ -147,7 +143,16 @@ def bases_carregando(none):
     assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha() #Fonte: https://www.artstation.com/marketplace/p/97xV/portal
     assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha() #Fonte: https://www.pngegg.com/pt/search?q=pixel+raposa
     assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28) #Fonte: https://www.pngegg.com/pt/search?
+    assets['anim_raposa'] = []
+    for i in range(9):
+        # Os arquivos de animação são numerados de 00 a 08
+        filename = f'imagens_e_sons/imagens/garoto/raposa_parada/Idle ({i+1}).png'
+        img = pygame.image.load(filename).convert_alpha()
+        assets['anim_raposa'].append(img)
     return assets
+
+
+
 
 
 
@@ -210,16 +215,15 @@ class Tile(pygame.sprite.Sprite):
 #Cria o jogador definindo a sua classe
 class Player(pygame.sprite.Sprite):
 
-    def __init__(self, bonequinho, filas, colunas, piso_parede):
+    def __init__(self, animacao, filas, colunas, piso_parede):
         #Chama a função do sprite
         pygame.sprite.Sprite.__init__(self)
 
-        self.estado_do_jogo = paradinho
-        #define o tamanho do boneco
-        bonequinho = pygame.transform.scale(bonequinho, (largura_do_jogador, altura_do_jogador))
+        self.i = 1
+        
 
         #puxa as imagens
-        self.image = bonequinho
+        self.image = pygame.transform.scale('imagens_e_sons/imagens/garoto/raposa_parada/Idle (1).png', (largura_do_jogador, altura_do_jogador))
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()
         self.rect = self.image.get_rect()
@@ -238,7 +242,7 @@ class Player(pygame.sprite.Sprite):
             self.estado_do_jogo = caindo
         
         self.rect.y += self.speedy
-        
+        self.i+=1
         #define o dicionário que será criado caso haja colisões
         colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False, pygame.sprite.collide_mask)
         
