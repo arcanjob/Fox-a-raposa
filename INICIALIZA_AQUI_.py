@@ -22,8 +22,10 @@ while True:
         estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
+
     elif estado_do_jogo == morreu_de_vez:
         estado_do_jogo = tela_de_derrota(janela)
+
     elif estado_do_jogo == vitoria:
         x = tela_de_vitoria(janela, fase)
         fase = x[0]
