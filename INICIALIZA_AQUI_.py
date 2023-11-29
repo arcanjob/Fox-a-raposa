@@ -21,6 +21,9 @@ while True:
     MAPA = MAPAS[f'MAPA{fase}'] #qual_o_mapa(fase,MAPA1,MAPA2, MAPA3)
     if estado_do_jogo == jogando:
         estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
+        if fase == 3:
+            fase = 1
+            estado_do_jogo = INICIO
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
 
@@ -31,9 +34,7 @@ while True:
         x = tela_de_vitoria(janela, fase)
         fase = x[0]
         estado_do_jogo = x[1]
-        if fase >3:
-            fase = 1
-            estado_do_jogo = INICIO
+        
 
 
 
