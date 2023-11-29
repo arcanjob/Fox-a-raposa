@@ -15,7 +15,14 @@ janela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption(TITULO)
 
 
-tela_do_jogo(janela)
+
+estado_do_jogo = jogando
+
+
+if estado_do_jogo == jogando:
+    estado_do_jogo = tela_do_jogo(janela)
+
+
 """
 state = INIT
 while state != QUIT:
