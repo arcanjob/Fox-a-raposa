@@ -95,7 +95,7 @@ def tela_do_jogo(janela, FASE, MAPA):
         #print(n_galinhas)
     
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
-        player = Player(assets['anim_raposa'], y, x, piso_parede)
+        player = Player(assets, y, x, piso_parede)
                     
         #Adiciona o player por último para que ele fique desenhado por cima de todos os outros sprites
         todos_os_sprites.add(player)
