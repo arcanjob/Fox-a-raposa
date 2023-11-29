@@ -217,7 +217,7 @@ class Player(pygame.sprite.Sprite):
                 self.rect.bottom = colisao.rect.top
                 self.speedy = 0
 
-           #confere se a velocidade está ou não mais 
+            #confere se a velocidade está ou não mais 
             elif self.speedy < 0:
                 self.rect.top = colisao.rect.bottom
                 self.speedy = 0
@@ -252,7 +252,7 @@ class Player(pygame.sprite.Sprite):
 frases_para_serem_exibidas = [
     'Você está prestes a jogar um incìrivel jogo',
     'Há poucas regras para se atentar',
-    'uepa' ]
+    'uepa!!!', 'para se mover basta clicar nas setinhas do teclado', 'para passar, você precisará pegar todas as galinhas' ]
 
 #fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
 def tela_inicial_de_texto(janela):
