@@ -341,7 +341,7 @@ def tela_de_derrota(janela):
         janela.blit(img_fim, (0,0))
    
         #define em que posição o texto irá ser gerado
-        janela.blit(texto_image, (375, 550))
+        janela.blit(texto_image, (300, 550))
         pygame.display.flip()
     #retorna o estado do jogo
     return jogando
@@ -351,10 +351,7 @@ def tela_de_derrota(janela):
 
 
 def tela_de_vitoria(janela):
-    frase_para_derrota = ['''
-                                MEUS PARABÉNS 
-                          você ganhou essa partida!!!
-                          ''']
+    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida"]
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 50)
 
@@ -388,7 +385,7 @@ def tela_de_vitoria(janela):
         janela.blit(img_fundo, (0,0))
    
         #define em que posição o texto irá ser gerado
-        janela.blit(texto_image, (375, 550))
+        janela.blit(texto_image, (300, 550))
         pygame.display.flip()
     #retorna o estado do jogo
     return jogando
