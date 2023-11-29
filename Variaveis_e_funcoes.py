@@ -292,11 +292,11 @@ class Player(pygame.sprite.Sprite):
 def tela_inicial_de_texto(janela):
     frases_para_serem_exibidas = [
 
-    'Você está prestes a jogar um incìrivel jogo',
-    'Há poucas regras para se atentar',
-    'Para se mover basta clicar nas setinhas do teclado', 
-    'Para passar, você precisará pegar todas as galinhas',
-    'E, depois, entrar dentro do portal'
+    'Você vai jogar algo muito incrivel',
+    'Há poucas regras',
+    'Clique nas setas para mover-se', 
+    'Pegue todas as galinhas e mude de fase',
+    'E, depois, entre dentro do portal'
 
     ]
     
