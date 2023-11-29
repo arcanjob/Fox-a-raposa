@@ -15,6 +15,7 @@ pygame.display.set_caption(TITULO)
 
 estado_do_jogo = INICIO
 fase = 1
+
 while True:
     
     MAPA = MAPAS[f'MAPA{fase}'] #qual_o_mapa(fase,MAPA1,MAPA2, MAPA3)

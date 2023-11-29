@@ -9,6 +9,11 @@ pygame.init()
 #inicializa  o pygame mixer (parte que controla o som)
 pygame.mixer.init()
 pygame.init()
+
+#define e inicializa a parte de joystick do pygame
+joystick = pygame.joystick.Joystick(0)
+joystick.init()
+
 #Define as variáveis que controlarão o jogo, 
 jogando = 0
 DONE = 1
@@ -235,6 +240,7 @@ class Player(pygame.sprite.Sprite):
         self.speedy = 0
     
     #Função resposável por definir as atualizações de estado
+    
     def update(self):
 
         if self.speedy != 0 or self.speedx != 0:
@@ -290,6 +296,11 @@ class Player(pygame.sprite.Sprite):
 
 #fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
 def tela_inicial_de_texto(janela):
+
+    pygame.mixer.music.load('imagens_e_sons/sons/tela_inicial.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
+    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.play(loops=-1)
+    
     frases_para_serem_exibidas = [
 
     'Você vai jogar algo muito incrivel',
@@ -350,6 +361,11 @@ def tela_inicial_de_texto(janela):
 
 
 def tela_de_derrota(janela):
+    pygame.mixer.music.load('imagens_e_sons/sons/morrendo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
+    pygame.mixer.music.set_volume(0.9)
+    pygame.mixer.music.play(loops=-1)
+
+
     frase_para_derrota = ["Infelizmente você morreu, aperte espaço para continuar"]
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
