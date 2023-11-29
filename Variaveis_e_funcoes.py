@@ -223,6 +223,7 @@ class Player(pygame.sprite.Sprite):
         
 
         #puxa as imagens
+        self.lista_anim = assets['anim_raposa']
         self.image = pygame.transform.scale(assets['anim_raposa'][int(self.i)], (largura_do_jogador, altura_do_jogador))
         self.mask = pygame.mask.from_surface(self.image)
         self.mask_rect = self.mask.get_rect()
@@ -237,12 +238,17 @@ class Player(pygame.sprite.Sprite):
     #Função resposável por definir as atualizações de estado
     def update(self):
 
-        if self.speedy != 0 or self.speedx != 0:
-
-            self.estado_do_jogo = caindo
+        
         
         self.rect.y += self.speedy
-        self.i+=1
+
+        #TENTANDO ANIMAR
+        self.i+=1/(10)
+        if self.i>=len(self.lista_anim):
+            self.i=1
+        self.image = pygame.transform.scale(self.lista_anim[int(self.i)], (largura_do_jogador, altura_do_jogador))
+        
+
         #define o dicionário que será criado caso haja colisões
         colisoes = pygame.sprite.spritecollide(self, self.piso_parede, False, pygame.sprite.collide_mask)
         

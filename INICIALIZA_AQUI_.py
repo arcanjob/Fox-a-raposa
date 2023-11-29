@@ -5,7 +5,7 @@ from Corpo_do_jogo import *
 from Variaveis_e_funcoes import *
 
 #inicializa  o pygame
-pygame.init()
+pygame.init() 
 #inicializa  o pygame mixer (parte que controla o som)
 pygame.mixer.init()
 
