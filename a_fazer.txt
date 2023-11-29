@@ -4,7 +4,7 @@
 ----------------------------- comentar as coisas
 
 - colocar a morte
-
+- quando morre reinicia
 - contar quantas vidas o cara tem
 - ajustar o tamanho do jogador ou o do mapa
 
