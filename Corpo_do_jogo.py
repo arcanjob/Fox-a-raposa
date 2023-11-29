@@ -21,7 +21,8 @@ def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
 def tela_do_jogo(janela, FASE, MAPA):
     
     som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')
-    
+    som_de_dano = pygame.mixer.Sound('imagens_e_sons/sons/dano.mp3')
+
     vidas = 3
     estado_do_jogo = jogando
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
@@ -136,7 +137,7 @@ def tela_do_jogo(janela, FASE, MAPA):
 
             if colisoes:
                 vidas-=1
-
+                som_de_dano.play()
                 player.kill()
                 if vidas == 0:
                     estado_do_jogo = morreu_de_vez

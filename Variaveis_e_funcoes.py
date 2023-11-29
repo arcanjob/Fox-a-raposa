@@ -83,12 +83,12 @@ MAPAS = {}
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
 MAPAS['MAPA1'] =  [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-    [B,G,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,O,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,V,V,V,V,V,G,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,V,V,V,V,V,V,B,B],
     [ED,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
     [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
@@ -103,7 +103,7 @@ MAPAS['MAPA1'] =  [
 MAPAS['MAPA2'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,EB,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B,B,V,V,V,V,V,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B,B,V,V,V,V,V,G,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,G,B,B,B,B,V,V,B,B,B,B],
     [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,G,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,V,V,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
@@ -114,7 +114,7 @@ MAPAS['MAPA2'] = [
     [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
     [B,G,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,R,V,B,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,R,V,G,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,V,V,V,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
@@ -132,12 +132,11 @@ MAPAS['MAPA3'] = [
     [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,G,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
-    [B,B,B,B,EC,EC,B,B,B,V,V,V,V,V,V,G,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
+    [B,B,B,B,EC,EC,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,EC,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-
 
 
 
