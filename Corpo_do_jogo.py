@@ -18,21 +18,6 @@ janela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption(TITULO)
 """
 
-#Estabelece as imagens a serem usadas
-
-
-def bases_carregando(none):
-    assets = {}
-    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets["img_fundo"] = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
-    assets["plataformas"] = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
-    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
-    assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha()
-    assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
-    assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
-    assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28)
-    return assets
 
 
 #Define a tela do jogo e como ela irá funcionar

@@ -1,5 +1,4 @@
-# ===== Inicialização =====
-# ----- Importa e inicia pacotes
+#importa as bibliotecas necessárias
 import pygame
 import random
 from Corpo_do_jogo import *

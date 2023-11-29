@@ -99,6 +99,25 @@ paradinho = 0
 pulando = 1
 caindo = 2
 
+
+#Estabelece as imagens a serem usadas
+
+
+def bases_carregando(none):
+    assets = {}
+    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
+    assets["img_fundo"] = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
+    assets["plataformas"] = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
+    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
+    assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha()
+    assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
+    assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
+    assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
+    assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28)
+    return assets
+
+
+
 #Cria a função 
 class azulejo(pygame.sprite.Sprite):
 
@@ -273,12 +292,12 @@ def tela_inicial_de_texto(janela):
         else:
             texto = ''
         texto_image = font.render(texto, True, branco)
-
-        #define qual será o preenchimento dessa tela, nesse caso, com uma imagem estática
-        janela.fill(img_inicio)
-
+        img_fundo = pygame.image.load('imagens_e_sons/imagens/inicio.png').convert_alpha()
+        img_fundo = pygame.transform.scale(img_fundo, (largura, altura)) 
+        janela.blit(img_fundo, (0,0))
+   
         #define em que posição o texto irá ser gerado
-        janela.blit(texto_image, (100, 100))
+        janela.blit(texto_image, (375, 550))
         pygame.display.flip()
 
         
