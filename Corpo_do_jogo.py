@@ -5,6 +5,8 @@ import random
 from os import path
 from Variaveis_e_funcoes import *
 
+
+
 def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
     if FASE == 1:
         MAPA = MAPA1
@@ -120,6 +122,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             if colisoess:
                 pontos +=1
                 #print(pontos)
+            
             """
             for colisao in colisoes:
                 pontos +=1
@@ -154,19 +157,37 @@ def tela_do_jogo(janela, FASE, MAPA):
 
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                button_pressed = event.button  # Obtém o número do botão pressionado
+                print(f"Botão {button_pressed} pressionado")
 
-                #Confere quando jogador solta uma tecla (após pressionar ela)
+                # Aqui você pode adicionar lógica para lidar com cada botão pressionado
+                # Por exemplo:
+                if button_pressed == 0:  # Botão A
+                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
+                elif button_pressed == 1:  # Botão B
+                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
+                elif button_pressed == 2:  # Botão X
+                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
+                elif button_pressed == 3:  # Botão Y
+                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
+
+                                #Confere quando jogador solta uma tecla (após pressionar ela)
+
                 if event.type == pygame.KEYDOWN:
 
                     #confere cada tecla de movimento
-                    if event.key == pygame.K_LEFT and player.speedy == 0 and player.speedx == 0:
-                        player.speedx = -velocidade_no_eixo_x
-                    elif event.key == pygame.K_RIGHT and player.speedy == 0 and player.speedx == 0:
-                        player.speedx = +velocidade_no_eixo_x
-                    elif event.key == pygame.K_UP and player.speedx == 0 and player.speedy == 0 :
-                        player.speedy = -velocidade_no_eixo_x
-                    elif event.key == pygame.K_DOWN and player.speedx==0  and player.speedy == 0 :
-                        player.speedy = velocidade_no_eixo_x
+                    if event.key == pygame.K_LEFT:
+                        if player.speedy == 0 and player.speedx == 0:
+                            player.speedx = -velocidade_no_eixo_x
+                    elif event.key == pygame.K_RIGHT:
+                        if player.speedy == 0 and player.speedx == 0:
+                            player.speedx = +velocidade_no_eixo_x
+                    elif event.key == pygame.K_UP: 
+                        if player.speedx == 0 and player.speedy == 0 :
+                            player.speedy = -velocidade_no_eixo_x
+                    elif event.key == pygame.K_DOWN: 
+                        if player.speedx==0  and player.speedy == 0 :
+                            player.speedy = velocidade_no_eixo_x
 
             #Atualiza o grupo com todos os sprites
             todos_os_sprites.update()
