@@ -315,6 +315,8 @@ def tela_inicial_de_texto(janela):
     'Você vai jogar algo muito incrivel',
     'Há poucas regras',
     'Clique nas setas para mover-se', 
+    'Caso queira apelar, aperte r para reiniciar as vidas',
+    'Caso queira voltar à tela inicial, aperte esc',
     'Pegue todas as galinhas e mude de fase',
     'E, depois, entre dentro do portal'
 
