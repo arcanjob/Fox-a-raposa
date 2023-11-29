@@ -127,7 +127,6 @@ class azulejo(pygame.sprite.Sprite):
 #Cria a variavel responável por determinar a quantidade de vidas que o jogador ainda tem 
 vidas = 3
 
-
 pode_passar = 200000000000000000000000
 #Cuida do estado de jogo
 jogando = 0
@@ -257,8 +256,8 @@ def tela_inicial_de_texto(janela):
     'Para passar, você precisará pegar todas as galinhas',
     'E, depois, entrar dentro do portal'
 
-      ]
-
+    ]
+    
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
@@ -352,9 +351,10 @@ def tela_de_derrota(janela):
 
 
 
-def tela_de_vitoria(janela):
+def tela_de_vitoria(janela, FASE):
     frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida"]
     #Define a fonte do texto que será usada
+    FASE += 1
     font = pygame.font.SysFont(None, 50)
 
     #inicializa o indice do texto para que ele seja percorrido
@@ -390,4 +390,4 @@ def tela_de_vitoria(janela):
         janela.blit(texto_image, (300, 550))
         pygame.display.flip()
     #retorna o estado do jogo
-    return jogando
+    return [FASE, jogando]

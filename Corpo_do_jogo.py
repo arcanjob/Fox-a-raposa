@@ -8,8 +8,10 @@ from Variaveis_e_funcoes import *
 
 
 #Define a tela do jogo e como ela irá funcionar
-def tela_do_jogo(janela):
+def tela_do_jogo(janela, FASE):
     
+    if FASE == 1:
+        
     vidas = 3
     estado_do_jogo = jogando
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
@@ -75,11 +77,8 @@ def tela_do_jogo(janela):
                 if tile_type == R:
                     y = filas
                     x = colunas
-<<<<<<< HEAD
         #print(n_galinhas)
-=======
     
->>>>>>> 4028bf4024a400de31d23b001773735e864e79b6
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
         player = Player(assets[R], y, x, piso_parede)
                     
