@@ -22,6 +22,7 @@ def tela_do_jogo(janela, FASE, MAPA):
     
     som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')
     som_de_dano = pygame.mixer.Sound('imagens_e_sons/sons/dano.mp3')
+    som_de_erro = pygame.mixer.Sound('imagens_e_sons/sons/errado.mp3')
 
     vidas = 3
     estado_do_jogo = jogando
@@ -152,6 +153,11 @@ def tela_do_jogo(janela, FASE, MAPA):
                 if n_galinhas == pontos:
                     player.kill()    
                     return vitoria
+                else:
+                    
+                    som_de_erro.play()
+            
+
             
             # Verifica os eventos dentro do jogo
             for event in pygame.event.get():
