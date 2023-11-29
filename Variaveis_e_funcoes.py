@@ -260,8 +260,6 @@ def tela_inicial_de_texto(janela):
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
-
-
     #inicializa o indice do texto para que ele seja percorrido
     indice_do_textoo = 0
 
