@@ -450,7 +450,7 @@ def tela_de_derrota(janela):
 
 
 def tela_de_vitoria(janela, FASE):
-    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida", "Espere que ainda tem mais pela frente"]
+    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida"]
     #Define a fonte do texto que será usada
     FASE += 1
     font = pygame.font.SysFont(None, 50)
