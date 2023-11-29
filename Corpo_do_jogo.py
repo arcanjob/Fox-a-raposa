@@ -203,6 +203,10 @@ def tela_do_jogo(janela, FASE, MAPA):
                     elif event.key == pygame.K_ESCAPE:
                         print('ta indo')
                         return INICIO
+                    elif event.key == pygame.K_r:
+                        vidas = 3
+                        estado_do_jogador = morreu
+
 
             #Atualiza o grupo com todos os sprites
             todos_os_sprites.update()

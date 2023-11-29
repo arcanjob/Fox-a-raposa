@@ -340,9 +340,6 @@ def tela_inicial_de_texto(janela):
 
             if evento.type == pygame.QUIT:
                 pygame.quit()
-            elif evento.type == pygame.K_ESCAPE:
-                return INICIO
-                
             elif evento.type == pygame.JOYBUTTONDOWN:
                     pressao_no_botao = evento.button  # Obtém o número do botão pressionado
                     
@@ -361,7 +358,11 @@ def tela_inicial_de_texto(janela):
 
             #Verifica o fenomeno de apertar uma tecla
             elif evento.type == pygame.KEYDOWN:
-                indice_do_textoo += 1
+                
+                if evento.key == pygame.K_ESCAPE:
+                    print('ta indo')
+                    return INICIO
+                else: indice_do_textoo += 1
                 #coonfere se a tecla pressionada era o espaço
                 #if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
                     
@@ -431,7 +432,10 @@ def tela_de_derrota(janela):
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
-                indice_do_texto += 1
+                if evento.key == pygame.K_ESCAPE:
+                    print('ta indo')
+                    return INICIO
+                else: indice_do_texto += 1
 
         #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
         if indice_do_texto < len(frase_para_derrota):
@@ -494,7 +498,10 @@ def tela_de_vitoria(janela, FASE):
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
-                indice_do_texto += 1
+                if evento.key == pygame.K_ESCAPE:
+                    print('ta indo')
+                    return INICIO
+                else: indice_do_texto += 1
         
         #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
         if indice_do_texto < len(frase_para_derrota):

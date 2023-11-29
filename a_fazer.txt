@@ -1,4 +1,3 @@
-- esc volta pra tela inicial
 - r reinicia a fase
 - mapa a mais q vc ja desenhou
 - timer/cronometro 
