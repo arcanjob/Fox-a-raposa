@@ -307,7 +307,7 @@ class Player(pygame.sprite.Sprite):
 def tela_inicial_de_texto(janela):
 
     pygame.mixer.music.load('imagens_e_sons/sons/tela_inicial.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.set_volume(0.8)
     pygame.mixer.music.play(loops=-1)
     
     frases_para_serem_exibidas = [
@@ -387,7 +387,7 @@ def tela_inicial_de_texto(janela):
 
 def tela_de_derrota(janela):
     pygame.mixer.music.load('imagens_e_sons/sons/morrendo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-    pygame.mixer.music.set_volume(0.9)
+    pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play(loops=-1)
 
 
