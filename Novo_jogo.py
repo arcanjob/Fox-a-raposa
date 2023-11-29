@@ -110,6 +110,7 @@ def tela_do_jogo(janela):
     morreu = 3
     vitoria = 4
     sim = 5
+    
     #Marca o loop principal em que o jogo irá funcionar
     estado_do_jogo = jogando
     
