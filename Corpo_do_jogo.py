@@ -70,6 +70,11 @@ def tela_do_jogo(janela, FASE, MAPA):
                     tile = Tile(assets[tile_type], filas, colunas, de_ponta_cabeca)
                     todos_os_sprites.add(tile)
                     espinhos.add(tile)
+                if tile_type == EC:
+                    tile_type = E
+                    tile = Tile(assets[tile_type], filas, colunas, de_peh)
+                    todos_os_sprites.add(tile)
+                    espinhos.add(tile)
 
                 if tile_type == G:
                     tile = Tile(assets[tile_type], filas, colunas, de_peh)

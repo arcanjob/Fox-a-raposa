@@ -17,7 +17,6 @@ estado_do_jogo = INICIO
 fase = 1
 while True:
     
-    print(f'a fase é {fase}')
     MAPA = MAPAS[f'MAPA{fase}'] #qual_o_mapa(fase,MAPA1,MAPA2, MAPA3)
     if estado_do_jogo == jogando:
         estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
@@ -28,7 +27,6 @@ while True:
     elif estado_do_jogo == vitoria:
         x = tela_de_vitoria(janela, fase)
         fase = x[0]
-        print(f'no elif a fase é {fase}')
         estado_do_jogo = x[1]
 
 

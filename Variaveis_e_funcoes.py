@@ -109,21 +109,21 @@ MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 MAPAS['MAPA2'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,EB,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B,B,V,V,V,V,V,G,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,G,B,B,B,B,V,V,B,B,B,B],
+    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,G,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,V,V,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
     [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
     [B,V,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,R,V,V,B,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-    [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
+    [B,V,V,V,V,V,R,V,V,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,V,V,V,V,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,G,V,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
 #Variáveis que irão ser usada para definir o estado do jogador
@@ -420,10 +420,9 @@ def tela_de_vitoria(janela, FASE):
         img_fundo = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
         img_fundo =  pygame.transform.scale(img_fundo, (largura, altura)) #tela final
         janela.blit(img_fundo, (0,0))
-   
+
         #define em que posição o texto irá ser gerado
         janela.blit(texto_image, (300, 550))
         pygame.display.flip()
     #retorna o estado do jogo
-    print(f'a fase saiu da vitoria como {FASE}')
     return [FASE, jogando]
