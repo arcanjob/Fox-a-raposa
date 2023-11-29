@@ -125,14 +125,6 @@ def tela_do_jogo(janela):
         #Adiciona o player por último para que ele fique desenhado por cima de todos os outros sprites
         todos_os_sprites.add(player)
         
-        #marca o inicio da variavel de ponto
-        pontos = 0
-        fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
-        perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, BLACK) #faz o coração
-        texto_rect = perfil_texto.get_rect() 
-        texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
-        janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
-
 
 
         #Define a imagem de fundo
@@ -210,6 +202,13 @@ def tela_do_jogo(janela):
             
             janela.blit(img_fundo, (0,0))
             todos_os_sprites.draw(janela)
+            #marca o inicio da variavel de ponto
+            pontos = 0
+            fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
+            perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, preto) #faz o coração
+            texto_rect = perfil_texto.get_rect() 
+            texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
+            janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
             pygame.display.flip()
         
