@@ -30,6 +30,9 @@ while True:
         x = tela_de_vitoria(janela, fase)
         fase = x[0]
         estado_do_jogo = x[1]
+        if fase >3:
+            fase = 1
+            estado_do_jogo = INICIO
 
 
 
