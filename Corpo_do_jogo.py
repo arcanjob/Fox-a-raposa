@@ -110,6 +110,7 @@ def tela_do_jogo(janela, FASE, MAPA):
 
         estado_do_jogador = vivo
 
+
         #confere se o jogador ainda têm vidas e se pode continuar jogando ou não
         while estado_do_jogador == vivo and estado_do_jogo == jogando:
             #marca o tempo
@@ -162,6 +163,7 @@ def tela_do_jogo(janela, FASE, MAPA):
                     button_pressed = event.button  # Obtém o número do botão pressionado
                     print(f"Botão {button_pressed} pressionado")
 
+
                     # Aqui você pode adicionar lógica para lidar com cada botão pressionado
                     # Por exemplo:
                     if button_pressed == 3:  # Botão A
@@ -174,6 +176,7 @@ def tela_do_jogo(janela, FASE, MAPA):
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
                                 #Confere quando jogador solta uma tecla (após pressionar ela)
+
 
                 if event.type == pygame.KEYDOWN:
 
