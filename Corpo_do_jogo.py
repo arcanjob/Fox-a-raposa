@@ -5,68 +5,20 @@ import random
 from os import path
 from Variaveis_e_funcoes import *
 
-
+def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
+    if FASE == 1:
+        MAPA = MAPA1
+    elif FASE == 2:
+        MAPA = MAPA2 
+    elif FASE == 3:
+        MAPA = MAPA3
+    
+    return MAPA
 
 #Define a tela do jogo e como ela irá funcionar
-def tela_do_jogo(janela, FASE):
+def tela_do_jogo(janela, FASE, MAPA):
     
-    if FASE == 1:
-        MAPA = [
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-            [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-            [B,O,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,V,V,V,V,V,V,B,B],
-            [ED,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,V,V,V,V,V,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,B,B,B,B,B,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,V,V,G,B,B,B,B,B,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-    elif FASE == 2:
-        MAPA = [
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-            [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-            [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
-            [B,V,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
-            [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-            [B,V,V,V,V,V,R,V,V,B,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-    elif FASE == 3:
-        MAPA = [
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [ED,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,G,V,V,V,V,V,V,V,V,EE],
-            [B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,O,B],
-            [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,V,V,V,V,V,G,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,B,B,B,B,B,B,B,B,B,B,B,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,B,B,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,G,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B],
-            [B,V,V,R,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
-            [B,B,B,B,EC,EC,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,EC,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
-            [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+    
     
     vidas = 3
     estado_do_jogo = jogando
@@ -118,6 +70,11 @@ def tela_do_jogo(janela, FASE):
                     tile = Tile(assets[tile_type], filas, colunas, de_ponta_cabeca)
                     todos_os_sprites.add(tile)
                     espinhos.add(tile)
+                if tile_type == EC:
+                    tile_type = E
+                    tile = Tile(assets[tile_type], filas, colunas, de_peh)
+                    todos_os_sprites.add(tile)
+                    espinhos.add(tile)
 
                 if tile_type == G:
                     tile = Tile(assets[tile_type], filas, colunas, de_peh)
@@ -162,7 +119,7 @@ def tela_do_jogo(janela, FASE):
             
             if colisoess:
                 pontos +=1
-                print(pontos)
+                #print(pontos)
             """
             for colisao in colisoes:
                 pontos +=1

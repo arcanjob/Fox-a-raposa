@@ -69,9 +69,9 @@ O = 8
 #O "R" vai definir em que parte do mapa a raposa irá ser gerada
 R = 9
 
-
+MAPAS = {}
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
-MAPA = [
+MAPAS['MAPA1'] =  [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
@@ -89,7 +89,42 @@ MAPA = [
     [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-
+MAPAS['MAPA3'] = [
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [ED,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,G,V,V,V,V,V,V,V,V,EE],
+    [B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,O,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,V,V,V,V,V,G,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,B,B,B,B,B,B,B,B,B,B,B,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,B,B,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,G,B,V,V,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B],
+    [B,V,V,R,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
+    [B,B,B,B,EC,EC,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,EC,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+MAPAS['MAPA2'] = [
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,EB,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,B,B,B,V,V,V,V,V,G,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,G,B,B,B,B,V,V,B,B,B,B],
+    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,G,B,B,B,G,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,V,V,V,V,V,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,B,B,B,B,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
+    [B,V,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,R,V,V,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,V,V,V,V,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,G,V,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
+    [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
 
 #Variáveis que irão ser usada para definir o estado do jogador
 paradinho = 0
@@ -385,7 +420,7 @@ def tela_de_vitoria(janela, FASE):
         img_fundo = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
         img_fundo =  pygame.transform.scale(img_fundo, (largura, altura)) #tela final
         janela.blit(img_fundo, (0,0))
-   
+
         #define em que posição o texto irá ser gerado
         janela.blit(texto_image, (300, 550))
         pygame.display.flip()
