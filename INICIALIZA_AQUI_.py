@@ -24,7 +24,6 @@ while True:
 
     elif estado_do_jogo == vitoria:
         print('parabéns!!!')
-    
 
 
 

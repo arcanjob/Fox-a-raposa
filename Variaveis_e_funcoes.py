@@ -42,9 +42,6 @@ FPS = 60
 preto = (0, 0, 0)
 branco = (255,255,255)
 vermelho = (200, 100, 100)
-#velocidade_de_queda = 5
-
-#quanto_pula = tamanho_azulejo
 
 #define a velocidade no eixo x (esquerda e direita)
 velocidade_no_eixo_x = 20
@@ -101,19 +98,17 @@ caindo = 2
 
 
 #Estabelece as imagens a serem usadas
-
-
 def bases_carregando(none):
     assets = {}
-    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets["img_fundo"] = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
-    assets["plataformas"] = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha()
-    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert()
-    assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha()
-    assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
-    assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
-    assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
-    assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28)
+    assets[bonequinho] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha() #Fonte: https://grappe.itch.io/pixelportal
+    assets["img_fundo"] = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() #Fonte: https://pt.vecteezy.com/arte-vetorial/9877673-pixel-art-sky-background-with-clouds-cloudy-blue-sky-vector-for-8bit-game-on-white-background
+    assets["plataformas"] = pygame.image.load('imagens_e_sons/imagens/plataforma.png').convert_alpha() #Fonte: https://www.pngwing.com/pt/free-png-czlvo
+    assets[B] = pygame.image.load(path.join('imagens_e_sons/imagens/plataforma.png')).convert() #Fonte: https://www.pngwing.com/pt/free-png-czlvo
+    assets[E] = pygame.image.load(path.join('imagens_e_sons/imagens/espinho.png')).convert_alpha() #Fonte: https://www.flaticon.com/br/icone-gratis/espinho_4139931
+    assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha() #Fonte: https://br.freepik.com/vetores-premium/icone-de-pixel-art-de-frango-branco-passaro-do-pais-logotipo-de-animal-de-fazenda_23568997.htm
+    assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha() #Fonte: https://www.artstation.com/marketplace/p/97xV/portal
+    assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha() #Fonte: https://www.pngegg.com/pt/search?q=pixel+raposa
+    assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28) #Fonte: https://www.pngegg.com/pt/search?
     return assets
 
 
@@ -129,6 +124,7 @@ class azulejo(pygame.sprite.Sprite):
         #adicona a foto do azulejo a uma variável
         foto_do_azulejo = pygame.transform.scale(foto_do_azulejo, (tamanho_azulejo, tamanho_azulejo))
 
+#Cria a variavel responável por determinar a quantidade de vidas que o jogador ainda tem 
 vidas = 3
 
 
@@ -254,9 +250,14 @@ class Player(pygame.sprite.Sprite):
 #fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
 def tela_inicial_de_texto(janela):
     frases_para_serem_exibidas = [
+
     'Você está prestes a jogar um incìrivel jogo',
     'Há poucas regras para se atentar',
-    'uepa!!!', 'para se mover basta clicar nas setinhas do teclado', 'para passar, você precisará pegar todas as galinhas' ]
+    'Para se mover basta clicar nas setinhas do teclado', 
+    'Para passar, você precisará pegar todas as galinhas',
+    'E, depois, entrar dentro do portal'
+
+      ]
 
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
@@ -282,12 +283,9 @@ def tela_inicial_de_texto(janela):
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
                 indice_do_textoo += 1
-                print('ta ino')
-                #coonfere se a tecla pressionada era o espaço
-                #if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
                     
 
-        
+        #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
         if indice_do_textoo < len(frases_para_serem_exibidas):
             texto = frases_para_serem_exibidas[indice_do_textoo]
         else:
@@ -301,9 +299,12 @@ def tela_inicial_de_texto(janela):
         janela.blit(texto_image, (375, 550))
         pygame.display.flip()
 
-        #print('to preso')
-    print('to quase')
+        
+    #retorna o estado do jogo
     return jogando
+
+
+
 
 def tela_de_derrota(janela):
     frase_para_derrota = ["Infelizmente você morreu, aperte espaço para continuar"]
@@ -322,18 +323,14 @@ def tela_de_derrota(janela):
         #para cada evento ele vai ficar conferindo e vendo o que há para fazer dentro dos "IFs"
         for evento in pygame.event.get():
             
-            #Determina quando tem que sair dessa tela
             if evento.type == pygame.QUIT:
                 pygame.quit()
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
+                indice_do_texto += 1
 
-                #coonfere se a tecla pressionada era o espaço
-                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
-                    indice_do_texto += 1
-
-        
+        #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
         if indice_do_texto < len(frase_para_derrota):
             texto = frase_para_derrota[indice_do_texto]
         else:
@@ -346,8 +343,12 @@ def tela_de_derrota(janela):
         #define em que posição o texto irá ser gerado
         janela.blit(texto_image, (375, 550))
         pygame.display.flip()
-
+    #retorna o estado do jogo
     return jogando
+
+
+
+
 
 def tela_de_vitoria(janela):
     frase_para_derrota = ['''
@@ -369,18 +370,14 @@ def tela_de_vitoria(janela):
         #para cada evento ele vai ficar conferindo e vendo o que há para fazer dentro dos "IFs"
         for evento in pygame.event.get():
             
-            #Determina quando tem que sair dessa tela
             if evento.type == pygame.QUIT:
                 pygame.quit()
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
-
-                #coonfere se a tecla pressionada era o espaço
-                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
-                    indice_do_texto += 1
-
+                indice_do_texto += 1
         
+        #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
         if indice_do_texto < len(frase_para_derrota):
             texto = frase_para_derrota[indice_do_texto]
         else:
@@ -393,5 +390,5 @@ def tela_de_vitoria(janela):
         #define em que posição o texto irá ser gerado
         janela.blit(texto_image, (375, 550))
         pygame.display.flip()
-
+    #retorna o estado do jogo
     return jogando
