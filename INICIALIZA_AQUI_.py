@@ -16,13 +16,16 @@ pygame.display.set_caption(TITULO)
 estado_do_jogo = INICIO
 FASE = [1,0]
 while True:
-    FASE = FASE[0]
+    FASE = FASE[0] 
     if estado_do_jogo == jogando:
         estado_do_jogo = tela_do_jogo(janela)
+
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
+
     elif estado_do_jogo == morreu_de_vez:
         estado_do_jogo = tela_de_derrota(janela)
+
     elif estado_do_jogo == vitoria:
         estado_do_jogo = tela_de_vitoria(janela, FASE)
 
