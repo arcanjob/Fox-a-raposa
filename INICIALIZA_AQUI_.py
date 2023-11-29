@@ -13,8 +13,6 @@ pygame.mixer.init()
 janela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption(TITULO)
 
-
-
 estado_do_jogo = INICIO
 
 while True:
@@ -23,7 +21,6 @@ while True:
         estado_do_jogo = tela_do_jogo(janela)
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
-
 
 
 """
