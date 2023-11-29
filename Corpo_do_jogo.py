@@ -19,16 +19,18 @@ def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
 
 #Define a tela do jogo e como ela irá funcionar
 def tela_do_jogo(janela, FASE, MAPA):
-    
+    #SONS DO JOGO
     som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')
     som_de_dano = pygame.mixer.Sound('imagens_e_sons/sons/dano.mp3')
     som_de_erro = pygame.mixer.Sound('imagens_e_sons/sons/errado.mp3')
-
-    vidas = 3
-    estado_do_jogo = jogando
+    #SOM DE FUNDO
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
     pygame.mixer.music.set_volume(0.7)
     pygame.mixer.music.play(loops=-1)
+
+    vidas = 3 #vidas iniciais por fase
+    estado_do_jogo = jogando
+
     #define e usa o tempo no jogo
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
@@ -52,10 +54,11 @@ def tela_do_jogo(janela, FASE, MAPA):
                 tile_type = MAPA[filas][colunas]
                 
                 #Confere cada letra dentro do dito mapa para atribuir uma carácteristica a ela e uma imagem
-                if tile_type == B:
+                if tile_type == B:  #blocos
                     tile = Tile(assets[tile_type], filas, colunas, de_peh)
                     todos_os_sprites.add(tile)
                     piso_parede.add(tile)
+                #ESPINHOS VIRADOS PARA: ED = DIREITA, EE = ESQUERDA, EB = BAIXO, EC = CIMA
                 if tile_type == EE:
 
                     tile_type = E
@@ -79,18 +82,18 @@ def tela_do_jogo(janela, FASE, MAPA):
                     tile = Tile(assets[tile_type], filas, colunas, de_peh)
                     todos_os_sprites.add(tile)
                     espinhos.add(tile)
-
+                #GALINHA
                 if tile_type == G:
                     tile = Tile(assets[tile_type], filas, colunas, de_peh)
                     todos_os_sprites.add(tile)
                     galinhas.add(tile)
                     n_galinhas+=1
-
+                #OBJETIVO
                 if tile_type == O:
                     portal = Tile(assets[tile_type], filas, colunas, de_peh)
                     todos_os_sprites.add(portal)
                     objetivo.add(portal)
-                    
+                #RAPOSA
                 if tile_type == R:
                     y = filas
                     x = colunas
@@ -122,7 +125,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             colisoess = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
             
             if colisoess:
-                pontos +=1
+                pontos +=1 #se colidir com a galinha, dá pontos
                 som_de_galinha.play()
                 
             
@@ -140,21 +143,20 @@ def tela_do_jogo(janela, FASE, MAPA):
                 vidas-=1
                 som_de_dano.play()
                 player.kill()
-                if vidas == 0:
+                if vidas == 0: #morreu, morreu, morreu mesmo
                     estado_do_jogo = morreu_de_vez
                     return morreu_de_vez
                 else:
-                    estado_do_jogador = morreu
+                    estado_do_jogador = morreu #isso acontece para sair do loop de quando ele tá vivo e reiniciar o mapa
 
-            #objetivo
-            colisoes = pygame.sprite.spritecollide(player, objetivo, False, pygame.sprite.collide_mask)
+            #colisão com o objetivo
+            colisoes = pygame.sprite.spritecollide(player, objetivo, False, pygame.sprite.collide_mask) #colisao com o objetivo
             
             if colisoes:
-                if n_galinhas == pontos:
+                if n_galinhas == pontos: #conferindo se o jogador já pegou todas as galinhas
                     player.kill()    
                     return vitoria
                 else:
-                    
                     som_de_erro.play()
             
 
