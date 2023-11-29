@@ -162,7 +162,8 @@ def tela_do_jogo(janela, FASE, MAPA):
                     button_pressed = event.button  # Obtém o número do botão pressionado
                     print(f"Botão {button_pressed} pressionado")
 
-                    # Aqui você pode adicionar lógica para lidar com cada botão pressionado
+
+                    #Verifica-se e converte-se o botão do joystivk para como se fosse um botão do teclado
                     # Por exemplo:
                     if button_pressed == 3:  # Botão A
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
@@ -174,6 +175,7 @@ def tela_do_jogo(janela, FASE, MAPA):
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
                                 #Confere quando jogador solta uma tecla (após pressionar ela)
+
 
                 if event.type == pygame.KEYDOWN:
 
@@ -206,6 +208,11 @@ def tela_do_jogo(janela, FASE, MAPA):
             perfil_texto = assets["fonte_dos_pontos"].render(chr(9829) * vidas , True, vermelho) #faz o coração
             texto_rect = perfil_texto.get_rect() 
             texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
+            janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
+
+            perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(pontos, 6), True, amarelo)  #diz quantas de quantas galinhas a pessoa já pegou     
+            texto_rect = perfil_texto.get_rect() 
+            texto_rect.midtop = (largura / 2,  10) #posiciona o texto
             janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
             pygame.display.flip()
