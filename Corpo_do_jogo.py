@@ -208,7 +208,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
             janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
-            perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(pontos, 6), True, amarelo)  #diz quantas de quantas galinhas a pessoa já pegou     
+            perfil_texto = fonte_pontos.render("{:.0f}/{:.0f}".format(pontos, n_galinhas), True, amarelo)  #diz quantas de quantas galinhas a pessoa já pegou     
             texto_rect = perfil_texto.get_rect() 
             texto_rect.midtop = (largura / 2,  10) #posiciona o texto
             janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
