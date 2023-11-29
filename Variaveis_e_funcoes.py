@@ -391,7 +391,7 @@ def tela_de_derrota(janela):
     pygame.mixer.music.play(loops=-1)
 
 
-    frase_para_derrota = ["VOCÊ MORREU, aperte espaço para continuar"]
+    frase_para_derrota = ["VOCÊ MORREU, Aperte A para continuar"]
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
@@ -450,7 +450,7 @@ def tela_de_derrota(janela):
 
 
 def tela_de_vitoria(janela, FASE):
-    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida"]
+    frase_para_derrota = ["MEUS PARABÉNS, Aperte A para continuar"]
     #Define a fonte do texto que será usada
     FASE += 1
     font = pygame.font.SysFont(None, 50)
@@ -500,7 +500,7 @@ def tela_de_vitoria(janela, FASE):
         janela.blit(img_fundo, (0,0))
 
         #define em que posição o texto irá ser gerado
-        janela.blit(texto_image, (300, 550))
+        janela.blit(texto_image, (300, 350))
         pygame.display.flip()
     #retorna o estado do jogo
     return [FASE, jogando]
