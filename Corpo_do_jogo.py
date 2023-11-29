@@ -90,7 +90,7 @@ def tela_do_jogo(janela):
                 if tile_type == R:
                     y = filas
                     x = colunas
-
+        print(n_galinhas)
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
         player = Player(assets[R], y, x, piso_parede)
                     
@@ -141,11 +141,12 @@ def tela_do_jogo(janela):
                 else:
                     estado_do_jogador = morreu
 
+            #objetivo
             colisoes = pygame.sprite.spritecollide(player, objetivo, False, pygame.sprite.collide_mask)
             
-            if colisoes and pode_passar == sim:
+            if colisoes and n_galinhas == pontos:
                 player.kill()    
-                estado_do_jogo = vitoria
+                return vitoria
             
 
 
