@@ -1,3 +1,5 @@
-1°
-
-- som da galinha e da morte
+- esc volta pra tela inicial
+- r reinicia a fase
+- mapa a mais q vc ja desenhou
+- timer/cronometro 
+- ABRIR O REPOSITORIOOOOOOOOOOOOOOOOOOOOOOOOOO

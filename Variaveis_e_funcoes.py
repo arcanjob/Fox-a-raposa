@@ -307,7 +307,7 @@ class Player(pygame.sprite.Sprite):
 def tela_inicial_de_texto(janela):
 
     pygame.mixer.music.load('imagens_e_sons/sons/tela_inicial.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-    pygame.mixer.music.set_volume(0.8)
+    pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play(loops=-1)
     
     frases_para_serem_exibidas = [
@@ -340,8 +340,10 @@ def tela_inicial_de_texto(janela):
 
             if evento.type == pygame.QUIT:
                 pygame.quit()
-
-            if evento.type == pygame.JOYBUTTONDOWN:
+            elif evento.type == pygame.K_ESCAPE:
+                return INICIO
+                
+            elif evento.type == pygame.JOYBUTTONDOWN:
                     pressao_no_botao = evento.button  # Obtém o número do botão pressionado
                     
 
@@ -358,7 +360,7 @@ def tela_inicial_de_texto(janela):
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
             #Verifica o fenomeno de apertar uma tecla
-            if evento.type == pygame.KEYDOWN:
+            elif evento.type == pygame.KEYDOWN:
                 indice_do_textoo += 1
                 #coonfere se a tecla pressionada era o espaço
                 #if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
@@ -409,7 +411,9 @@ def tela_de_derrota(janela):
             
             if evento.type == pygame.QUIT:
                 pygame.quit()
-            if evento.type == pygame.JOYBUTTONDOWN:
+            elif evento.type == pygame.K_ESCAPE:
+                return INICIO
+            elif evento.type == pygame.JOYBUTTONDOWN:
                     pressao_no_botao = evento.button  # Obtém o número do botão pressionado
                     print(f"Botão {pressao_no_botao} pressionado")
 
@@ -469,7 +473,10 @@ def tela_de_vitoria(janela, FASE):
             
             if evento.type == pygame.QUIT:
                 pygame.quit()
-            if evento.type == pygame.JOYBUTTONDOWN:
+            elif evento.type == pygame.K_ESCAPE:
+                return INICIO
+
+            elif evento.type == pygame.JOYBUTTONDOWN:
                     pressao_no_botao = evento.button  # Obtém o número do botão pressionado
                     print(f"Botão {pressao_no_botao} pressionado")
 

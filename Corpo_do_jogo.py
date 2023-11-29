@@ -25,7 +25,7 @@ def tela_do_jogo(janela, FASE, MAPA):
     som_de_erro = pygame.mixer.Sound('imagens_e_sons/sons/errado.mp3')   #fonte https://pixabay.com/pt/users/pixabay-1/
     #SOM DE FUNDO
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-    pygame.mixer.music.set_volume(0.7)
+    pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play(loops=-1)
 
     vidas = 3 #vidas iniciais por fase
@@ -165,7 +165,9 @@ def tela_do_jogo(janela, FASE, MAPA):
             for event in pygame.event.get():
 
                 if event.type == pygame.QUIT:
+                    print('quit')
                     pygame.quit()
+                    
                 if event.type == pygame.JOYBUTTONDOWN:
                     pressao_no_botao = event.button  # Obtém o número do botão pressionado
 
@@ -184,7 +186,7 @@ def tela_do_jogo(janela, FASE, MAPA):
 
 
                 if event.type == pygame.KEYDOWN:
-
+                    
                     #confere cada tecla de movimento
                     if event.key == pygame.K_LEFT:
                         if player.speedy == 0 and player.speedx == 0:
@@ -198,6 +200,9 @@ def tela_do_jogo(janela, FASE, MAPA):
                     elif event.key == pygame.K_DOWN: 
                         if player.speedx==0  and player.speedy == 0 :
                             player.speedy = velocidade_no_eixo_x
+                    elif event.key == pygame.K_ESCAPE:
+                        print('ta indo')
+                        return INICIO
 
             #Atualiza o grupo com todos os sprites
             todos_os_sprites.update()
