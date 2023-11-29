@@ -8,7 +8,7 @@ from os import path
 pygame.init()
 #inicializa  o pygame mixer (parte que controla o som)
 pygame.mixer.init()
-
+pygame.init()
 #Define as variáveis que controlarão o jogo, 
 jogando = 0
 DONE = 1
@@ -281,11 +281,11 @@ def tela_inicial_de_texto(janela):
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
-
-                #coonfere se a tecla pressionada era o espaço
-                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
-                    indice_do_textoo += 1
+                indice_do_textoo += 1
                     print('ta ino')
+                #coonfere se a tecla pressionada era o espaço
+                #if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
+                    
 
         
         if indice_do_textoo < len(frases_para_serem_exibidas):

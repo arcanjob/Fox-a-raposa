@@ -42,6 +42,7 @@ def tela_do_jogo(janela):
         espinhos = pygame.sprite.Group()
         piso_parede = pygame.sprite.Group()
         galinhas = pygame.sprite.Group()
+        objetivo= pygame.sprite.Group()
 
         
 
@@ -84,6 +85,7 @@ def tela_do_jogo(janela):
                 if tile_type == O:
                     portal = Tile(assets[tile_type], filas, colunas, de_peh)
                     todos_os_sprites.add(portal)
+                    objetivo.add(portal)
                     
                 if tile_type == R:
                     y = filas
@@ -117,7 +119,8 @@ def tela_do_jogo(janela):
 
             #COLISAO COM AS GALINHAS
             colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-            
+            if colisoes:
+                pontos +=1
             """
             for colisao in colisoes:
                 pontos +=1
@@ -138,12 +141,13 @@ def tela_do_jogo(janela):
                 else:
                     estado_do_jogador = morreu
 
-            colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
+            colisoes = pygame.sprite.spritecollide(player, objetivo, False, pygame.sprite.collide_mask)
             
             if colisoes and pode_passar == sim:
                 player.kill()    
                 estado_do_jogo = vitoria
             
+
 
             # Verifica os eventos dentro do jogo
             for event in pygame.event.get():
