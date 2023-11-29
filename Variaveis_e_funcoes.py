@@ -66,11 +66,12 @@ V = 2
 G = 3
 
 #As próximas 5 variáveis vão definir o que é um espinho e para qual lado ele irá apontar
+#ESPINHOS VIRADOS PARA: ED = DIREITA, EE = ESQUERDA, EB = BAIXO, EC = CIMA
 ED = 4
 EE = 5
 EB = 6
 EC = 7
-E = 10
+E = 10 #espinho
 
 #A variável "O" define o ponto final, uma espécie de portal pelo qual a raposa tenta chegar
 O = 8

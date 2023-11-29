@@ -20,9 +20,9 @@ def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
 #Define a tela do jogo e como ela irá funcionar
 def tela_do_jogo(janela, FASE, MAPA):
     #SONS DO JOGO
-    som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')
-    som_de_dano = pygame.mixer.Sound('imagens_e_sons/sons/dano.mp3')
-    som_de_erro = pygame.mixer.Sound('imagens_e_sons/sons/errado.mp3')
+    som_de_galinha = pygame.mixer.Sound('imagens_e_sons/sons/galinha_assustada.mp3')  #fonte: https://www.buscasons.com/_template/player/index.php?SID=https://www.buscasons.com/_arq/2020/galinha_assustada_202005111531.mp3&TITULO=Galinha%20assustada%20002&ID=1628
+    som_de_dano = pygame.mixer.Sound('imagens_e_sons/sons/dano.mp3')    #fonte: https://pixabay.com/pt/sound-effects/homemadeoof-47509/
+    som_de_erro = pygame.mixer.Sound('imagens_e_sons/sons/errado.mp3')   #fonte https://pixabay.com/pt/users/pixabay-1/
     #SOM DE FUNDO
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
     pygame.mixer.music.set_volume(0.7)
