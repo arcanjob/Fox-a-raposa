@@ -92,7 +92,7 @@ def tela_do_jogo(janela, FASE, MAPA):
                 if tile_type == R:
                     y = filas
                     x = colunas
-        #print(n_galinhas)
+        
     
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
         player = Player(assets, y, x, piso_parede)
@@ -122,7 +122,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             if colisoess:
                 pontos +=1
                 som_de_galinha.play()
-                #print(pontos)
+                
             
             """
             for colisao in colisoes:
@@ -150,7 +150,6 @@ def tela_do_jogo(janela, FASE, MAPA):
             if colisoes:
                 if n_galinhas == pontos:
                     player.kill()    
-                    print('vitoria')
                     return vitoria
             
             # Verifica os eventos dentro do jogo
@@ -159,19 +158,17 @@ def tela_do_jogo(janela, FASE, MAPA):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                 if event.type == pygame.JOYBUTTONDOWN:
-                    button_pressed = event.button  # Obtém o número do botão pressionado
-                    print(f"Botão {button_pressed} pressionado")
-
+                    pressao_no_botao = event.button  # Obtém o número do botão pressionado
 
                     #Verifica-se e converte-se o botão do joystivk para como se fosse um botão do teclado
                     # Por exemplo:
-                    if button_pressed == 3:  # Botão A
+                    if pressao_no_botao == 3:  # Botão A
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
-                    elif button_pressed == 1:  # Botão B
+                    elif pressao_no_botao == 1:  # Botão B
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
-                    elif button_pressed == 2:  # Botão X
+                    elif pressao_no_botao == 2:  # Botão X
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
-                    elif button_pressed == 0:  # Botão Y
+                    elif pressao_no_botao == 0:  # Botão Y
                         pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
                                 #Confere quando jogador solta uma tecla (após pressionar ela)

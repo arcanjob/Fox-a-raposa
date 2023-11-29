@@ -344,6 +344,22 @@ def tela_inicial_de_texto(janela):
             if evento.type == pygame.QUIT:
                 pygame.quit()
 
+            if evento.type == pygame.JOYBUTTONDOWN:
+                    pressao_no_botao = evento.button  # Obtém o número do botão pressionado
+                    
+
+
+                    #Verifica-se e converte-se o botão do joystivk para como se fosse um botão do teclado
+                    # Por exemplo:
+                    if pressao_no_botao == 3:  # Botão A
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
+                    elif pressao_no_botao == 1:  # Botão B
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
+                    elif pressao_no_botao == 2:  # Botão X
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
+                    elif pressao_no_botao == 0:  # Botão Y
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
+
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
                 indice_do_textoo += 1
@@ -378,7 +394,7 @@ def tela_de_derrota(janela):
     pygame.mixer.music.play(loops=-1)
 
 
-    frase_para_derrota = ["Infelizmente você morreu, aperte espaço para continuar"]
+    frase_para_derrota = ["VOCÊ MORREU, aperte espaço para continuar"]
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
@@ -396,6 +412,21 @@ def tela_de_derrota(janela):
             
             if evento.type == pygame.QUIT:
                 pygame.quit()
+            if evento.type == pygame.JOYBUTTONDOWN:
+                    pressao_no_botao = evento.button  # Obtém o número do botão pressionado
+                    print(f"Botão {pressao_no_botao} pressionado")
+
+
+                    #Verifica-se e converte-se o botão do joystivk para como se fosse um botão do teclado
+                    # Por exemplo:
+                    if pressao_no_botao == 3:  # Botão A
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
+                    elif pressao_no_botao == 1:  # Botão B
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
+                    elif pressao_no_botao == 2:  # Botão X
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
+                    elif pressao_no_botao == 0:  # Botão Y
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
@@ -422,7 +453,7 @@ def tela_de_derrota(janela):
 
 
 def tela_de_vitoria(janela, FASE):
-    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida"]
+    frase_para_derrota = ["MEUS PARABÉNS, você ganhou essa partida", "Espere que ainda tem mais pela frente"]
     #Define a fonte do texto que será usada
     FASE += 1
     font = pygame.font.SysFont(None, 50)
@@ -441,6 +472,21 @@ def tela_de_vitoria(janela, FASE):
             
             if evento.type == pygame.QUIT:
                 pygame.quit()
+            if evento.type == pygame.JOYBUTTONDOWN:
+                    pressao_no_botao = evento.button  # Obtém o número do botão pressionado
+                    print(f"Botão {pressao_no_botao} pressionado")
+
+
+                    #Verifica-se e converte-se o botão do joystivk para como se fosse um botão do teclado
+                    # Por exemplo:
+                    if pressao_no_botao == 3:  # Botão A
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
+                    elif pressao_no_botao == 1:  # Botão B
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
+                    elif pressao_no_botao == 2:  # Botão X
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
+                    elif pressao_no_botao == 0:  # Botão Y
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
