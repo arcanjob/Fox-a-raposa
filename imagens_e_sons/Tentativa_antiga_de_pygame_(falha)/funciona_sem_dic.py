@@ -1,4 +1,4 @@
-'''
+
 import pygame
 import os
 from math import *
@@ -136,6 +136,7 @@ som_morrendo = pygame.mixer.Sound('imagens_e_sons/sons/morrendo.mp3') #Fonte: ht
 som_game_over =pygame.mixer.Sound('imagens_e_sons/sons/game_over.mp3') #acaba as vidas #Fonte: https://pixabay.com/pt/sound-effects/search/game%20over/
 #som_perdendo_vida =  pygame.mixer.music.load('imagens_e_sons/sons/perdendo_vida.ogg') 
 som_vitoria =  pygame.mixer.Sound('imagens_e_sons/sons/vitoria.mp3') #quando passa de fase #Fonte: https://pixabay.com/pt/sound-effects/search/win/
+
 
 #POSIÇÃO INICIAL DO JOGADOR - A DEFINIR
 x_meio_inicial_do_personagem = 32
@@ -950,4 +951,3 @@ pygame.quit()
 
 
 #################################### FIM DOS SPRITES E CLASSES
-"""

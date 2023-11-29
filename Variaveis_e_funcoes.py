@@ -39,7 +39,8 @@ altura_do_jogador = int(tamanho_azulejo * 1)
 FPS = 60
 
 #Define a cor preta
-BLACK = (0, 0, 0)
+preto = (0, 0, 0)
+branco = (255,255,255)
 
 #velocidade_de_queda = 5
 
@@ -225,6 +226,61 @@ class Player(pygame.sprite.Sprite):
             elif self.speedx < 0:
                 self.rect.left = colisao.rect.right 
                 self.speedx = 0
+
+
+
+
+frases_para_serem_exibidas = [
+    'Você está prestes a jogar um incìrivel jogo',
+    'Há poucas regas para se atentar',
+    'uepa' ]
+
+#fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
+def tela_inicial_de_texto(janela):
+    
+    #Define a fonte do texto que será usada
+    font = pygame.font.SysFont(None, 45)
+
+    #Variável que vai ser usada para determinar quando parar a exibição das palavras
+    troca =  True
+
+    #inicializa o indice do texto para que ele seja percorrido
+    indice_do_textoo = 0
+
+    #loop principal da tela de inicio, em que será rodado e exibido os textos
+    while indice_do_textoo < len(frases_para_serem_exibidas) and troca:
+
+        #usa o tmepo de acordo com a taxa de FPS determinada previamente
+        clock.tick(FPS)
+
+        #para cada evento ele vai ficar conferindo e vendo o que há para fazer dentro dos "IFs"
+        for evento in pygame.event.get():
+            
+            #Determina quando tem que sair dessa tela
+            if evento.type == pygame.QUIT:
+                troca = False
+
+            #Verifica o fenomeno de apertar uma tecla
+            if evento.type == pygame.KEYDOWN:
+
+                #coonfere se a tecla pressionada era o espaço
+                if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
+                    indice_do_textoo += 1
+
+        
+        if indice_do_textoo < len(frases_para_serem_exibidas):
+            texto = frases_para_serem_exibidas[indice_do_textoo]
+        else:
+            texto = ''
+        texto_image = font.render(texto, True, branco)
+
+        #define qual será o preenchimento dessa tela, nesse caso, com uma imagem estática
+        janela.fill(img_inicio)
+
+        #define em que posição o texto irá ser gerado
+        janela.blit(texto_image, (100, 100))
+
+        pygame.display.flip()
 
 
 
