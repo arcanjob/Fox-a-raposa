@@ -5,7 +5,7 @@ import random
 from os import path
 from Variaveis_e_funcoes import *
 
-def qual_a_fase(FASE, MAPA1, MAPA2, MAPA3):
+def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
     if FASE == 1:
         MAPA = MAPA1
     elif FASE == 2:
@@ -114,7 +114,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             
             if colisoess:
                 pontos +=1
-                print(pontos)
+                #print(pontos)
             """
             for colisao in colisoes:
                 pontos +=1
