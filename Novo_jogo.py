@@ -5,6 +5,9 @@ import random
 from os import path
 from Variaveis_e_funcoes import *
 
+
+
+"""
 #inicializa  o pygame
 pygame.init()
 #inicializa  o pygame mixer (parte que controla o som)
@@ -12,6 +15,8 @@ pygame.mixer.init()
 
 #Define e cria a variável em que o jogo irágirar em torno
 janela = pygame.display.set_mode((largura, altura))
+pygame.display.set_caption(TITULO)
+"""
 
 #Estabelece as imagens a serem usadas
 
@@ -52,28 +57,7 @@ def tela_do_jogo(janela):
         piso_parede = pygame.sprite.Group()
         galinhas = pygame.sprite.Group()
 
-        #COLISAO COM AS GALINHAS
-        colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-
-        for colisao in colisoes:
-            pontos +=1
-            if pontos == n_galinhas:
-                pode_passar = sim
-                return estado_do_jogo
-
-        #COLISAO COM OS ESPINHOS
-        colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
-
-        if colisoes:
-            vidas -= 1
-
-            player.kill()
-            if vidas == 0:
-                estado_do_jogo = morreu_de_vez
-                return morreu_de_vez
-            else:
-                estado_do_jogo = morreu
-
+        
 
 
         #Cria o mapa usando um laço de rpetição (FOR) para ler a nossa lista de listas que define o mapa em si 
@@ -139,7 +123,7 @@ def tela_do_jogo(janela):
 
         
             
-        while estado_do_jogador ==vivo:
+        while estado_do_jogador ==vivo and estado_do_jogo == jogando:
             #marca o tempo
             clock.tick(FPS)
         
@@ -178,7 +162,7 @@ def tela_do_jogo(janela):
             for event in pygame.event.get():
 
                 if event.type == pygame.QUIT:
-                    estado_do_jogo = DONE
+                    pygame.quit()
 
                 #Confere quando jogador solta uma tecla (após pressionar ela)
                 if event.type == pygame.KEYDOWN:
@@ -214,9 +198,11 @@ def tela_do_jogo(janela):
         
 
 
-pygame.display.set_caption(TITULO)
 
+"""
 try:
     tela_do_jogo(janela)
 finally:
     pygame.quit()
+
+"""
