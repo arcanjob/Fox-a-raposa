@@ -11,7 +11,7 @@ pygame.mixer.init()
 pygame.init()
 
 #define e inicializa a parte de joystick do pygame
-joystick = pygame.joystick.Joystick()
+joystick = pygame.joystick.Joystick(0)
 joystick.init()
 
 #Define as variáveis que controlarão o jogo, 
