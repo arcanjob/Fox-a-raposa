@@ -280,9 +280,9 @@ def tela_inicial_de_texto(janela):
         #define em que posição o texto irá ser gerado
         janela.blit(texto_image, (100, 100))
         pygame.display.flip()
-        jogo =  estado_do_jogador = jogando
+
+        
     return jogando
-    
 
 
 
