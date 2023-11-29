@@ -90,7 +90,7 @@ def tela_do_jogo(janela):
                 if tile_type == R:
                     y = filas
                     x = colunas
-        print(n_galinhas)
+        #print(n_galinhas)
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
         player = Player(assets[R], y, x, piso_parede)
                     
@@ -118,9 +118,11 @@ def tela_do_jogo(janela):
             
 
             #COLISAO COM AS GALINHAS
-            colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
-            if colisoes:
+            colisoess = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
+            
+            if colisoess:
                 pontos +=1
+                print(pontos)
             """
             for colisao in colisoes:
                 pontos +=1
@@ -144,9 +146,11 @@ def tela_do_jogo(janela):
             #objetivo
             colisoes = pygame.sprite.spritecollide(player, objetivo, False, pygame.sprite.collide_mask)
             
-            if colisoes and n_galinhas == pontos:
-                player.kill()    
-                return vitoria
+            if colisoes:
+                if n_galinhas == pontos:
+                    player.kill()    
+                    print('vitoria')
+                    return vitoria
             
 
 
@@ -178,8 +182,7 @@ def tela_do_jogo(janela):
             
             janela.blit(img_fundo, (0,0))
             todos_os_sprites.draw(janela)
-            #marca o inicio da variavel de ponto
-            pontos = 0
+
             
             fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
             perfil_texto = assets["fonte_dos_pontos"].render(chr(9829) * vidas , True, vermelho) #faz o coração

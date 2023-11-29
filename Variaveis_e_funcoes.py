@@ -282,7 +282,6 @@ def tela_inicial_de_texto(janela):
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
                 indice_do_textoo += 1
-                print('ta ino')
                 #coonfere se a tecla pressionada era o espaço
                 #if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
                     
@@ -302,7 +301,6 @@ def tela_inicial_de_texto(janela):
         pygame.display.flip()
 
         #print('to preso')
-    print('to quase')
     return jogando
 
 def tela_de_derrota(janela):
