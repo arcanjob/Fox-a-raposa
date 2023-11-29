@@ -19,6 +19,7 @@ estado_do_jogo = INICIO
 
 while True:
     if estado_do_jogo == jogando:
+        print('foi')
         estado_do_jogo = tela_do_jogo(janela)
     elif estado_do_jogo == INICIO:
         estado_do_jogo == tela_inicial_de_texto(janela)

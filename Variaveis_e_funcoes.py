@@ -260,14 +260,13 @@ def tela_inicial_de_texto(janela):
     #Define a fonte do texto que será usada
     font = pygame.font.SysFont(None, 45)
 
-    #Variável que vai ser usada para determinar quando parar a exibição das palavras
-    troca =  True
+
 
     #inicializa o indice do texto para que ele seja percorrido
     indice_do_textoo = 0
 
     #loop principal da tela de inicio, em que será rodado e exibido os textos
-    while indice_do_textoo < len(frases_para_serem_exibidas) and troca:
+    while indice_do_textoo < len(frases_para_serem_exibidas):
 
         #usa o tmepo de acordo com a taxa de FPS determinada previamente
         clock.tick(FPS)
@@ -276,8 +275,10 @@ def tela_inicial_de_texto(janela):
         for evento in pygame.event.get():
             
             #Determina quando tem que sair dessa tela
+
+
             if evento.type == pygame.QUIT:
-                troca = False
+                pygame.quit()
 
             #Verifica o fenomeno de apertar uma tecla
             if evento.type == pygame.KEYDOWN:
@@ -285,6 +286,7 @@ def tela_inicial_de_texto(janela):
                 #coonfere se a tecla pressionada era o espaço
                 if evento.key == pygame.K_SPACE or evento.key == pygame.K_DOWN:
                     indice_do_textoo += 1
+                    print('ta ino')
 
         
         if indice_do_textoo < len(frases_para_serem_exibidas):
@@ -300,7 +302,8 @@ def tela_inicial_de_texto(janela):
         janela.blit(texto_image, (375, 550))
         pygame.display.flip()
 
-        
+        #print('to preso')
+    print('to quase')
     return jogando
 
 
