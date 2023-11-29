@@ -7,26 +7,13 @@ from Variaveis_e_funcoes import *
 
 
 
-"""
-#inicializa  o pygame
-pygame.init()
-#inicializa  o pygame mixer (parte que controla o som)
-pygame.mixer.init()
-
-#Define e cria a variável em que o jogo irágirar em torno
-janela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption(TITULO)
-"""
-
-
-
 #Define a tela do jogo e como ela irá funcionar
 def tela_do_jogo(janela):
     
     vidas = 3
     estado_do_jogo = jogando
     pygame.mixer.music.load('imagens_e_sons/sons/som_de_fundo.mp3') #Fonte: https://youtu.be/dDOfzfifwGE?si=GfIuDBJCHU0t26uN
-    pygame.mixer.music.set_volume(0.2)
+    pygame.mixer.music.set_volume(0.7)
     pygame.mixer.music.play(loops=-1)
     #define e usa o tempo no jogo
     clock = pygame.time.Clock()
@@ -45,8 +32,6 @@ def tela_do_jogo(janela):
         objetivo= pygame.sprite.Group()
 
         
-
-
         #Cria o mapa usando um laço de rpetição (FOR) para ler a nossa lista de listas que define o mapa em si 
         for filas in range(len(MAPA)):
             for colunas in range(len(MAPA[filas])):
@@ -90,14 +75,17 @@ def tela_do_jogo(janela):
                 if tile_type == R:
                     y = filas
                     x = colunas
+<<<<<<< HEAD
         #print(n_galinhas)
+=======
+    
+>>>>>>> 4028bf4024a400de31d23b001773735e864e79b6
         #Define onde o jogador irá ser invocado e inicializado dentro do mapa, nesse caso, pela variável "R"
         player = Player(assets[R], y, x, piso_parede)
                     
         #Adiciona o player por último para que ele fique desenhado por cima de todos os outros sprites
         todos_os_sprites.add(player)
-        
-
+    
 
         #Define a imagem de fundo
         img_fundo = assets["img_fundo"]
@@ -108,15 +96,12 @@ def tela_do_jogo(janela):
 
         estado_do_jogador = vivo
 
-
-        
-            
-        while estado_do_jogador ==vivo and estado_do_jogo == jogando:
+        #confere se o jogador ainda têm vidas e se pode continuar jogando ou não
+        while estado_do_jogador == vivo and estado_do_jogo == jogando:
             #marca o tempo
             clock.tick(FPS)
         
-            
-
+        
             #COLISAO COM AS GALINHAS
             colisoess = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
             
@@ -129,7 +114,7 @@ def tela_do_jogo(janela):
                 if pontos == n_galinhas:
                     pode_passar = sim
             """
-            #print(n_galinhas)
+        
             #COLISAO COM OS ESPINHOS
             colisoes = pygame.sprite.spritecollide(player, espinhos, False, pygame.sprite.collide_mask)
 
@@ -152,8 +137,6 @@ def tela_do_jogo(janela):
                     print('vitoria')
                     return vitoria
             
-
-
             # Verifica os eventos dentro do jogo
             for event in pygame.event.get():
 
@@ -184,7 +167,7 @@ def tela_do_jogo(janela):
             todos_os_sprites.draw(janela)
 
             
-            fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
+            fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 40) #como sera o marcador de pontos - DEFINIR O TAMANHO
             perfil_texto = assets["fonte_dos_pontos"].render(chr(9829) * vidas , True, vermelho) #faz o coração
             texto_rect = perfil_texto.get_rect() 
             texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
@@ -193,12 +176,3 @@ def tela_do_jogo(janela):
             pygame.display.flip()
         
 
-
-
-"""
-try:
-    tela_do_jogo(janela)
-finally:
-    pygame.quit()
-
-"""

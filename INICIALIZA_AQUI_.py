@@ -25,6 +25,7 @@ while True:
         estado_do_jogo = tela_de_derrota(janela)
     elif estado_do_jogo == vitoria:
         estado_do_jogo = tela_de_vitoria(janela)
+        print('parabéns!!!')
 
 
 
