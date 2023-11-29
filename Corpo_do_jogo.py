@@ -157,19 +157,20 @@ def tela_do_jogo(janela, FASE, MAPA):
 
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                button_pressed = event.button  # Obtém o número do botão pressionado
-                print(f"Botão {button_pressed} pressionado")
+                if event.type == pygame.JOYBUTTONDOWN:
+                    button_pressed = event.button  # Obtém o número do botão pressionado
+                    print(f"Botão {button_pressed} pressionado")
 
-                # Aqui você pode adicionar lógica para lidar com cada botão pressionado
-                # Por exemplo:
-                if button_pressed == 0:  # Botão A
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
-                elif button_pressed == 1:  # Botão B
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
-                elif button_pressed == 2:  # Botão X
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
-                elif button_pressed == 3:  # Botão Y
-                    pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
+                    # Aqui você pode adicionar lógica para lidar com cada botão pressionado
+                    # Por exemplo:
+                    if button_pressed == 3:  # Botão A
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_UP}))
+                    elif button_pressed == 1:  # Botão B
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_RIGHT}))
+                    elif button_pressed == 2:  # Botão X
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_LEFT}))
+                    elif button_pressed == 0:  # Botão Y
+                        pygame.event.post(pygame.event.Event(pygame.KEYDOWN, {'key': pygame.K_DOWN}))
 
                                 #Confere quando jogador solta uma tecla (após pressionar ela)
 
