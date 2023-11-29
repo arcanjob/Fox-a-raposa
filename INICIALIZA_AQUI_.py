@@ -14,17 +14,22 @@ janela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption(TITULO)
 
 estado_do_jogo = INICIO
-FASE = [1,0]
+fase = 1
 while True:
-    FASE = FASE[0]
+    
+    print(f'a fase é {fase}')
+    MAPA = MAPAS[f'MAPA{fase}'] #qual_o_mapa(fase,MAPA1,MAPA2, MAPA3)
     if estado_do_jogo == jogando:
-        estado_do_jogo = tela_do_jogo(janela)
+        estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
     elif estado_do_jogo == morreu_de_vez:
         estado_do_jogo = tela_de_derrota(janela)
     elif estado_do_jogo == vitoria:
-        estado_do_jogo = tela_de_vitoria(janela, FASE)
+        x = tela_de_vitoria(janela, fase)
+        fase = x[0]
+        print(f'no elif a fase é {fase}')
+        estado_do_jogo = x[1]
 
 
 

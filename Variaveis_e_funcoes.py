@@ -69,9 +69,9 @@ O = 8
 #O "R" vai definir em que parte do mapa a raposa irá ser gerada
 R = 9
 
-
+MAPAS = {}
 #O mapa em si, em que cada variável acima é chamada e preeenche um espaço do mapa
-MAPA1 =  [
+MAPAS['MAPA1'] =  [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B],
@@ -89,7 +89,7 @@ MAPA1 =  [
     [B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,V,V,R,V,V,V,V,V,V,V,V,V,V,V,G,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-MAPA3 = [
+MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [ED,V,V,V,G,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,G,V,V,V,V,V,V,V,V,EE],
     [B,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,O,B],
@@ -107,7 +107,7 @@ MAPA3 = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
-MAPA2 = [
+MAPAS['MAPA2'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,O,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,G,B],
@@ -425,4 +425,5 @@ def tela_de_vitoria(janela, FASE):
         janela.blit(texto_image, (300, 550))
         pygame.display.flip()
     #retorna o estado do jogo
+    print(f'a fase saiu da vitoria como {FASE}')
     return [FASE, jogando]
