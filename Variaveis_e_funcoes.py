@@ -131,7 +131,7 @@ MAPAS['MAPA2'] = [
     [B,V,V,B,B,B,B,B,V,V,V,B,B,B,B,B,B,B,B,B,B,B,B,B,B,V,B,V,V,B,B,B,B],
     [B,V,V,B,B,B,B,B,V,V,V,V,B,V,V,V,V,V,V,V,V,G,B,B,B,V,B,V,V,B,B,B,B],
     [B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B,B,B,B],
-    [B,V,V,V,V,V,R,V,V,B,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
+    [B,V,V,V,V,V,R,V,B,V,V,G,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,B,B,B,B,V,V,V,B,B,B,B,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
@@ -372,7 +372,7 @@ def tela_inicial_de_texto(janela):
         img_fundo = pygame.transform.scale(img_fundo, (largura, altura)) 
         janela.blit(img_fundo, (0,0))
    
-        #define em que posição o texto irá ser gerado
+        # define em que posição o texto irá ser gerado
         janela.blit(texto_image, (375, 550))
         pygame.display.flip()
 
