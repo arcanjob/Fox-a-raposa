@@ -31,6 +31,7 @@ def bases_carregando(none):
     assets[G] = pygame.image.load(path.join('imagens_e_sons/imagens/galinha.webp')).convert_alpha()
     assets[O] = pygame.image.load(path.join('imagens_e_sons/imagens/portal.png')).convert_alpha()
     assets[R] = pygame.image.load(path.join('imagens_e_sons/imagens/Walk_(1).png')).convert_alpha()
+    assets["fonte_dos_pontos"] = pygame.font.Font('imagens_e_sons/imagens/PressStart2P.ttf', 28)
     return assets
 
 
@@ -131,6 +132,7 @@ def tela_do_jogo(janela):
 
             #COLISAO COM AS GALINHAS
             colisoes = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
+            
             """
             for colisao in colisoes:
                 pontos +=1
@@ -188,8 +190,9 @@ def tela_do_jogo(janela):
             todos_os_sprites.draw(janela)
             #marca o inicio da variavel de ponto
             pontos = 0
+            
             fonte_pontos =  pygame.font.Font('imagens_e_sons/imagens/pontos.ttf', 28) #como sera o marcador de pontos - DEFINIR O TAMANHO
-            perfil_texto = fonte_pontos.render(chr(9829) * vidas , True, preto) #faz o coração
+            perfil_texto = assets["fonte_dos_pontos"].render(chr(9829) * vidas , True, vermelho) #faz o coração
             texto_rect = perfil_texto.get_rect() 
             texto_rect.bottomleft = (10, altura - 10) #posiciona o texto
             janela.blit(perfil_texto, texto_rect) #coloca o texto na tela

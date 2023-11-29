@@ -2,7 +2,7 @@
 # ----- Importa e inicia pacotes
 import pygame
 import random
-from Novo_jogo import *
+from Corpo_do_jogo import *
 from Variaveis_e_funcoes import *
 
 #inicializa  o pygame
@@ -16,6 +16,7 @@ pygame.display.set_caption(TITULO)
 
 
 tela_do_jogo(janela)
+
 """
 state = INIT
 while state != QUIT:

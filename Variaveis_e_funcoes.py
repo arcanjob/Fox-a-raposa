@@ -41,7 +41,7 @@ FPS = 60
 #Define a cor preta
 preto = (0, 0, 0)
 branco = (255,255,255)
-
+vermelho = (200, 100, 100)
 #velocidade_de_queda = 5
 
 #quanto_pula = tamanho_azulejo
@@ -232,7 +232,7 @@ class Player(pygame.sprite.Sprite):
 
 frases_para_serem_exibidas = [
     'Você está prestes a jogar um incìrivel jogo',
-    'Há poucas regas para se atentar',
+    'Há poucas regras para se atentar',
     'uepa' ]
 
 #fUNÇÃO QUE VAI EXIBIR O TEXTO INICIAL PARA O USÚÁRIO
