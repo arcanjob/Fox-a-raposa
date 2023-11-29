@@ -60,7 +60,7 @@ G = 3
 ED = 4
 EE = 5
 EB = 6
-EB = 7
+EC = 7
 E = 10
 
 #A variável "O" define o ponto final, uma espécie de portal pelo qual a raposa tenta chegar
