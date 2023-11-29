@@ -18,22 +18,23 @@ fase = 1
 
 while True:
     
-    MAPA = MAPAS[f'MAPA{fase}'] #qual_o_mapa(fase,MAPA1,MAPA2, MAPA3)
-    if estado_do_jogo == jogando:
+    MAPA = MAPAS[f'MAPA{fase}']  #chama todos os mapas, de acordo com a variação das fases
+    if estado_do_jogo == jogando: #está no jogo
         estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
+        if fase == 3: #se vem pra ca e a fase é 3, significa que o jogo acabou
+            fase = 1
+            estado_do_jogo = INICIO #entao o jogo reinicia
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
 
-    elif estado_do_jogo == morreu_de_vez:
+    elif estado_do_jogo == morreu_de_vez: #perdeu as tres vidas
         estado_do_jogo = tela_de_derrota(janela)
 
     elif estado_do_jogo == vitoria:
-        x = tela_de_vitoria(janela, fase)
+        x = tela_de_vitoria(janela, fase) #ele uem adicionara um nivel por fase
         fase = x[0]
         estado_do_jogo = x[1]
-        if fase >3:
-            fase = 1
-            estado_do_jogo = INICIO
+        
 
 
 
