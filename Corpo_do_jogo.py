@@ -28,13 +28,21 @@ def tela_do_jogo(janela, FASE, MAPA):
     pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play(loops=-1)
 
+    #tentando fazer um cronometro
+    tempo_inicial = pygame.time.get_ticks()
+    tempo_atual = 0
+
+    
+    
     vidas = 3 #vidas iniciais por fase
     estado_do_jogo = jogando
 
     #define e usa o tempo no jogo
     clock = pygame.time.Clock()
     assets = bases_carregando(0)
-    
+    fonte = pygame.font.Font(None, 36) #a fonte do cronometro
+
+
     while estado_do_jogo != DONE:
         
         pontos = 0
@@ -119,7 +127,10 @@ def tela_do_jogo(janela, FASE, MAPA):
         while estado_do_jogador == vivo and estado_do_jogo == jogando:
             #marca o tempo
             clock.tick(FPS)
-        
+            tempo_atual = pygame.time.get_ticks() - tempo_inicial
+
+            texto = fonte.render(f"Tempo: {tempo_atual // 1000} segundos", True, preto)
+            janela.blit(texto, (10, 10))
         
             #COLISAO COM AS GALINHAS
             colisoess = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
