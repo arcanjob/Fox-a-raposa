@@ -183,7 +183,7 @@ def tela_do_jogo(janela, FASE, MAPA):
             if colisoes:
                 if n_galinhas == pontos: #conferindo se o jogador já pegou todas as galinhas
                     player.kill()    
-                    return vitoria
+                    return [vitoria, tempo_certo]
                 else:
                     som_de_erro.play()
             

@@ -459,8 +459,10 @@ def tela_de_derrota(janela):
 
 
 
-def tela_de_vitoria(janela, FASE):
-    frase_para_derrota = ["MEUS PARABÉNS, Aperte A para continuar"]
+def tela_de_vitoria(janela, FASE, tempo_certo):
+    frase_para_vitoria = ["MEUS PARABÉNS!!!"]
+    frase_para_vitoria2 = [f"Esse foi o seu tempo: {tempo_certo}"]
+    frase_para_vitoria3=["Aperte A para continuar"]
     #Define a fonte do texto que será usada
     FASE += 1
     font = pygame.font.SysFont(None, 50)
@@ -469,7 +471,7 @@ def tela_de_vitoria(janela, FASE):
     indice_do_texto = 0
 
     #loop principal da tela de inicio, em que será rodado e exibido os textos
-    while indice_do_texto < len(frase_para_derrota):
+    while indice_do_texto < len(frase_para_vitoria):
 
         #usa o tmepo de acordo com a taxa de FPS determinada previamente
         clock.tick(FPS)
@@ -506,17 +508,23 @@ def tela_de_vitoria(janela, FASE):
                 else: indice_do_texto += 1
         
         #verifica se o indice que ele ta vendo ainda é ou não menor que o comprimento da lista de texto
-        if indice_do_texto < len(frase_para_derrota):
-            texto = frase_para_derrota[indice_do_texto]
+        if indice_do_texto < len(frase_para_vitoria):
+            texto = frase_para_vitoria[indice_do_texto]
+            texto2 = frase_para_vitoria2[indice_do_texto]
+            texto3 = frase_para_vitoria3[indice_do_texto]
         else:
             texto = ''
         texto_image = font.render(texto, True, branco)
+        texto_image2 = font.render(texto2, True, branco)
+        texto_image3 = font.render(texto3, True, branco)
         img_fundo = pygame.image.load('imagens_e_sons/imagens/Fundo_jogo.jpg').convert_alpha() 
         img_fundo =  pygame.transform.scale(img_fundo, (largura, altura)) #tela final
         janela.blit(img_fundo, (0,0))
 
         #define em que posição o texto irá ser gerado
-        janela.blit(texto_image, (300, 350))
+        janela.blit(texto_image, ((largura/2)*0.75, 150))
+        janela.blit(texto_image2, ((largura/2)*0.6666666666, 300)) 
+        janela.blit(texto_image3, ((largura/2)*0.7, 450))
         pygame.display.flip()
     #retorna o estado do jogo
     return [FASE, jogando]
