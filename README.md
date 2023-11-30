@@ -1,7 +1,7 @@
 # Fox, a raposa
 
 + Membros: Arcanjo Barbosa, Bruno Mota;
-+ Vídeo com explicação: https://youtu.be/VOKJjVz2fsE;
++ Vídeo com explicação: https://youtu.be/zWJ4eU-f6Fc;
 + Para executar o jogo basta clonar o repositório para sua máquina;
 + Instalar as bibliotecas Os e Pygame;
 + E, por fim, executar o arquivo intitulado *"Inicializa_Aqui"*.
