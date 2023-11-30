@@ -4,7 +4,7 @@ import pygame
 import random
 from os import path
 from Variaveis_e_funcoes import *
-
+import sys
 
 
 def qual_o_mapa(FASE, MAPA1, MAPA2, MAPA3):
@@ -28,10 +28,12 @@ def tela_do_jogo(janela, FASE, MAPA):
     pygame.mixer.music.set_volume(1)
     pygame.mixer.music.play(loops=-1)
 
-    #tentando fazer um cronometro
+   
+    
+    #INICIANDO O CRONOMETRO
     tempo_inicial = pygame.time.get_ticks()
     tempo_atual = 0
-
+    ################################################################################
     
     
     vidas = 3 #vidas iniciais por fase
@@ -127,11 +129,26 @@ def tela_do_jogo(janela, FASE, MAPA):
         while estado_do_jogador == vivo and estado_do_jogo == jogando:
             #marca o tempo
             clock.tick(FPS)
-            tempo_atual = pygame.time.get_ticks() - tempo_inicial
+            
+            
 
-            texto = fonte.render(f"Tempo: {tempo_atual // 1000} segundos", True, preto)
-            janela.blit(texto, (10, 10))
+            ##CRONOMETRO############################################################
+
+            tempo_minutos = 0
+            tempo_atual = pygame.time.get_ticks() - tempo_inicial   #cronometro em milissegundos
+            tempo_segundos = tempo_atual // 1000
+
+            if tempo_segundos>60:
+                tempo_minutos = tempo_segundos//60
+                tempo_segundos = tempo_segundos%tempo_minutos
+            
+            tempo_certo = f'{tempo_minutos:02d}:{tempo_segundos:02d}'
+
+
         
+
+
+
             #COLISAO COM AS GALINHAS
             colisoess = pygame.sprite.spritecollide(player, galinhas, True, pygame.sprite.collide_mask)
             
@@ -241,6 +258,18 @@ def tela_do_jogo(janela, FASE, MAPA):
             texto_rect.midtop = (largura / 2,  10) #posiciona o texto
             janela.blit(perfil_texto, texto_rect) #coloca o texto na tela
 
+
+
+            # Renderização do cronômetro na tela
+            
+            fonte_pontos =  pygame.font.Font(None, 30) #como sera o marcador de pontos - DEFINIR O TAMANHO
+            perfil_texto = fonte_pontos.render(f"Tempo: {tempo_certo} ", True, branco)  #diz quantas de quantas galinhas a pessoa já pegou     
+            texto_rect = perfil_texto.get_rect() 
+            
+            #texto_rect.midtop = (50,  10)
+            janela.blit(perfil_texto, (10,10)) #coloca o texto na tela
+
             pygame.display.flip()
         
+
 

@@ -1,1 +1,1 @@
-- timer/cronometro 
+-mostrar os pontos na tela de vitoria

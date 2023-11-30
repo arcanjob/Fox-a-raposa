@@ -19,7 +19,7 @@ fase = 1
 while True:
     
     MAPA = MAPAS[f'MAPA{fase}']  #chama todos os mapas, de acordo com a variação das fases
-    if estado_do_jogo == jogando: #está no jogo
+    if estado_do_jogo == jogando: #está no jogo 
         estado_do_jogo = tela_do_jogo(janela, fase, MAPA)
         if fase == 3: #se vem pra ca e a fase é 3, significa que o jogo acabou
             fase = 1
