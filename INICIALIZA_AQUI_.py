@@ -14,7 +14,7 @@ janela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption(TITULO)
 
 estado_do_jogo = INICIO 
-fase = 1
+fase = 2
 
 while True:
     
@@ -28,9 +28,7 @@ while True:
         else:
             estado_do_jogo = x
         
-        if fase == 3: #se vem pra ca e a fase é 3, significa que o jogo acabou
-            fase = 1
-            estado_do_jogo = INICIO #entao o jogo reinicia
+        
     elif estado_do_jogo == INICIO:
         estado_do_jogo = tela_inicial_de_texto(janela)
 
@@ -41,4 +39,7 @@ while True:
         x = tela_de_vitoria(janela, fase, tempo_certo) #ele uem adicionara um nivel por fase
         fase = x[0]
         estado_do_jogo = x[1]
+        if fase == 4: #se vem pra ca e a fase é 3, significa que o jogo acabou
+            fase = 1
+            estado_do_jogo = INICIO #entao o jogo reinicia
         
