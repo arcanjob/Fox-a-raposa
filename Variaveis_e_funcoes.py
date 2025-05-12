@@ -138,6 +138,26 @@ MAPAS['MAPA3'] = [
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
     [B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B]]
+
+
+MAPAS['MAPA4'] = [
+    [B,B,B,B,B,B,B,B,EB,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B],
+    [B,V,V,V,V,V,V,V,V,B,V,G,V,V,V,B,V,V,V,V,EE,ED,V,V,V,V,V,V,V,B,V,O,V,B],
+    [B,V,V,V,B,V,B,B,V,V,V,V,V,V,V,V,G,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,V,V,V,EE,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,V,V,V,B,B,V,V,EC,V,V,B,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,B],
+    [B,R,V,V,V,B,V,V,V,V,B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,EC,V,V,B,V,V,V,V,V,V,V,V,V,B,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,EB,V,V,V,V,V,V,V,V,V,EC,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,V,B,V,V,B,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,V,V,EB,B,G,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,B],
+    [B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,V,V,B,V,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,V,B],
+    [B,V,V,V,V,V,V,V,B,V,V,V,V,V,B,V,V,V,V,V,EB,V,V,V,V,V,V,V,B,V,V,V,V,B],
+    [B,V,V,V,V,V,B,V,V,V,V,V,V,V,B,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B],
+    [B,B,V,V,V,V,V,B,V,V,V,B,V,V,ED,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,V,V,V,B],
+    [ED,V,V,V,V,V,V,V,V,V,V,V,V,V,V,B,EC,V,V,V,V,V,V,V,B,V,V,V,V,V,V,V,V,E],
+    [B,B,B,B,EC,EC,B,B,B,B,B,EC,B,EC,B,B,B,B,B,B,B,B,B,B,B,EC,B,B,B,B,B,B,B,B]]
 #Estabelece as imagens a serem usadas
 def bases_carregando(none):
     assets = {}
